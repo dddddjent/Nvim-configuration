@@ -3,7 +3,7 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/.local/share/lunarvim/lvim
+cd ~/Documents/code/test/test_cmake
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -13,16 +13,19 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/.local/share/lunarvim/lvim/lua/lvim/lsp/config.lua
-badd +1 ~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/components.lua
-badd +6 ~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/conditions.lua
-badd +95 ~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/styles.lua
-badd +4 ~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/utils.lua
-badd +48 ~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/init.lua
-badd +122 ~/.local/share/lunarvim/lvim/lua/lvim/core/dap.lua
+badd +35 main.cpp
+badd +279 ~/.config/lvim/config.lua
 argglobal
 %argdel
-$argadd ~/.local/share/lunarvim
+edit ~/.config/lvim/config.lua
+argglobal
+let s:l = 407 - ((8 * winheight(0) + 16) / 32)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 407
+normal! 0
+lcd ~/.config/lvim
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -36,6 +39,7 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

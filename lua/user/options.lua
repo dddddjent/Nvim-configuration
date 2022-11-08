@@ -30,10 +30,10 @@ local options = {
     numberwidth = 4, -- set number column width to 2 {default 4}
 
     signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-    -- wrap = true,                            -- display lines as one long line
+    wrap=false,
     -- linebreak = true,                        -- companion to wrap, don't split words
     scrolloff = 8, -- minimal number of screen lines to keep above and below the cursor
-    sidescrolloff = 8, -- minimal number of screen columns either side of cursor if wrap is `false`
+    -- sidescrolloff = 8, -- minimal number of screen columns either side of cursor if wrap is `false`
     guifont = "MesloLGL Nerd Font Mono:h16", -- the font used in graphical neovim applications
     -- linespace = 4,
 }

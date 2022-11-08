@@ -13,11 +13,8 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +422 ~/.config/lvim/config.lua
-badd +2 ~/.config/lvim/dap-config/cpp.lua
-badd +4 lua/user/treesitter.lua
-badd +80 lua/user/keymaps.lua
-badd +2640 ~/.local/share/lunarvim/site/pack/packer/opt/neodev.nvim/types/stable/api.lua
+badd +2 lua/user/keymaps.lua
+badd +33 ~/.config/nvim/lua/user/options.lua
 argglobal
 %argdel
 tabnext 1
