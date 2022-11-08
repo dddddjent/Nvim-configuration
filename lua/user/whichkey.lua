@@ -95,6 +95,7 @@ local mappings = {
     },
     ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
     ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+    ["1"] = {"<cmd>lua require'dap'.toggle_breakpoint()<cr>","Toggle Breakpoint"},
 
     p = {
         name = "Packer",
@@ -163,7 +164,9 @@ local mappings = {
         name = "Search",
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+        -- h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+        h = { "<cmd>split<cr>", "Find Help" },
+        v = { "<cmd>vsplit<cr>", "Find Help" },
         M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
         R = { "<cmd>Telescope registers<cr>", "Registers" },

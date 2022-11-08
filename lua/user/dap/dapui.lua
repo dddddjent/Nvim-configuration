@@ -78,3 +78,10 @@ require("dapui").setup({
         max_value_lines = 100, -- Can be integer or nil.
     }
 })
+local breakpoint = {
+    text = "",
+    texthl = "DiagnosticSignError",
+    linehl = "",
+    numhl = "",
+}
+vim.fn.sign_define("DapBreakpoint", breakpoint)

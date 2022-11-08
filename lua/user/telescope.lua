@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+local sorters = require "telescope.sorters"
 
 telescope.setup {
     defaults = {
@@ -12,6 +13,17 @@ telescope.setup {
         selection_caret = " ",
         path_display = { "smart" },
 
+        vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden",
+            "--glob=!.git/",
+        },
         mappings = {
             i = {
                 ["<C-n>"] = actions.cycle_history_next,
@@ -91,6 +103,15 @@ telescope.setup {
         -- extension_name = {
         --   extension_config_key = value,
         -- }
-        -- please take a look at the readme of the extension you want to configure
+        fzf = {
+            fuzzy = true, -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true, -- override the file sorter
+            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+        }, -- please take a look at the readme of the extension you want to configure
     },
+    file_sorter = sorters.get_fuzzy_file,
+    generic_sorter = sorters.get_generic_fuzzy_sorter,
 }
+require("telescope").load_extension "projects"
+require("telescope").load_extension "fzf"

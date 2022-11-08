@@ -13,13 +13,9 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/.local/share/lunarvim/lvim/lua/lvim/lsp/config.lua
-badd +1 ~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/components.lua
-badd +6 ~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/conditions.lua
-badd +95 ~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/styles.lua
-badd +4 ~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/utils.lua
-badd +48 ~/.local/share/lunarvim/lvim/lua/lvim/core/lualine/init.lua
-badd +122 ~/.local/share/lunarvim/lvim/lua/lvim/core/dap.lua
+badd +81 ~/.local/share/lunarvim/lvim/lua/lvim/icons.lua
+badd +38 ~/.local/share/lunarvim/lvim/lua/lvim/core/dap.lua
+badd +163 ~/.local/share/lunarvim/lvim/lua/lvim/core/telescope.lua
 argglobal
 %argdel
 $argadd ~/.local/share/lunarvim
