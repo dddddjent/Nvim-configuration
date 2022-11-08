@@ -40,7 +40,7 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 
@@ -63,8 +63,19 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-- My mappings
+keymap("i", "<C-h>", "<Left>", opts)
+keymap("i", "<C-j>", "<Down>", opts)
+keymap("i", "<C-k>", "<Up>", opts)
+keymap("i", "<C-l>", "<Right>", opts)
+vim.keymap.set("n", "<C-_>", "<Plug>(comment_toggle_linewise_current) ",opts)
+vim.keymap.set("i", "<C-_>", "<esc><Plug>(comment_toggle_linewise_current) i", opts)
+vim.keymap.set("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", opts)
+vim.keymap.set("n", "<C-/>", "<Plug>(comment_toggle_linewise_current) ",opts)
+vim.keymap.set("i", "<C-/>", "<esc><Plug>(comment_toggle_linewise_current) i", opts)
+vim.keymap.set("v", "<C-/>", "<Plug>(comment_toggle_linewise_visual)", opts)
