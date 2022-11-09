@@ -3,7 +3,7 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/.local/share/lunarvim/lvim
+cd ~/.local/share/nvim
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -13,20 +13,17 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +165 ~/.config/lvim/config.lua
-badd +6 lua/lvim/lsp/null-ls/formatters.lua
-badd +80 ~/.local/share/lunarvim/lvim/lua/lvim/lsp/null-ls/services.lua
+badd +2 ~/.config/lvim/config.lua
 argglobal
 %argdel
 edit ~/.config/lvim/config.lua
 argglobal
-balt lua/lvim/lsp/null-ls/formatters.lua
-let s:l = 169 - ((19 * winheight(0) + 16) / 32)
+let s:l = 169 - ((17 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 169
-normal! 016|
+normal! 021|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

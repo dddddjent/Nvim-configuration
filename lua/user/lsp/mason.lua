@@ -10,6 +10,7 @@ local servers = {
     "clangd",
     "cmake",
     -- "java_language_server",
+    "verible",
 }
 
 local settings = {

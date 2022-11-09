@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local hide_in_width = function()
-    return vim.fn.winwidth(0) > 80
+    return vim.fn.winwidth(0) > 40
 end
 
 local diagnostics = {

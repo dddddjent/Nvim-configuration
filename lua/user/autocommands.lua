@@ -28,6 +28,12 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
+  augroup _dap
+    autocmd!
+    autocmd FileType dapui* set statusline=\ 
+    autocmd FileType dap-repl set statusline=\ 
+  augroup end
 ]]
 
 -- Autoformat

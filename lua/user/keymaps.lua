@@ -80,6 +80,7 @@ vim.keymap.set("n", "<C-/>", "<Plug>(comment_toggle_linewise_current) ", opts)
 vim.keymap.set("i", "<C-/>", "<esc><Plug>(comment_toggle_linewise_current) i", opts)
 vim.keymap.set("v", "<C-/>", "<Plug>(comment_toggle_linewise_visual)", opts)
 
+-- For debug
 vim.keymap.set("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
 vim.keymap.set("n", "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
 vim.keymap.set("n", "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
@@ -96,3 +97,10 @@ keymap("i", "<F1>", "<Cmd>!./build.sh cmake exit<CR>", opts)
 keymap("i", "<F2>", "<Cmd>!./build.sh build exit<CR>", opts)
 keymap("i", "<F3>", "<Cmd>!./build.sh run exit<CR>", opts)
 keymap("i", "<F4>", "<Cmd>!./python_run.sh exit<CR>", opts)
+
+-- Foldings
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds,opts)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds,opts)
+
+-- Telescope
+keymap("n","<C-t>","<Cmd>Telescope<CR>",opts)

@@ -200,6 +200,19 @@ local mappings = {
         s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
         q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
         U = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
+    },
+
+    -- Harpoon
+    ["2"]={
+        name = "Harpoon",
+        a={"<cmd>lua require'harpoon.mark'.add_file()<cr>","Add a file"},
+        t={"<cmd>lua require'harpoon.ui'.toggle_quick_menu()<cr>","Toggle menu"},
+        ["1"]={"<cmd>lua require'harpoon.ui'.nav_file(1)<cr>","To 1"},
+        ["2"]={"<cmd>lua require'harpoon.ui'.nav_file(2)<cr>","To 2"},
+        ["3"]={"<cmd>lua require'harpoon.ui'.nav_file(3)<cr>","To 3"},
+        ["4"]={"<cmd>lua require'harpoon.ui'.nav_file(4)<cr>","To 4"},
+        l={"<cmd>lua require'harpoon.ui'.nav_next()<cr>","To next"},
+        h={"<cmd>lua require'harpoon.ui'.nav_prev()<cr>","To previous"},
     }
 }
 
