@@ -34,7 +34,7 @@ local options = {
     -- linebreak = true,                        -- companion to wrap, don't split words
     scrolloff = 8, -- minimal number of screen lines to keep above and below the cursor
     -- sidescrolloff = 8, -- minimal number of screen columns either side of cursor if wrap is `false`
-    guifont = "MesloLGL Nerd Font Mono:h16", -- the font used in graphical neovim applications
+    guifont = "MesloLGL Nerd Font Mono:h20", -- the font used in graphical neovim applications
     -- linespace = 4,
 }
 
@@ -48,19 +48,19 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
--- vim.cmd("set foldmethod=expr")
--- vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
--- vim.cmd("set foldlevel=99")
+-- UFO folding configurations
 vim.o.foldcolumn = '1' -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
+-- Neovide configurations
 vim.g.neovide_cursor_trail_size = 0.1
 vim.g.neovide_cursor_animation_length = 0.1
 vim.g.neovide_hide_mouse_when_typing =true
 vim.g.neovide_transparency=0.95
 
+-- For transparency
 cmd=vim.cmd
 cmd "au ColorScheme * hi Normal ctermbg=none "
 cmd "au ColorScheme * hi SignColumn ctermbg=none guibg=none"
@@ -69,3 +69,4 @@ cmd "au ColorScheme * hi MsgArea ctermbg=none guibg=none"
 cmd "au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none"
 cmd "au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none"
 cmd "let &fcs='eob: '"
+

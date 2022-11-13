@@ -104,11 +104,24 @@ return packer.startup(function(use)
 
     -- Session
     use {
-        'rmagatti/auto-session',
+        "rmagatti/auto-session",
         config = function()
             require("auto-session").setup {
                 log_level = "error",
                 auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+            }
+        end
+    }
+
+    -- EasyMotion
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require 'hop'.setup {
+                keys = 'ahklyuiopnmqwertzxcvbsdgjf',
+                multi_windows =false 
             }
         end
     }
