@@ -72,9 +72,11 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-    if client.name == "verible" then
+    if client.name == "verible" or client.name=="clangd" or client.name=="pyright" or
+         client.name == "ltex" then
         client.server_capabilities.documentFormattingProvider =false
     end
+
 
     lsp_keymaps(bufnr)
     local status_ok, illuminate = pcall(require, "illuminate")

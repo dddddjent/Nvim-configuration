@@ -70,3 +70,12 @@ cmd "au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none"
 cmd "au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none"
 cmd "let &fcs='eob: '"
 
+-- Avoid null-ls useless warning
+local notify = vim.notify
+vim.notify = function(msg, ...)
+    if msg:match("warning: multiple different client offset_encodings") then
+        return
+    end
+
+    notify(msg, ...)
+end

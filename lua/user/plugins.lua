@@ -71,6 +71,7 @@ return packer.startup(function(use)
     use { "saadparwaiz1/cmp_luasnip" }
     use { "hrsh7th/cmp-nvim-lsp" }
     use { "hrsh7th/cmp-nvim-lua" }
+    use { "hrsh7th/cmp-omni"}
 
     -- Snippets
     use { "L3MON4D3/LuaSnip" }
@@ -121,10 +122,13 @@ return packer.startup(function(use)
             -- you can configure Hop the way you like here; see :h hop-config
             require 'hop'.setup {
                 keys = 'ahklyuiopnmqwertzxcvbsdgjf',
-                multi_windows =false 
+                multi_windows = false
             }
         end
     }
+
+    -- Latex
+    use 'lervag/vimtex'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

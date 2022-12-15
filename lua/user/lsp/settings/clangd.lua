@@ -46,7 +46,6 @@ return {
             '--cross-file-rename',
             '--header-insertion=never',
             '--clang-tidy',
-            "--clang-tidy-checks=*",
             '-j=4',
             '--inlay-hints',
             '--suggest-missing-includes',
