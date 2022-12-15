@@ -1,23 +1,18 @@
-local dap = require('dap')
-dap.adapters.python = {
-    type = 'executable';
-    command = 'python';
-    args = { '-m', 'debugpy.adapter' };
-}
-dap.configurations.python = {
+M = {}
+function M.config(json_data)
+    local configuration =
     {
-        -- The first three options are required by nvim-dap
-        type = 'python'; -- the type here established the link to the adapter definition: `dap.adapters.python`
-        request = 'launch';
-        name = "Launch file";
-
-        -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-
+        name = json_data.name or "Python debug",
+        type = json_data.type or "python",
+        request = json_data.request or "launch",
         program = "${file}"; -- This configuration will launch the current file if used.
-        pythonPath = function()
-            -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-            -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
-            -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+        cwd = json_data.cwd or '${workspaceFolder}',
+        stopOnEntry = json_data.stopOnEntry or false,
+        stopAtEntry = json_data.stopAtEntry or false,
+        args = json_data.args,
+        pid = json_data.pid,
+        pythonPath = json_data.pythonPath or function()
+            -- debugpy
             local cwd = vim.fn.getcwd()
             if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
                 return cwd .. '/venv/bin/python'
@@ -27,5 +22,9 @@ dap.configurations.python = {
                 return '/usr/bin/python'
             end
         end;
-    },
-}
+    }
+
+    return configuration
+end
+
+return M

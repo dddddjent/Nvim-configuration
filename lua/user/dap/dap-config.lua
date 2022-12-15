@@ -1,8 +1,10 @@
-require('user.dap.dap-languages.cpp')
-require('user.dap.dap-languages.rust')
-require('user.dap.dap-languages.python')
+require('user.dap.dap-languages.adapters')
+local configs=require('user.dap.dap-languages.configs')
+configs.configure()
+
 local dap = require('dap')
 local dapui = require('dapui')
+
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
 end
