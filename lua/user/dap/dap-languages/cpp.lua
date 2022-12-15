@@ -46,9 +46,6 @@ function M.configure()
                 name = json_data.name or "Codelldb bin",
                 type = json_data.type or "codelldb",
                 request = json_data.request or "launch",
-                program = json_data.program or function()
-                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-                end,
                 cwd = json_data.cwd or '${workspaceFolder}',
                 stopOnEntry = json_data.stopOnEntry or false,
                 stopAtEntry = json_data.stopAtEntry or false,
@@ -62,8 +59,13 @@ function M.configure()
                         ignoreFailures = true
                     }
                 },
-                processId = json_data.processId,
+                pid = json_data.pid,
             }
+            if json_data.request == "launch" then
+                configuration[config_index].program = json_data.program or function()
+                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                end
+            end
             config_index = config_index + 1
         end
         dap.configurations.cpp = configuration
