@@ -201,6 +201,7 @@ local mappings = {
         q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
         U = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
         R = { "<cmd>lua require'user.dap.dap-languages.configs'.configure()<cr>", "Reload config.json" },
+        e = { "<cmd>echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope<cr>", "Enable the attach privilege" },
     },
 
     -- Harpoon
