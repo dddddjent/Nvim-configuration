@@ -98,12 +98,13 @@ local mappings = {
     ["1"] = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
 
     p = {
-        name = "Packer",
+        name = "Packer and Projects",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
         i = { "<cmd>PackerInstall<cr>", "Install" },
         s = { "<cmd>PackerSync<cr>", "Sync" },
         S = { "<cmd>PackerStatus<cr>", "Status" },
         u = { "<cmd>PackerUpdate<cr>", "Update" },
+        C={"<cmd>!cp -rf /home/ljl/Documents/ThirdParty/.nvim .<cr>","Setup config"},
     },
 
     g = {
@@ -223,7 +224,15 @@ local mappings = {
         c = { "<Plug>(vimtex-compile)", "Compile latex file" },
         i = { "<Plug>(vimtex-info)", "Info" },
         s = { "<cmd>VimtexView<cr>", "Sychronize" },
-    }
+    },
+
+    -- Markdown
+    ["m"]={
+        name="Markdown preview",
+        s={"<Plug>MarkdownPreview","Preview start"},
+        p={"<Plug>MarkdownPreviewStop","Preview stop"},
+        t={"<Plug>MarkdownPreviewToggle","Preview toggle"},
+    },
 }
 
 which_key.setup(setup)

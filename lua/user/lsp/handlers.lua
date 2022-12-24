@@ -71,12 +71,19 @@ local function lsp_keymaps(bufnr)
     keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
+local disable_format = {
+    "verible", "clangd", "pyright", "ltex", "cmake",
+}
 M.on_attach = function(client, bufnr)
-    if client.name == "verible" or client.name=="clangd" or client.name=="pyright" or
-         client.name == "ltex" then
-        client.server_capabilities.documentFormattingProvider =false
+    for key, value in pairs(disable_format) do
+        if value == client.name then
+            client.server_capabilities.documentFormattingProvider = false
+        end
     end
-
+    -- if client.name == "verible" or client.name == "clangd" or client.name == "pyright" or
+    --     client.name == "ltex" then
+    --     client.server_capabilities.documentFormattingProvider = false
+    -- end
 
     lsp_keymaps(bufnr)
     local status_ok, illuminate = pcall(require, "illuminate")

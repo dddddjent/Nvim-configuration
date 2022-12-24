@@ -60,6 +60,9 @@ vim.g.neovide_cursor_animation_length = 0.1
 vim.g.neovide_hide_mouse_when_typing =true
 vim.g.neovide_transparency=0.95
 
+-- Markdowm paste
+vim.g.mdip_imgdir= '.pic'
+
 -- For transparency
 cmd=vim.cmd
 cmd "au ColorScheme * hi Normal ctermbg=none "
