@@ -74,6 +74,7 @@ keymap("i", "<C-h>", "<Left>", opts)
 keymap("i", "<C-j>", "<Down>", opts)
 keymap("i", "<C-k>", "<Up>", opts)
 keymap("i", "<C-l>", "<Right>", opts)
+keymap("n", "Q", "<nop>", opts)
 
 -- Comment
 vim.keymap.set("n", "<C-_>", "<Plug>(comment_toggle_linewise_current) ", opts)
@@ -102,9 +103,12 @@ keymap("i", "<F3>", "<Cmd>!./.nvim/script.sh f3 exit<CR>", opts)
 keymap("i", "<F4>", "<Cmd>!./.nvim/script.sh f4 exit<CR>", opts)
 
 -- Foldings
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds,opts)
-vim.keymap.set('n', 'zM', require('ufo').closeAllFolds,opts)
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds, opts)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, opts)
 
 -- Telescope
-keymap("n","<C-t>","<Cmd>Telescope<CR>",opts)
+keymap("n", "<C-t>", "<Cmd>Telescope<CR>", opts)
 
+-- Replace
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
