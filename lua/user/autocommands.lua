@@ -34,6 +34,11 @@ vim.cmd [[
     autocmd FileType dapui* set statusline=\ 
     autocmd FileType dap-repl set statusline=\ 
   augroup end
+
+  augroup _paste
+    autocmd!
+    autocmd FileType markdown nmap <buffer><silent> <leader>M :call mdip#MarkdownClipboardImage()<CR>
+  augroup end
 ]]
 
 -- Autoformat

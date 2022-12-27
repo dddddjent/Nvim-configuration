@@ -98,13 +98,14 @@ local mappings = {
     ["1"] = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
 
     p = {
-        name = "Packer and Projects",
+        name = "Packer/Projects/Paste",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
         i = { "<cmd>PackerInstall<cr>", "Install" },
         s = { "<cmd>PackerSync<cr>", "Sync" },
         S = { "<cmd>PackerStatus<cr>", "Status" },
         u = { "<cmd>PackerUpdate<cr>", "Update" },
-        C={"<cmd>!cp -rf /home/ljl/Documents/ThirdParty/.nvim .<cr>","Setup config"},
+        C = { "<cmd>!cp -rf /home/ljl/Documents/ThirdParty/.nvim .<cr>", "Setup config" },
+        p = { "<cmd>call mdip#MarkdownClipboardImage()<cr>", "Paste an image in markdown" },
     },
 
     g = {
@@ -227,12 +228,15 @@ local mappings = {
     },
 
     -- Markdown
-    ["m"]={
-        name="Markdown preview",
-        s={"<Plug>MarkdownPreview","Preview start"},
-        p={"<Plug>MarkdownPreviewStop","Preview stop"},
-        t={"<Plug>MarkdownPreviewToggle","Preview toggle"},
+    ["m"] = {
+        name = "Markdown preview",
+        s = { "<Plug>MarkdownPreview", "Preview start" },
+        p = { "<Plug>MarkdownPreviewStop", "Preview stop" },
+        t = { "<Plug>MarkdownPreviewToggle", "Preview toggle" },
     },
+
+    ["u"] = { "<cmd>UndotreeToggle<cr>" ,"Toggle UndoTree"},
+
 }
 
 which_key.setup(setup)

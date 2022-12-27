@@ -5,7 +5,7 @@ function M.config(json_data)
         name = json_data.name or "Python debug",
         type = json_data.type or "python",
         request = json_data.request or "launch",
-        program = "${file}"; -- This configuration will launch the current file if used.
+        program = json_data.program or "${file}"; -- This configuration will launch the current file if used.
         cwd = json_data.cwd or '${workspaceFolder}',
         stopOnEntry = json_data.stopOnEntry or false,
         stopAtEntry = json_data.stopAtEntry or false,

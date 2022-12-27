@@ -68,11 +68,14 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+----------------------------------------------------
 -- My mappings
 keymap("i", "<C-h>", "<Left>", opts)
 keymap("i", "<C-j>", "<Down>", opts)
 keymap("i", "<C-k>", "<Up>", opts)
 keymap("i", "<C-l>", "<Right>", opts)
+
+-- Comment
 vim.keymap.set("n", "<C-_>", "<Plug>(comment_toggle_linewise_current) ", opts)
 vim.keymap.set("i", "<C-_>", "<esc><Plug>(comment_toggle_linewise_current) i", opts)
 vim.keymap.set("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", opts)
@@ -104,3 +107,4 @@ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds,opts)
 
 -- Telescope
 keymap("n","<C-t>","<Cmd>Telescope<CR>",opts)
+

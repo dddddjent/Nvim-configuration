@@ -127,6 +127,9 @@ return packer.startup(function(use)
         end
     }
 
+    -- UndoTree
+    use 'mbbill/undotree'
+
     -- Latex
     use 'lervag/vimtex'
     -- Markdown
