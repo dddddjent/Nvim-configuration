@@ -87,6 +87,7 @@ return packer.startup(function(use)
         "glepnir/lspsaga.nvim",
         branch = "main",
     })
+    use { "p00f/clangd_extensions.nvim" }
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }

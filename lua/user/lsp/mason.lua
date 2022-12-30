@@ -7,7 +7,6 @@ local servers = {
     "bashls",
     "jsonls",
     -- "yamlls",
-    "clangd",
     "cmake",
     "verible",
     "rust_analyzer",

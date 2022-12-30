@@ -235,6 +235,7 @@ local mappings = {
         t = { "<Plug>MarkdownPreviewToggle", "Preview toggle" },
     },
 
+    -- Undotree
     ["u"] = { "<cmd>UndotreeToggle<cr>" ,"Toggle UndoTree"},
 
 }

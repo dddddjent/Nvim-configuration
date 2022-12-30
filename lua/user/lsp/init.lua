@@ -7,6 +7,7 @@ require "user.lsp.mason"
 require("user.lsp.handlers").setup()
 require "user.lsp.null-ls"
 require "user.lsp.lspsaga"
-
+require "user.lsp.settings.clangd_extensions"
+--
 -- The default format configuration is in handlers.lua
 -- But I'd like to disable it
