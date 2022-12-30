@@ -83,6 +83,10 @@ return packer.startup(function(use)
     use { "williamboman/mason-lspconfig.nvim" }
     use { "jose-elias-alvarez/null-ls.nvim" }
     use { "RRethy/vim-illuminate" }
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+    })
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }
