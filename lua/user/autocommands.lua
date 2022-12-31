@@ -40,6 +40,10 @@ vim.cmd [[
     autocmd FileType markdown nmap <buffer><silent> <leader>M :call mdip#MarkdownClipboardImage()<CR>
   augroup end
 
+   augroup _lsp 
+       autocmd! 
+       autocmd FileType java lua require('user.lsp.jdtls').set_jdtls()
+   augroup end
 ]]
 -- Autoformat
 -- augroup _lsp
