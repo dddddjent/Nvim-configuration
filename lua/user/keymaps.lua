@@ -70,10 +70,10 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 ----------------------------------------------------
 -- My mappings
--- keymap("i", "<C-h>", "<Left>", opts)
--- keymap("i", "<C-j>", "<Down>", opts)
--- keymap("i", "<C-k>", "<Up>", opts)
--- keymap("i", "<C-l>", "<Right>", opts)
+keymap("i", "<C-h>", "<Left>", opts)
+keymap("i", "<C-j>", "<Down>", opts)
+keymap("i", "<C-k>", "<Up>", opts)
+keymap("i", "<C-l>", "<Right>", opts)
 keymap("n", "Q", "<nop>", opts)
 
 -- Comment

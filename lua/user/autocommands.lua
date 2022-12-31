@@ -39,8 +39,8 @@ vim.cmd [[
     autocmd!
     autocmd FileType markdown nmap <buffer><silent> <leader>M :call mdip#MarkdownClipboardImage()<CR>
   augroup end
-]]
 
+]]
 -- Autoformat
 -- augroup _lsp
 --   autocmd!

@@ -10,7 +10,6 @@ local servers = {
     "cmake",
     "verible",
     "rust_analyzer",
-    "jdtls",
     "lemminx",
     "ltex",
 }

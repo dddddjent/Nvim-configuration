@@ -88,6 +88,7 @@ return packer.startup(function(use)
         branch = "main",
     })
     use { "p00f/clangd_extensions.nvim" }
+    use { "mfussenegger/nvim-jdtls" }
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }
