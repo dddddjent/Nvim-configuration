@@ -144,18 +144,12 @@ local mappings = {
         },
         f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
         i = { "<cmd>LspInfo<cr>", "Info" },
-        I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
         j = {
-            "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-            "Next Diagnostic",
-        },
-        k = {
-            "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-            "Prev Diagnostic",
+            "<cmd>lua vim.diagnostic.open_float()<CR>",
+            "Open float diagnostic window",
         },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-        q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+        -- r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
         S = {
             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -236,7 +230,7 @@ local mappings = {
     },
 
     -- Undotree
-    ["u"] = { "<cmd>UndotreeToggle<cr>" ,"Toggle UndoTree"},
+    ["u"] = { "<cmd>UndotreeToggle<cr>", "Toggle UndoTree" },
 
 }
 
