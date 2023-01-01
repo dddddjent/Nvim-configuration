@@ -101,6 +101,7 @@ keymap("i", "<F1>", "<Cmd>!./.nvim/script.sh f1 exit<CR>", opts)
 keymap("i", "<F2>", "<Cmd>!./.nvim/script.sh f2 exit<CR>", opts)
 keymap("i", "<F3>", "<Cmd>!./.nvim/script.sh f3 exit<CR>", opts)
 keymap("i", "<F4>", "<Cmd>!./.nvim/script.sh f4 exit<CR>", opts)
+keymap("n", "J", "<Cmd>lua require('dapui').eval()<CR>", opts)
 
 -- Foldings
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds, opts)
@@ -113,5 +114,5 @@ keymap("n", "<C-t>", "<Cmd>Telescope<CR>", opts)
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-keymap("n",'|',"<cmd>vsplit<cr>",opts)
-keymap("n",'-',"<cmd>split<cr>",opts)
+keymap("n", '|', "<cmd>vsplit<cr>", opts)
+keymap("n", '-', "<cmd>split<cr>", opts)
