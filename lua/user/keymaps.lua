@@ -106,6 +106,13 @@ keymap("n", "J", "<Cmd>lua require('dapui').eval()<CR>", opts)
 -- Foldings
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds, opts)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, opts)
+vim.keymap.set('n', 'K', function()
+    local winid = require('ufo').peekFoldedLinesUnderCursor()
+    if not winid then
+        -- choose one of coc.nvim and nvim lsp
+        vim.lsp.buf.hover()
+    end
+end)
 
 -- Telescope
 keymap("n", "<C-t>", "<Cmd>Telescope<CR>", opts)
