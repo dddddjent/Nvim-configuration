@@ -121,5 +121,7 @@ keymap("n", "<C-t>", "<Cmd>Telescope<CR>", opts)
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+-- Split
 keymap("n", '|', "<cmd>vsplit<cr>", opts)
 keymap("n", '-', "<cmd>split<cr>", opts)
+keymap("n", '<c-m>', "ighp_bEMN16BGOrLG0o3aJ4ARBK2kPxW5mn4WXBv",opts)
