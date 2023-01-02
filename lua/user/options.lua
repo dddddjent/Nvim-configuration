@@ -16,7 +16,7 @@ local options = {
     splitbelow = true, -- force all horizontal splits to go below current window
     splitright = true, -- force all vertical splits to go to the right of current window
     swapfile = false, -- creates a swapfile
-    termguicolors = true,                    -- set term gui colors (most terminals support this)
+    termguicolors = true, -- set term gui colors (most terminals support this)
     timeoutlen = 300, -- time to wait for a mapped sequence to complete (in milliseconds)
     undofile = true, -- enable persistent undo
     updatetime = 300, -- faster completion (4000ms default)
@@ -30,7 +30,7 @@ local options = {
     numberwidth = 4, -- set number column width to 2 {default 4}
 
     signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-    wrap=false,
+    wrap = false,
     -- linebreak = true,                        -- companion to wrap, don't split words
     scrolloff = 8, -- minimal number of screen lines to keep above and below the cursor
     -- sidescrolloff = 8, -- minimal number of screen columns either side of cursor if wrap is `false`
@@ -58,14 +58,14 @@ vim.o.foldenable = true
 -- Neovide configurations
 vim.g.neovide_cursor_trail_size = 0.1
 vim.g.neovide_cursor_animation_length = 0.1
-vim.g.neovide_hide_mouse_when_typing =true
-vim.g.neovide_transparency=0.95
+vim.g.neovide_hide_mouse_when_typing = true
+vim.g.neovide_transparency = 0.95
 
 -- Markdowm paste
-vim.g.mdip_imgdir= '.pic'
+vim.g.mdip_imgdir = '.pic'
 
 -- For transparency
-local cmd=vim.cmd
+local cmd = vim.cmd
 cmd "au ColorScheme * hi Normal ctermbg=none "
 cmd "au ColorScheme * hi SignColumn ctermbg=none guibg=none"
 cmd "au ColorScheme * hi NormalNC ctermbg=none guibg=none"
@@ -73,6 +73,12 @@ cmd "au ColorScheme * hi MsgArea ctermbg=none guibg=none"
 cmd "au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none"
 cmd "au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none"
 cmd "let &fcs='eob: '"
+
+-- Test
+cmd "let g:test#cpp#catch2#make_command = 'ninja;ninja test'"
+-- exe in build/test, the cpp file is in the current_work_dir/test
+cmd "let g:test#cpp#catch2#relToProject_build_dir = 'build'"
+cmd "let g:test#cpp#catch2#bin_dir = '../build/test' "
 
 -- Avoid null-ls useless warning
 local notify = vim.notify
