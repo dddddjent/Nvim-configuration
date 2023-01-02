@@ -31,13 +31,8 @@ vim.cmd [[
 
   augroup _dap
     autocmd!
-    autocmd FileType dapui* set statusline=\ 
+    autocmd FileType dapui* set statusline=%-f 
     autocmd FileType dap-repl set statusline=\ 
-  augroup end
-
-  augroup _paste
-    autocmd!
-    autocmd FileType markdown nmap <buffer><silent> <leader>M :call mdip#MarkdownClipboardImage()<CR>
   augroup end
 
    augroup _lsp 
@@ -45,8 +40,3 @@ vim.cmd [[
        autocmd FileType java lua require('user.lsp.jdtls').set_jdtls()
    augroup end
 ]]
--- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
