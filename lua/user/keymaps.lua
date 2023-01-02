@@ -3,7 +3,8 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+-- local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -77,36 +78,46 @@ keymap("i", "<C-l>", "<Right>", opts)
 keymap("n", "Q", "<nop>", opts)
 
 -- Comment
-vim.keymap.set("n", "<C-_>", "<Plug>(comment_toggle_linewise_current) ", opts)
-vim.keymap.set("i", "<C-_>", "<esc><Plug>(comment_toggle_linewise_current) i", opts)
-vim.keymap.set("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", opts)
-vim.keymap.set("n", "<C-/>", "<Plug>(comment_toggle_linewise_current) ", opts)
-vim.keymap.set("i", "<C-/>", "<esc><Plug>(comment_toggle_linewise_current) i", opts)
-vim.keymap.set("v", "<C-/>", "<Plug>(comment_toggle_linewise_visual)", opts)
+keymap("n", "<C-_>", "<Plug>(comment_toggle_linewise_current) ", opts)
+keymap("i", "<C-_>", "<esc><Plug>(comment_toggle_linewise_current) i", opts)
+keymap("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", opts)
+keymap("n", "<C-/>", "<Plug>(comment_toggle_linewise_current) ", opts)
+keymap("i", "<C-/>", "<esc><Plug>(comment_toggle_linewise_current) i", opts)
+keymap("v", "<C-/>", "<Plug>(comment_toggle_linewise_visual)", opts)
 
 -- For debug
-vim.keymap.set("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
-vim.keymap.set("n", "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
-vim.keymap.set("n", "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
-vim.keymap.set("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
+keymap("n", "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
+keymap("n", "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
 keymap("n", "<F1>", "<Cmd>!./.nvim/script.sh f1 exit<CR>", opts)
 keymap("n", "<F2>", "<Cmd>!./.nvim/script.sh f2 exit<CR>", opts)
 keymap("n", "<F3>", "<Cmd>!./.nvim/script.sh f3 exit<CR>", opts)
 keymap("n", "<F4>", "<Cmd>!./.nvim/script.sh f4 exit<CR>", opts)
-vim.keymap.set("i", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
-vim.keymap.set("i", "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
-vim.keymap.set("i", "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
-vim.keymap.set("i", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<F12>", function()
+    local param = vim.fn.input('Param: ')
+    local cmd = "!./.nvim/script.sh " .. param
+    vim.cmd(cmd)
+end, opts)
+keymap("i", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
+keymap("i", "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
+keymap("i", "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
+keymap("i", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
 keymap("i", "<F1>", "<Cmd>!./.nvim/script.sh f1 exit<CR>", opts)
 keymap("i", "<F2>", "<Cmd>!./.nvim/script.sh f2 exit<CR>", opts)
 keymap("i", "<F3>", "<Cmd>!./.nvim/script.sh f3 exit<CR>", opts)
 keymap("i", "<F4>", "<Cmd>!./.nvim/script.sh f4 exit<CR>", opts)
+keymap("i", "<F12>", function()
+    local param = vim.fn.input('Param: ')
+    local cmd = "!./.nvim/script.sh " .. param
+    vim.cmd(cmd)
+end, opts)
 keymap("n", "J", "<Cmd>lua require('dapui').eval()<CR>", opts)
 
 -- Foldings
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds, opts)
-vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, opts)
-vim.keymap.set('n', 'K', function()
+keymap('n', 'zR', require('ufo').openAllFolds, opts)
+keymap('n', 'zM', require('ufo').closeAllFolds, opts)
+keymap('n', 'K', function()
     local winid = require('ufo').peekFoldedLinesUnderCursor()
     if not winid then
         -- choose one of coc.nvim and nvim lsp
@@ -118,10 +129,10 @@ end)
 keymap("n", "<C-t>", "<Cmd>Telescope<CR>", opts)
 
 -- Replace
-vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+keymap("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Split
 keymap("n", '|', "<cmd>vsplit<cr>", opts)
 keymap("n", '-', "<cmd>split<cr>", opts)
-keymap("n", '<c-m>', "ighp_bEMN16BGOrLG0o3aJ4ARBK2kPxW5mn4WXBv",opts)
+keymap("n", '<c-m>', "ighp_bEMN16BGOrLG0o3aJ4ARBK2kPxW5mn4WXBv", opts)
