@@ -10,7 +10,7 @@ local opts = {
     -- the configs below are lua only
     bypass_session_save_file_types = nil,
     pre_save_cmds = { "tabdo NvimTreeClose" },
-    post_restore_cmds = { "tabdo NvimTreeOpen" }
+    -- post_restore_cmds = { "tabdo NvimTreeOpen" }
 }
 
 require('auto-session').setup(opts)
