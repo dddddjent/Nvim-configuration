@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Codelldb bin",
+        "type": "codelldb",
+        "request": "launch",
+        "program": "build/test",
+        "args": [
+            "--aa"
+        ],
+        "cwd": "${workspaceFolder}"
+    },
+    {
+        "name": "Codelldb attach",
+        "type": "codelldb",
+        "request": "attach",
+        "pid": "${command:pickProcess}",
+        "cwd": "${workspaceFolder}"
+    },
+    {
+        "name": "Run",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "build/test",
+        "cwd": "${workspaceFolder}",
+        "stopAtEntry": false
+    },
+    {
+        "name": "Python",
+        "type": "python",
+        "request": "launch",
+        "program": "${file}"
+    }
+]

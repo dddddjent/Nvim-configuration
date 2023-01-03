@@ -89,6 +89,7 @@ return packer.startup(function(use)
     })
     use { "p00f/clangd_extensions.nvim" }
     use { "mfussenegger/nvim-jdtls" }
+    use { "folke/neodev.nvim" }
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }
