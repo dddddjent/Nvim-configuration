@@ -1,5 +1,4 @@
 local ls = require "luasnip"
-local types = require "luasnip.util.types"
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -12,28 +11,6 @@ ls.config.set_config {
 
 }
 
--- vim.keymap.set("i", "<A-l>", function()
---     if ls.choice_active then
---         ls.change_choice(1)
---     end
--- end, { silent = true })
---
--- vim.keymap.set({ "i", "s" }, "<A-K>", function()
---     if ls.expand_or_jumpable() then
---         ls.expand_or_jump()
---     end
--- end, { silent = true })
---
--- vim.keymap.set({ "i", "s" }, "<A-m>", function()
---     if ls.jumpable(-1) then
---         ls.jump(-1)
---     end
--- end, { silent = true })
-
-ls.add_snippets("lua", {
-    ls.parser.parse_snippet(
-        "lf",
-        "local $1 = function($3)\n\t$0\nend"
-    ),
-})
-
+require('user.snippets.lua-snippets')
+require('user.snippets.cpp')
+require('user.snippets.markdown')

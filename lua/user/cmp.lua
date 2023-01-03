@@ -110,7 +110,7 @@ cmp.setup {
     },
     sources = {
         { name = "nvim_lsp" },
-        { name = "omni" },
+        -- { name = "omni" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
