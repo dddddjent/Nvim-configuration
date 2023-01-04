@@ -99,6 +99,7 @@ return packer.startup(function(use)
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter" }
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
 
     -- Git
     use { "lewis6991/gitsigns.nvim" }
