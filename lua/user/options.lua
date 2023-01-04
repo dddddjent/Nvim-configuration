@@ -48,13 +48,6 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
--- UFO folding configurations
-vim.o.foldcolumn = '0' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-
 -- Neovide configurations
 vim.g.neovide_cursor_trail_size = 0.1
 vim.g.neovide_cursor_animation_length = 0.1
@@ -64,31 +57,3 @@ vim.g.neovide_transparency = 0.95
 -- Markdowm paste
 vim.g.mdip_imgdir = '.pic'
 
--- For transparency
-local cmd = vim.cmd
-cmd "au ColorScheme * hi Normal ctermbg=none "
-cmd "au ColorScheme * hi SignColumn ctermbg=none guibg=none"
-cmd "au ColorScheme * hi NormalNC ctermbg=none guibg=none"
-cmd "au ColorScheme * hi MsgArea ctermbg=none guibg=none"
-cmd "au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none"
-cmd "au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none"
-cmd "au ColorScheme * hi BufferLineFill guibg=none"
-cmd "au ColorScheme * hi BufferLineBackground gueifg=#7a7c9e"
-cmd "au ColorScheme * hi BufferLineBufferSelecteed guifg=white gui=none"
-cmd "let &fcs='eob: '"
-
--- Test
--- exe in build/test, the cpp file is in the current_work_dir/test
-cmd "let g:test#cpp#catch2#relToProject_build_dir = 'build'"
-cmd "let g:test#cpp#catch2#make_command = 'ninja;ninja test'"
-cmd "let g:test#cpp#catch2#bin_dir = '../build/test' "
-
--- Avoid null-ls useless warning
-local notify = vim.notify
-vim.notify = function(msg, ...)
-    if msg:match("warning: multiple different client offset_encodings") then
-        return
-    end
-
-    notify(msg, ...)
-end
