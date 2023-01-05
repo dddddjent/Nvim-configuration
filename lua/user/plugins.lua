@@ -58,6 +58,7 @@ return packer.startup(function(use)
     use { "folke/which-key.nvim" }
     use { "catppuccin/nvim" }
     use { 'folke/tokyonight.nvim' }
+    use { 'luisiacc/gruvbox-baby' }
     use { "p00f/nvim-ts-rainbow" }
     use { "ThePrimeagen/harpoon" }
 
@@ -99,7 +100,7 @@ return packer.startup(function(use)
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter" }
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
-use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
+    use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
 
     -- Git
     use { "lewis6991/gitsigns.nvim" }
