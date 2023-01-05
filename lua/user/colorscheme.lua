@@ -10,7 +10,9 @@ function config_gruvbox()
     cmd "hi @type.builtin guifg=#7fa2ac"
     cmd "hi @namespace guifg=#458588"
     cmd "hi @comment guifg=#a0a0a0"
-    cmd "hi @parent guifg=#bdb76b"
+    cmd "hi @property guifg=#bdb76b"
+    cmd "hi @field guifg=#bdb76b"
+    cmd "hi @parameter guifg=#ebdbb2"
 end
 
 require("catppuccin").setup({
