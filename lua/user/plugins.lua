@@ -59,6 +59,7 @@ return packer.startup(function(use)
     use { "catppuccin/nvim" }
     use { 'folke/tokyonight.nvim' }
     use { 'luisiacc/gruvbox-baby' }
+    use { "ellisonleao/gruvbox.nvim" }
     use { "p00f/nvim-ts-rainbow" }
     use { "ThePrimeagen/harpoon" }
 

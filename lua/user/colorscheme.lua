@@ -2,11 +2,35 @@ local cmd = vim.cmd
 
 -- local colorscheme = "catppuccin"
 -- local colorscheme = "tokyonight"
-local colorscheme = "gruvbox-baby"
+-- local colorscheme = "gruvbox-baby"
+local colorscheme = "gruvbox"
+
+require("gruvbox").setup({
+    undercurl = true,
+    underline = true,
+    bold = true,
+    italic = true,
+    strikethrough = true,
+    invert_selection = false,
+    invert_signs = false,
+    invert_tabline = false,
+    invert_intend_guides = false,
+    inverse = true, -- invert background for search, diffs, statuslines and errors
+    contrast = "hard", -- can be "hard", "soft" or empty string
+    palette_overrides = {
+        dark1 = "#1d2021",
+    },
+    dim_inactive = false,
+    transparent_mode = false,
+    overrides = {
+        CursorLine = { bg = "#3c3836" },
+        Pmenu = { bg = "#1d2021" },
+    }
+})
 
 vim.g.gruvbox_baby_background_color = "dark" -- Has to be set before colorscheme
-function config_gruvbox()
-    local colors = require("gruvbox-baby.colors").config()
+function config_gruvbox_baby()
+    -- local colors = require("gruvbox-baby.colors").config()
     cmd "hi @type.builtin guifg=#7fa2ac"
     cmd "hi @namespace guifg=#458588"
     cmd "hi @comment guifg=#a0a0a0"
@@ -18,7 +42,7 @@ end
 require("catppuccin").setup({
     styles = {
         loops = {},
-        functions = {"bold"},
+        functions = { "bold" },
         keywords = {},
         strings = {},
         variables = {},
@@ -35,10 +59,11 @@ end
 
 function config_colorscheme(color_scheme)
     if color_scheme == "gruvbox-baby" then
-        config_gruvbox()
+        config_gruvbox_baby()
     elseif color_scheme == "catppuccin" then
         config_catppuccin()
     elseif color_scheme == "tokyonight" then
+    elseif color_scheme == "gruvbox" then
     end
 end
 
