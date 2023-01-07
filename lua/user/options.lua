@@ -44,10 +44,6 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-
 -- Neovide configurations
 vim.g.neovide_cursor_trail_size = 0.1
 vim.g.neovide_cursor_animation_length = 0.1
@@ -57,3 +53,4 @@ vim.g.neovide_transparency = 0.95
 -- Markdowm paste
 vim.g.mdip_imgdir = '.pic'
 
+vim.cmd"set fencs=utf-8,gbk,big5,cp936,gb18030,gb2312,utf-16"

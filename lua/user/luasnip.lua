@@ -11,6 +11,21 @@ ls.config.set_config {
 
 }
 
+local keymap = vim.keymap.set
+local opts = { noremap = true, silent = true }
+keymap("i", '<a-j>', function()
+    if ls.expandable() then
+        ls.expand()
+    elseif ls.expand_or_jumpable() then
+        ls.expand_or_jump()
+    end
+end, opts)
+keymap("i", "<a-k>", function()
+    if ls.jumpable(-1) then
+        ls.jump(-1)
+    end
+end, opts)
+
 require('user.snippets.lua-snippets')
-require('user.snippets.cpp')
 require('user.snippets.markdown')
+require('user.snippets.cpp')
