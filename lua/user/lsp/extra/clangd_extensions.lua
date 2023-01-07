@@ -39,8 +39,6 @@ local default_capabilities = {
     offsetEncoding = { 'utf-8', 'utf-16' },
 }
 
-
-
 require("clangd_extensions").setup {
     server = {
         on_attach = require("user.lsp.handlers").on_attach,

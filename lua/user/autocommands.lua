@@ -37,6 +37,6 @@ vim.cmd [[
 
    augroup _lsp 
        autocmd! 
-       autocmd FileType java lua require('user.lsp.jdtls').set_jdtls()
+       autocmd FileType java lua require('user.lsp.extra.jdtls').set_jdtls()
    augroup end
 ]]

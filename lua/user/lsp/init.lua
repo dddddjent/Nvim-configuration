@@ -1,13 +1,21 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-    return
-end
+local servers = {
+    "sumneko_lua",
+    "cssls",
+    "pyright",
+    "bashls",
+    "jsonls",
+    "yamlls",
+    "cmake",
+    "verible",
+    "rust_analyzer",
+    "lemminx",
+    "ltex",
+}
 
-require "user.lsp.mason"
-require("user.lsp.handlers").setup()
+require("user.lsp.lsp_internal").setup()
+require("user.lsp.lspconfig").setup(servers)
+require("user.lsp.mason").setup(servers)
 require "user.lsp.null-ls"
-require "user.lsp.lspsaga"
-require "user.lsp.settings.clangd_extensions"
---
--- The default format configuration is in handlers.lua
--- But I'd like to disable it
+require "user.lsp.lspsaga" --lspui
+require "user.lsp.extra.clangd_extensions"
+require "user.lsp.extra.jdtls"
