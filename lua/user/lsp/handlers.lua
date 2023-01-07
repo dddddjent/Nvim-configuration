@@ -36,6 +36,7 @@ M.on_attach = function(client, bufnr)
     end
 
     lsp_keymaps(bufnr)
+
     local status_ok, illuminate = pcall(require, "illuminate")
     if not status_ok then
         return
