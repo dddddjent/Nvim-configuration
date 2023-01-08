@@ -25,6 +25,7 @@ require("gruvbox").setup({
     overrides = {
         CursorLine = { bg = "#3c3836" },
         Pmenu = { bg = "#1d2021" },
+        LspSignatureActiveParameter = { fg = "#d79921" },
     }
 })
 

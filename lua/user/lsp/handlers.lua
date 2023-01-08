@@ -37,6 +37,14 @@ M.on_attach = function(client, bufnr)
 
     lsp_keymaps(bufnr)
 
+    require "lsp_signature".on_attach({
+        bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+            border = "rounded",
+            hi_parameter = "IncSearch",
+        }
+    }, bufnr)
+
     local status_ok, illuminate = pcall(require, "illuminate")
     if not status_ok then
         return

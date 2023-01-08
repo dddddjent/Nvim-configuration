@@ -89,6 +89,9 @@ return packer.startup(function(use)
         "glepnir/lspsaga.nvim",
         branch = "main",
     })
+    use {
+        "ray-x/lsp_signature.nvim",
+    }
     use { "p00f/clangd_extensions.nvim" }
     use { "mfussenegger/nvim-jdtls" }
     -- use { "folke/neodev.nvim" }
