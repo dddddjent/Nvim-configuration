@@ -67,7 +67,9 @@ lualine.setup({
         icons_enabled = true,
         theme = "auto",
         component_separators = { left = "", right = "" },
-        section_separators = { left = '', right = '' },
+        -- section_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+
         disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline",
             "dapui_breakpoints", "dapui_scopes", "dapui_stacks", "dapui_watches", "dapui_console",
             "dap-repl" },
