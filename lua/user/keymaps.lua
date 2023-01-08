@@ -86,33 +86,39 @@ keymap("i", "<C-/>", "<esc><Plug>(comment_toggle_linewise_current) i", opts)
 keymap("v", "<C-/>", "<Plug>(comment_toggle_linewise_visual)", opts)
 
 -- For debug
-keymap("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
-keymap("n", "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
-keymap("n", "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
-keymap("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
-keymap("n", "<F1>", "<Cmd>!./.vscode/script.sh f1 exit<CR>", opts)
-keymap("n", "<F2>", "<Cmd>!./.vscode/script.sh f2 exit<CR>", opts)
-keymap("n", "<F3>", "<Cmd>!./.vscode/script.sh f3 exit<CR>", opts)
-keymap("n", "<F4>", "<Cmd>!./.vscode/script.sh f4 exit<CR>", opts)
-keymap("n", "<F12>", function()
-    local param = vim.fn.input('Param: ')
-    local cmd = "!./.vscode/script.sh " .. param
-    vim.cmd(cmd)
-end, opts)
-keymap("i", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
-keymap("i", "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
-keymap("i", "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
-keymap("i", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
-keymap("i", "<F1>", "<Cmd>!./.vscode/script.sh f1 exit<CR>", opts)
-keymap("i", "<F2>", "<Cmd>!./.vscode/script.sh f2 exit<CR>", opts)
-keymap("i", "<F3>", "<Cmd>!./.vscode/script.sh f3 exit<CR>", opts)
-keymap("i", "<F4>", "<Cmd>!./.vscode/script.sh f4 exit<CR>", opts)
-keymap("i", "<F12>", function()
-    local param = vim.fn.input('Param: ')
-    local cmd = "!./.vscode/script.sh " .. param
-    vim.cmd(cmd)
-end, opts)
+keymap({ "n", "i" }, "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
+keymap({ "n", "i" }, "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
+keymap({ "n", "i" }, "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
+keymap({ "n", "i" }, "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
 keymap("n", "J", "<Cmd>lua require('dapui').eval()<CR>", opts)
+
+-- Script
+keymap({ "n", "i" }, "<F1>", function()
+    local cmd = "./.vscode/script.sh" .. ' f' .. 1
+    vim.cmd("ToggleTerm direction=float")
+    vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
+end)
+keymap({ "n", "i" }, "<F2>", function()
+    local cmd = "./.vscode/script.sh" .. ' f' .. 2
+    vim.cmd("ToggleTerm direction=float")
+    vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
+end)
+keymap({ "n", "i" }, "<F3>", function()
+    local cmd = "./.vscode/script.sh" .. ' f' .. 3
+    vim.cmd("ToggleTerm direction=float")
+    vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
+end)
+keymap({ "n", "i" }, "<F4>", function()
+    local cmd = "./.vscode/script.sh" .. ' f' .. 4
+    vim.cmd("ToggleTerm direction=float")
+    vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
+end)
+keymap({ "n", "i" }, "<F12>", function()
+    local param = vim.fn.input('Param: ')
+    local cmd = "./.vscode/script.sh " .. param
+    vim.cmd("ToggleTerm direction=float")
+    vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
+end, opts)
 
 -- Foldings
 keymap('n', 'zR', require('ufo').openAllFolds, opts)
