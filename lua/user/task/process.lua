@@ -12,11 +12,10 @@ M.process = function(config)
     local dir = ""
     if config.options ~= nil then
         if config.options.cwd ~= nil then
-            dir = config.options.cwd
+            cmd = "cd " .. config.options.cwd .. ";" .. cmd
+            cmd = cmd .. ";cd " .. vim.fn.getcwd()
         end
     end
-    cmd = "cd " .. dir .. ";" .. cmd
-    cmd = cmd .. ";cd " .. vim.fn.getcwd()
 
     -- EXECUTE
     vim.cmd("ToggleTerm direction=float")
