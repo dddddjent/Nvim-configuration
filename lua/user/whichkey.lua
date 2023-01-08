@@ -104,7 +104,7 @@ local mappings = {
         s = { "<cmd>PackerSync<cr>", "Sync" },
         S = { "<cmd>PackerStatus<cr>", "Status" },
         u = { "<cmd>PackerUpdate<cr>", "Update" },
-        C = { "<cmd>!cp -rf /home/ljl/.config/nvim/.nvim .<cr>", "Setup config" },
+        C = { "<cmd>!cp -rf /home/ljl/.config/nvim/.vscode .<cr>", "Setup config" },
         p = { "<cmd>call mdip#MarkdownClipboardImage()<cr>", "Paste an image in markdown" },
     },
 

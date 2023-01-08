@@ -19,8 +19,8 @@ local function currentPath()
 end
 
 function M.configure()
-    if file_exists(vim.fn.getcwd() .. "/.nvim/config.json") then
-        io.input(vim.fn.getcwd() .. "/.nvim/config.json")
+    if file_exists(vim.fn.getcwd() .. "/.vscode/debug.json") then
+        io.input(vim.fn.getcwd() .. "/.vscode/debug.json")
         local str = io.read("*a")
         local json_obj = vim.json.decode(str)
 

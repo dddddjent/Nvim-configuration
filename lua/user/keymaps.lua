@@ -90,26 +90,26 @@ keymap("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
 keymap("n", "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
 keymap("n", "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
-keymap("n", "<F1>", "<Cmd>!./.nvim/script.sh f1 exit<CR>", opts)
-keymap("n", "<F2>", "<Cmd>!./.nvim/script.sh f2 exit<CR>", opts)
-keymap("n", "<F3>", "<Cmd>!./.nvim/script.sh f3 exit<CR>", opts)
-keymap("n", "<F4>", "<Cmd>!./.nvim/script.sh f4 exit<CR>", opts)
+keymap("n", "<F1>", "<Cmd>!./.vscode/script.sh f1 exit<CR>", opts)
+keymap("n", "<F2>", "<Cmd>!./.vscode/script.sh f2 exit<CR>", opts)
+keymap("n", "<F3>", "<Cmd>!./.vscode/script.sh f3 exit<CR>", opts)
+keymap("n", "<F4>", "<Cmd>!./.vscode/script.sh f4 exit<CR>", opts)
 keymap("n", "<F12>", function()
     local param = vim.fn.input('Param: ')
-    local cmd = "!./.nvim/script.sh " .. param
+    local cmd = "!./.vscode/script.sh " .. param
     vim.cmd(cmd)
 end, opts)
 keymap("i", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
 keymap("i", "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
 keymap("i", "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
 keymap("i", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
-keymap("i", "<F1>", "<Cmd>!./.nvim/script.sh f1 exit<CR>", opts)
-keymap("i", "<F2>", "<Cmd>!./.nvim/script.sh f2 exit<CR>", opts)
-keymap("i", "<F3>", "<Cmd>!./.nvim/script.sh f3 exit<CR>", opts)
-keymap("i", "<F4>", "<Cmd>!./.nvim/script.sh f4 exit<CR>", opts)
+keymap("i", "<F1>", "<Cmd>!./.vscode/script.sh f1 exit<CR>", opts)
+keymap("i", "<F2>", "<Cmd>!./.vscode/script.sh f2 exit<CR>", opts)
+keymap("i", "<F3>", "<Cmd>!./.vscode/script.sh f3 exit<CR>", opts)
+keymap("i", "<F4>", "<Cmd>!./.vscode/script.sh f4 exit<CR>", opts)
 keymap("i", "<F12>", function()
     local param = vim.fn.input('Param: ')
-    local cmd = "!./.nvim/script.sh " .. param
+    local cmd = "!./.vscode/script.sh " .. param
     vim.cmd(cmd)
 end, opts)
 keymap("n", "J", "<Cmd>lua require('dapui').eval()<CR>", opts)
@@ -127,8 +127,6 @@ end)
 
 -- Telescope
 keymap("n", "<C-t>", "<Cmd>Telescope<CR>", opts)
-keymap("n", "<C-space>", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)
-keymap("i", "<C-space>", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)
 
 -- Replace
 keymap("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -138,3 +136,6 @@ keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 keymap("n", '|', "<cmd>vsplit<cr>", opts)
 keymap("n", '-', "<cmd>split<cr>", opts)
 keymap("n", '<c-m>', "ighp_bEMN16BGOrLG0o3aJ4ARBK2kPxW5mn4WXBv", opts)
+
+-- Tasks
+keymap("n", "<C-space>", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)

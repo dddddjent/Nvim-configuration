@@ -1,0 +1,35 @@
+{
+    "tasks": [
+        {
+            "type": "process",
+            "label": "cmake",
+            "command": "cmake",
+            "args": [
+                "-B",
+                "build",
+                "-S",
+                ".",
+                "-G",
+                "Ninja",
+                "-DCMAKE_BUILD_TYPE=Debug"
+            ]
+        },
+        {
+            "label": "build",
+            "type": "process",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build"
+            ]
+        },
+        {
+            "label": "run",
+            "type": "process",
+            "command": "/home/ljl/Documents/code/test/test_cmake/build/foo",
+            "options": {
+                "cwd": "~/Documents"
+            }
+        }
+    ]
+}
