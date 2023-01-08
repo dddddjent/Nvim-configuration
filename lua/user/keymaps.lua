@@ -127,6 +127,8 @@ end)
 
 -- Telescope
 keymap("n", "<C-t>", "<Cmd>Telescope<CR>", opts)
+keymap("i", "<C-space>", "<Cmd>Telescope tasks specs<CR>", opts)
+keymap("n", "<C-space>", "<Cmd>Telescope tasks specs<CR>", opts)
 
 -- Replace
 keymap("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
