@@ -20,10 +20,9 @@ end
 
 function M.configure()
     if file_exists(vim.fn.getcwd() .. "/.nvim/config.json") then
-        JSON = (loadfile(currentPath() .. "JSON.lua"))()
         io.input(vim.fn.getcwd() .. "/.nvim/config.json")
         local str = io.read("*a")
-        local json_obj = JSON:decode(str)
+        local json_obj = vim.json.decode(str)
 
         local config_index = 1
         local configuration = {}
