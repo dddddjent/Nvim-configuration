@@ -21,7 +21,7 @@ telescope.setup {
             "--line-number",
             "--column",
             "--smart-case",
-            "--hidden",
+            "--hidden=true",
             "--glob=!.git/",
         },
         mappings = {
@@ -97,6 +97,14 @@ telescope.setup {
         -- }
         -- Now the picker_config_key will be applied every time you call this
         -- builtin picker
+        find_files = {
+            find_command = { "rg", "--files", "--hidden",
+                "-g", "!.git",
+                "-g", "!__pycache__",
+                "-g", "!.pytest_cache",
+                "-g", "!build",
+                "-g", "!.cache", },
+        },
     },
     extensions = {
         -- Your extension configuration goes here:

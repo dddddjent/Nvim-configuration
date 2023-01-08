@@ -28,3 +28,4 @@ require "user.autosession"
 require "user.hop-config"
 require "user.vimtex"
 require "user.tasks"
+require "user.task".configure()
