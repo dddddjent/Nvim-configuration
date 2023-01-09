@@ -4,7 +4,7 @@ if not status_ok then
 end
 configs.setup(
     {
-        ensure_installed = {}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+        ensure_installed = {"lua","vim","cpp","java","rust","python"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
         ignore_install = {},
         matchup = {
             enable = false, -- mandatory, false will disable the whole extension

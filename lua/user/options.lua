@@ -38,6 +38,24 @@ local options = {
     -- linespace = 4,
 }
 
+function CHECK_OS()
+    local delimeter = package.config:sub(1, 1)
+    if delimeter == "\\" then
+        return "windows"
+    else
+        return "linux"
+    end
+end
+
+if CHECK_OS() == "windows" then
+    vim.cmd "set shell=pwsh"
+    vim.cmd "set shellcmdflag=-command"
+    vim.cmd 'set shellquote=\"'
+    vim.cmd "set shellxquote="
+
+    vim.opt.shellslash=true
+end
+
 vim.opt.shortmess:append "c"
 
 for k, v in pairs(options) do
@@ -53,4 +71,4 @@ vim.g.neovide_transparency = 0.95
 -- Markdowm paste
 vim.g.mdip_imgdir = '.pic'
 
-vim.cmd"set fencs=utf-8,gbk,big5,cp936,gb18030,gb2312,utf-16"
+vim.cmd "set fencs=utf-8,gbk,big5,cp936,gb18030,gb2312,utf-16"

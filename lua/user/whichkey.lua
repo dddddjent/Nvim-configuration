@@ -3,6 +3,12 @@ if not status_ok then
     return
 end
 
+local function file_exists(path)
+    local file = io.open(path, "rb")
+    if file then file:close() end
+    return file ~= nil
+end
+
 local setup = {
     plugins = {
         marks = true, -- shows a list of your marks on ' and `
@@ -104,7 +110,14 @@ local mappings = {
         s = { "<cmd>PackerSync<cr>", "Sync" },
         S = { "<cmd>PackerStatus<cr>", "Status" },
         u = { "<cmd>PackerUpdate<cr>", "Update" },
-        C = { "<cmd>!cp -rf /home/ljl/.config/nvim/.vscode .<cr>", "Setup config" },
+        -- C = { "<cmd>!cp -rf /home/ljl/.config/nvim/.vscode .<cr>", "Setup config" },
+        C = { function()
+            if CHECK_OS() == "windows" then
+                vim.cmd "!cp -Recurse -Force .vscode ."
+            else
+                vim.cmd "!cp -rf .vscode ."
+            end
+        end, "Setup config" },
         p = { "<cmd>call mdip#MarkdownClipboardImage()<cr>", "Paste an image in markdown" },
     },
 
@@ -179,7 +192,7 @@ local mappings = {
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-        o = { "<cmd>lua require('neotest').summary.open()<cr> ","Open test summary"}
+        o = { "<cmd>lua require('neotest').summary.open()<cr> ", "Open test summary" }
     },
     d = {
         name = "Debug",

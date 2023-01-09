@@ -144,4 +144,4 @@ keymap("n", '-', "<cmd>split<cr>", opts)
 keymap("n", '<c-m>', "ighp_bEMN16BGOrLG0o3aJ4ARBK2kPxW5mn4WXBv", opts)
 
 -- Tasks
-keymap("n", "<C-space>", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)
+keymap("n", "<C-q>", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)
