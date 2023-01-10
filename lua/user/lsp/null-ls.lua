@@ -31,9 +31,6 @@ null_ls.setup({
                     "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars"
                 }
             }),
-        -- formatting.black.with({ extra_args = { "--fast" } }),
-        -- formatting.stylua,
-        --   -- diagnostics.flake8
         formatting.verible_verilog_format.with({
             filetypes = { "verilog", "systemverilog" },
             extra_args = {
@@ -46,9 +43,9 @@ null_ls.setup({
             },
         }),
         formatting.clang_format.with({
-            extra_args = {
-                "-style=webkit",
-            }
+            -- extra_args = {
+            --     "-style=webkit",
+            -- }
         }),
         formatting.autopep8,
         formatting.latexindent,
