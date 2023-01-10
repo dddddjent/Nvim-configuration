@@ -6,7 +6,13 @@ return {
             },
         },
     },
-    cmd = {
-        'pyright' .. (function() if vim.fn.has('win32') then return '.cmd' end end)()
-    }
+    cmd = (function()
+        if OS == "windows" then
+            return {
+                'pyright'
+            }
+        else
+            return nil
+        end
+    end)()
 }

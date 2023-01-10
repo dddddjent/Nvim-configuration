@@ -1,5 +1,11 @@
 return {
-    cmd = {
-        'cmake-language-server' .. (function() if vim.fn.has('win32') then return '.cmd' end end)()
-    }
+    cmd = (function()
+        if OS == "windows" then
+            return {
+                'cmake-language-server.cmd'
+            }
+        else
+            return nil
+        end
+    end)()
 }

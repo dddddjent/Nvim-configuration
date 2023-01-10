@@ -94,7 +94,7 @@ keymap("n", "J", "<Cmd>lua require('dapui').eval()<CR>", opts)
 
 -- Script
 local script_name = (function()
-    if vim.fn.has('win32') then return 'script.ps1'
+    if OS == "windows" then return 'script.ps1'
     else return 'script.sh'
     end
 end)()

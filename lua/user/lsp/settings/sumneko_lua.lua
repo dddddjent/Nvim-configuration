@@ -13,9 +13,15 @@ return {
             completion = {
                 callSnippet = "Replace"
             },
+            cmd = (function()
+                if OS == "windows" then
+                    return {
+                        'lua-language-server.cmd'
+                    }
+                else
+                    return nil
+                end
+            end)()
         },
     },
-    cmd = {
-        'lua-language-server' .. (function() if vim.fn.has('win32') then return '.cmd' end end)()
-    }
 }

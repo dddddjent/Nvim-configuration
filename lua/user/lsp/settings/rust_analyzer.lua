@@ -13,7 +13,13 @@ return {
     procMacro = {
         enable = true
     },
-    cmd = {
-        'rust-analyzer' .. (function() if vim.fn.has('win32') then return '.cmd' end end)()
-    }
+    cmd = (function()
+        if OS == "windows" then
+            return {
+                'rust-analyzer'
+            }
+        else
+            return nil
+        end
+    end)()
 }

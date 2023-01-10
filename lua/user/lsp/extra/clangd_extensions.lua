@@ -39,12 +39,22 @@ local default_capabilities = {
     offsetEncoding = { 'utf-8', 'utf-16' },
 }
 
+local clang_cmd = (function()
+    if OS == "windows" then
+        return {
+            'clangd.cmd'
+        }
+    else
+        return 'clangd'
+    end
+end)()
+
 require("clangd_extensions").setup {
     server = {
         on_attach = require("user.lsp.handlers").on_attach,
         capabilities = require("user.lsp.handlers").capabilities,
         default_config = {
-            cmd = { 'clangd'.. (function() if vim.fn.has('win32') then return '.cmd' end end)(),
+            cmd = { clang_cmd,
                 '--background-index',
                 '--cross-file-rename',
                 '--header-insertion=never',

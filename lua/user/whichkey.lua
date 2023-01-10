@@ -112,10 +112,10 @@ local mappings = {
         u = { "<cmd>PackerUpdate<cr>", "Update" },
         -- C = { "<cmd>!cp -rf /home/ljl/.config/nvim/.vscode .<cr>", "Setup config" },
         C = { function()
-            if CHECK_OS() == "windows" then
+            if OS == "windows" then
                 vim.cmd "!cp -Recurse -Force .vscode ."
             else
-                vim.cmd "!cp -rf .vscode ."
+                vim.cmd "!cp -rf /home/ljl/.config/nvim/.vscode ."
             end
         end, "Setup config" },
         p = { "<cmd>call mdip#MarkdownClipboardImage()<cr>", "Paste an image in markdown" },

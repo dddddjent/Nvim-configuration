@@ -16,7 +16,7 @@ dap.adapters.codelldb = {
         -- CHANGE THIS to your path!
         -- command = '/usr/bin/codelldb',
         command = (function()
-            if vim.fn.has('win32') then return 'codelldb.cmd'
+            if OS == "windows" then return 'codelldb.cmd'
             else return '/usr/bin/codelldb'
             end
         end)(),

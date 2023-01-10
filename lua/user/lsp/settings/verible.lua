@@ -6,7 +6,13 @@ return {
         "--port_declarations_alignment=align",
         "--module_net_variable_alignment=align"
     },
-    cmd = {
-        'verible-verilog-ls' .. (function() if vim.fn.has('win32') then return '.cmd' end end)()
-    }
+    cmd = (function()
+        if OS == "windows" then
+            return {
+                'verible-verilog-ls'
+            }
+        else
+            return nil
+        end
+    end)()
 }
