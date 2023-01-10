@@ -44,7 +44,7 @@ require("clangd_extensions").setup {
         on_attach = require("user.lsp.handlers").on_attach,
         capabilities = require("user.lsp.handlers").capabilities,
         default_config = {
-            cmd = { 'clangd',
+            cmd = { 'clangd'.. (function() if vim.fn.has('win32') then return '.cmd' end end)(),
                 '--background-index',
                 '--cross-file-rename',
                 '--header-insertion=never',

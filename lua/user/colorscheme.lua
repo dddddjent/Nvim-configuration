@@ -28,12 +28,12 @@ require("gruvbox").setup({
         LspSignatureActiveParameter = { fg = "#d79921" },
     }
 })
-function config_gruvbox()
+local function config_gruvbox()
     cmd "hi @namespace guifg=#458588"
 end
 
 vim.g.gruvbox_baby_background_color = "dark" -- Has to be set before colorscheme
-function config_gruvbox_baby()
+local function config_gruvbox_baby()
     -- local colors = require("gruvbox-baby.colors").config()
     cmd "hi @type.builtin guifg=#7fa2ac"
     cmd "hi @namespace guifg=#458588"
@@ -57,11 +57,11 @@ require("catppuccin").setup({
         operators = {},
     },
 })
-function config_catppuccin()
+local function config_catppuccin()
     cmd "hi @comment guifg=#a0a0a0"
 end
 
-function config_colorscheme(color_scheme)
+local function config_colorscheme(color_scheme)
     if color_scheme == "gruvbox-baby" then
         config_gruvbox_baby()
     elseif color_scheme == "catppuccin" then
