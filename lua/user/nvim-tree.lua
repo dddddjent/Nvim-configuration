@@ -13,7 +13,12 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 nvim_tree.setup {
     update_focused_file = {
         enable = true,
-        update_cwd = true,
+        -- On windows has to be opened under the exact cwd (this cwd will not chang automatically)
+        update_cwd = (function()
+            if OS == "windows" then return false
+            else return true
+            end
+        end)(),
     },
     renderer = {
         root_folder_modifier = ":t",
