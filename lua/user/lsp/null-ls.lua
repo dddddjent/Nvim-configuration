@@ -23,8 +23,14 @@ null_ls.setup({
     end,
     debug = false,
     sources = {
-        formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote",
-            "--use-tabs" } }),
+        formatting.prettier.with(
+            {
+                extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--use-tabs" },
+                filetypes = {
+                    "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less",
+                    "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars"
+                }
+            }),
         -- formatting.black.with({ extra_args = { "--fast" } }),
         -- formatting.stylua,
         --   -- diagnostics.flake8
@@ -47,5 +53,6 @@ null_ls.setup({
         formatting.autopep8,
         formatting.latexindent,
         formatting.cmake_format,
+        diagnostics.cmake_lint,
     },
 })

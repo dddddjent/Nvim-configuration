@@ -1,6 +1,5 @@
 return {
     settings = {
-
         Lua = {
             diagnostics = {
                 globals = { "vim" },
@@ -16,4 +15,7 @@ return {
             },
         },
     },
+    cmd = {
+        'lua-language-server' .. (function() if vim.fn.has('win32') then return '.cmd' end end)()
+    }
 }

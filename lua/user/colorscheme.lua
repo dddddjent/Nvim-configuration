@@ -28,6 +28,9 @@ require("gruvbox").setup({
         LspSignatureActiveParameter = { fg = "#d79921" },
     }
 })
+function config_gruvbox()
+    cmd "hi @namespace guifg=#458588"
+end
 
 vim.g.gruvbox_baby_background_color = "dark" -- Has to be set before colorscheme
 function config_gruvbox_baby()
@@ -65,6 +68,7 @@ function config_colorscheme(color_scheme)
         config_catppuccin()
     elseif color_scheme == "tokyonight" then
     elseif color_scheme == "gruvbox" then
+        config_gruvbox()
     end
 end
 

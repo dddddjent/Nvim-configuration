@@ -192,6 +192,9 @@ local opts = {
             },
         },
     },
+    cmd = {
+        'vscode-json-language-server' .. (function() if vim.fn.has('win32') then return '.cmd' end end)()
+    }
 }
 
 return opts
