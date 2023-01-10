@@ -162,7 +162,7 @@ local mappings = {
             "Open float diagnostic window",
         },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-        -- r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+        r = { "<cmd>LspRestart<cr>", "Rename" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
         S = {
             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
