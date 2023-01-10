@@ -14,7 +14,12 @@ dap.adapters.codelldb = {
     port = "${port}",
     executable = {
         -- CHANGE THIS to your path!
-        command = '/usr/bin/codelldb',
+        -- command = '/usr/bin/codelldb',
+        command = (function()
+            if vim.fn.has('win32') then return 'codelldb.cmd'
+            else return '/usr/bin/codelldb'
+            end
+        end)(),
         args = { "--port", "${port}" },
     }
 }
