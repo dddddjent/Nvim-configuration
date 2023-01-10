@@ -93,29 +93,34 @@ keymap({ "n", "i" }, "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
 keymap("n", "J", "<Cmd>lua require('dapui').eval()<CR>", opts)
 
 -- Script
+local script_name = (function()
+    if vim.fn.has('win32') then return 'script.ps1'
+    else return 'script.sh'
+    end
+end)()
 keymap({ "n", "i" }, "<F1>", function()
-    local cmd = "./.vscode/script.sh" .. ' f' .. 1
+    local cmd = "./.vscode/" .. script_name .. ' f' .. 1
     vim.cmd("ToggleTerm direction=float")
     vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
 end)
 keymap({ "n", "i" }, "<F2>", function()
-    local cmd = "./.vscode/script.sh" .. ' f' .. 2
+    local cmd = "./.vscode/" .. script_name .. ' f' .. 2
     vim.cmd("ToggleTerm direction=float")
     vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
 end)
 keymap({ "n", "i" }, "<F3>", function()
-    local cmd = "./.vscode/script.sh" .. ' f' .. 3
+    local cmd = "./.vscode/" .. script_name .. ' f' .. 3
     vim.cmd("ToggleTerm direction=float")
     vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
 end)
 keymap({ "n", "i" }, "<F4>", function()
-    local cmd = "./.vscode/script.sh" .. ' f' .. 4
+    local cmd = "./.vscode/" .. script_name .. ' f' .. 4
     vim.cmd("ToggleTerm direction=float")
     vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
 end)
 keymap({ "n", "i" }, "<F12>", function()
     local param = vim.fn.input('Param: ')
-    local cmd = "./.vscode/script.sh " .. param
+    local cmd = "./.vscode/" .. script_name .. ' ' .. param
     vim.cmd("ToggleTerm direction=float")
     vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
 end, opts)
