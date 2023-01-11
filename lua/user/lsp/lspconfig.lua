@@ -1,5 +1,18 @@
+local servers = {
+    "sumneko_lua",
+    "cssls",
+    "pyright",
+    "bashls",
+    "jsonls",
+    "yamlls",
+    "cmake",
+    "verible",
+    "lemminx",
+    "ltex",
+}
+
 local M = {}
-function M.setup(servers)
+function M.setup()
     local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
     if not lspconfig_status_ok then
         return
@@ -23,5 +36,4 @@ function M.setup(servers)
         lspconfig[server].setup(opts)
     end
 end
-
 return M

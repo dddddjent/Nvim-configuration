@@ -96,6 +96,7 @@ return packer.startup(function(use)
     use { "mfussenegger/nvim-jdtls" }
     -- use { "folke/neodev.nvim" }
     use { "ap/vim-css-color" }
+    use { "simrat39/rust-tools.nvim" }
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }

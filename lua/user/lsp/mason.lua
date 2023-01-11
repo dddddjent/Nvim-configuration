@@ -1,6 +1,21 @@
-local M = {}
+local servers = {
+    "sumneko_lua",
+    "cssls",
+    "pyright",
+    "bashls",
+    "jsonls",
+    "yamlls",
+    "cmake",
+    "verible",
+    "rust_analyzer",
+    "lemminx",
+    "ltex",
+    "clangd",
+    "jdtls",
+}
 
-M.setup = function(servers)
+local M = {}
+M.setup = function()
     local settings = {
         ui = {
             border = "none",
