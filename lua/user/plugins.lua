@@ -160,7 +160,8 @@ return packer.startup(function(use)
             "antoinemadec/FixCursorHold.nvim",
             "nvim-neotest/neotest-python",
             "nvim-neotest/neotest-vim-test",
-            "vim-test/vim-test"
+            "vim-test/vim-test",
+            "rouge8/neotest-rust"
         }
     }
 
