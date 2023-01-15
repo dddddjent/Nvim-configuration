@@ -206,13 +206,24 @@ local mappings = {
         o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
         u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
         p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
-        -- r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
         r = { "<cmd>lua require'user.task'.configure()<cr>", "Reload Tasks.json" },
         s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
         q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
         U = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
-        R = { "<cmd>lua require'user.dap.dap-languages.configs'.configure()<cr>", "Reload config.json" },
-        e = { "<cmd>echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope<cr>", "Enable the attach privilege" },
+        -- R = { "<cmd>lua require'user.dap.dap-languages.configs'.configure()<cr>", "Reload config.json" },
+        R = { function()
+            require('dap.ext.vscode').load_launchjs(nil,
+                {
+                    -- map the type fields in json to the dap's builtin configuration fields
+                    cppdbg = { 'c', 'cpp' },
+                    codelldb = { 'c', 'cpp' },
+                })
+        end, "Reload launch.json" },
+        e = { function()
+            local cmd = "echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope"
+            vim.cmd("ToggleTerm direction=float")
+            vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
+        end, "Enable the attach privilege" },
     },
 
     -- Harpoon

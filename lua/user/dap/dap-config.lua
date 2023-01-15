@@ -1,6 +1,6 @@
 require('user.dap.dap-languages.adapters')
 local configs=require('user.dap.dap-languages.configs')
-configs.configure()
+-- configs.configure()
 
 local dap = require('dap')
 local dapui = require('dapui')

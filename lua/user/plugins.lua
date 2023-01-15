@@ -88,6 +88,7 @@ return packer.startup(function(use)
     use({
         "glepnir/lspsaga.nvim",
         branch = "main",
+        commit="b7b4777369b441341b2dcd45c738ea4167c11c9e",
     })
     use {
         "ray-x/lsp_signature.nvim",
