@@ -1,0 +1,57 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Codelldb bin",
+            "type": "codelldb",
+            "request": "launch",
+            "program": "build/foo",
+            "args": [
+                "--aa"
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Codelldb attach",
+            "type": "codelldb",
+            "request": "attach",
+            "pid": "${command:pickProcess}",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "run",
+            "type": "cppdbg",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${input:myPick}",
+            "stopAtEntry": false,
+            "args": [
+                "--aa"
+            ]
+        },
+        {
+            "name": "Python",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "myPrompt",
+            "type": "promptString",
+            "description": "Program to run: ",
+            "default": "build/foo"
+        },
+        {
+            "id": "myPick",
+            "type": "pickString",
+            "description": "Program to run: ",
+            "options":[
+                "build/foo",
+                "build/test/test_5"
+            ]
+        }
+    ]
+}
+

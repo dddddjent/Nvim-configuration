@@ -8,9 +8,9 @@ local M = {}
 local ui = function()
 end
 M.configure = function()
-    local path = vim.fn.getcwd() .. "/.vscode/Tasks.json"
+    local path = vim.fn.getcwd() .. "/.vscode/tasks.json"
     if file_exists(path) == false then
-        ui = require("user.task.ui").setup({ { label = "No Tasks.json" } })
+        ui = require("user.task.ui").setup({ { label = "No tasks.json" } })
         return
     end
 
