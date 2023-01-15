@@ -1,5 +1,7 @@
 require('user.dap.dap-languages.adapters')
-local configs=require('user.dap.dap-languages.configs')
+
+require('dap.ext.vscode').json_decode = require 'json5'.parse
+-- local configs=require('user.dap.dap-languages.configs')
 -- configs.configure()
 
 local dap = require('dap')
