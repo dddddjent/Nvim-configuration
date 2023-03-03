@@ -215,8 +215,8 @@ local mappings = {
             require('dap.ext.vscode').load_launchjs(nil,
                 {
                     -- map the type fields in json to the dap's builtin configuration fields
-                    cppdbg = { 'c', 'cpp' },
-                    codelldb = { 'c', 'cpp' },
+                    cppdbg = { 'c', 'cpp', 'rust' },
+                    codelldb = { 'c', 'cpp', 'rust' },
                 })
         end, "Reload launch.json" },
         e = { function()
