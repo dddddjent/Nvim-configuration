@@ -17,7 +17,8 @@ dap.adapters.codelldb = {
         -- command = '/usr/bin/codelldb',
         command = (function()
             if OS == "windows" then return 'codelldb.cmd'
-            else return '/usr/bin/codelldb'
+            -- else return '/usr/bin/codelldb'
+            else return '/home/ljl/.local/share/nvim/mason/bin/codelldb'
             end
         end)(),
         args = { "--port", "${port}" },

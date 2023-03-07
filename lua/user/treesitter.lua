@@ -106,3 +106,4 @@ configs.setup(
         },
     }
 )
+require "nvim-treesitter.install".compiler = { 'gcc' }
