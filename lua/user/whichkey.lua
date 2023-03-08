@@ -162,7 +162,7 @@ local mappings = {
             "Open float diagnostic window",
         },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-        r = { "<cmd>LspRestart<cr>", "Rename" },
+        r = { "<cmd>LspRestart<cr>", "Restart server" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
         S = {
             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
@@ -196,7 +196,7 @@ local mappings = {
     },
     d = {
         name = "Debug",
-        t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+        t = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", "Toggle Breakpoint (with condition)" },
         b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
         c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
         C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
