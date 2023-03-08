@@ -56,15 +56,16 @@ return packer.startup(function(use)
     use { "lukas-reineke/indent-blankline.nvim" }
     use { "goolord/alpha-nvim" }
     use { "folke/which-key.nvim" }
-    use { "catppuccin/nvim" }
-    use { 'folke/tokyonight.nvim' }
-    use { 'luisiacc/gruvbox-baby' }
-    use { "ellisonleao/gruvbox.nvim" }
     use { "p00f/nvim-ts-rainbow" }
     use { "ThePrimeagen/harpoon" }
 
     -- Colorschemes
     use { "lunarvim/darkplus.nvim" }
+    use { "catppuccin/nvim" }
+    use { 'folke/tokyonight.nvim' }
+    use { 'luisiacc/gruvbox-baby' }
+    use { "ellisonleao/gruvbox.nvim" }
+    use { "olimorris/onedarkpro.nvim" }
 
     -- Cmp
     use { "hrsh7th/nvim-cmp" }

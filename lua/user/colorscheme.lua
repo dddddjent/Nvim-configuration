@@ -3,7 +3,7 @@ local cmd = vim.cmd
 -- local colorscheme = "catppuccin"
 -- local colorscheme = "tokyonight"
 -- local colorscheme = "gruvbox-baby"
-local colorscheme = "gruvbox"
+local colorscheme = "onedark"
 
 require("gruvbox").setup({
     undercurl = true,
@@ -61,6 +61,29 @@ local function config_catppuccin()
     cmd "hi @comment guifg=#a0a0a0"
 end
 
+require("onedarkpro").setup({
+    colors = {
+        onedark = {
+            bg = "#202123"
+        },
+        cursorline = "#36383c",
+    },
+    highlights = {
+        WhichKeyFloat = { bg = "#202123" },
+        DiagnosticUnderlineError = { sp = "${red}", style = "undercurl" },
+        DiagnosticUnderlineWarn = { sp = "${yellow}", style = "undercurl" },
+        DiagnosticUnderlineInfo = { sp = "${blue}", style = "undercurl" },
+        DiagnosticUnderlineHint = { sp = "${cyan}", style = "undercurl" },
+        PmenuSel = { bg = "#2d3031" },
+    },
+    options = {
+        cursorline = true
+    }
+})
+local function config_onedarkpro()
+    cmd "hi @property guifg=#C0BAC7"
+end
+
 local function config_colorscheme(color_scheme)
     if color_scheme == "gruvbox-baby" then
         config_gruvbox_baby()
@@ -69,6 +92,8 @@ local function config_colorscheme(color_scheme)
     elseif color_scheme == "tokyonight" then
     elseif color_scheme == "gruvbox" then
         config_gruvbox()
+    elseif color_scheme == "onedark" then
+        config_onedarkpro()
     end
 end
 
