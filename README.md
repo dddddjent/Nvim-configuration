@@ -11,3 +11,4 @@ Intall from Mason:
     clang-format
     debugpy
     prettier
+    latexindent

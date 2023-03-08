@@ -27,6 +27,7 @@ M.setup = function()
         },
         log_level = vim.log.levels.INFO,
         max_concurrent_installers = 4,
+        pip = { upgrade_pip = true }
     }
 
     require("mason").setup(settings)
