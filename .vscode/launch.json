@@ -9,14 +9,16 @@
             "args": [
                 "--aa"
             ],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
+            "console":"integratedTerminal"
         },
         {
             "name": "Codelldb attach",
             "type": "codelldb",
             "request": "attach",
             "pid": "${command:pickProcess}",
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
+            "console":"integratedTerminal"
         },
         {
             "name": "run",
@@ -27,13 +29,15 @@
             "stopAtEntry": false,
             "args": [
                 "--aa"
-            ]
+            ],
+            "console":"integratedTerminal"
         },
         {
             "name": "Python",
             "type": "python",
             "request": "launch",
-            "program": "${file}"
+            "program": "${file}",
+            "console":"integratedTerminal"
         }
     ],
     "inputs": [
