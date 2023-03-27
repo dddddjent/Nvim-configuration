@@ -4,22 +4,25 @@ for Mason, wget needs proxy
 
 1. PackerSync
 2. TSUpdateSync
-3. Install 
-ripgrep
-lazygit
+3. Install
+   ripgrep
+   lazygit
 
 4. For cpp
-gcc/g++
-cmake
-ninja
-   
-5. 
-Intall from Mason:
-    codelldb
-    autopep8
-    clang-format
-    cmakelint
-    cmakelang
-    debugpy
-    prettier
-    latexindent
+   gcc/g++
+   cmake
+   ninja
+5. Intall from Mason:
+   codelldb
+   autopep8
+   clang-format
+   cmakelint
+   cmakelang
+   debugpy
+   prettier
+   latexindent
+
+<br/>
+
+_clangd:_ <br/>
+`clang-format -style=webkit -dump-config > .clang-format`
