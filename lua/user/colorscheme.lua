@@ -3,19 +3,20 @@ local cmd = vim.cmd
 -- local colorscheme = "catppuccin"
 -- local colorscheme = "tokyonight"
 -- local colorscheme = "gruvbox-baby"
+-- local colorscheme = "gruvbox"
 local colorscheme = "onedark"
 
 require("gruvbox").setup({
     undercurl = true,
     underline = true,
     bold = true,
-    italic = true,
+    -- italic = true,
     strikethrough = true,
     invert_selection = false,
     invert_signs = false,
     invert_tabline = false,
     invert_intend_guides = false,
-    inverse = true, -- invert background for search, diffs, statuslines and errors
+    inverse = true,    -- invert background for search, diffs, statuslines and errors
     contrast = "hard", -- can be "hard", "soft" or empty string
     palette_overrides = {
         dark1 = "#1d2021",
@@ -66,7 +67,7 @@ require("onedarkpro").setup({
         onedark = {
             bg = "#202123"
         },
-        cursorline = "#36383c",
+        -- cursorline = "#36383c",
     },
     highlights = {
         WhichKeyFloat = { bg = "#202123" },
@@ -97,7 +98,8 @@ local function config_colorscheme(color_scheme)
     end
 end
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+-- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+vim.cmd("colorscheme " .. colorscheme)
 -- For transparency
 cmd "au ColorScheme * hi Normal ctermbg=none "
 cmd "au ColorScheme * hi SignColumn ctermbg=none guibg=none"
@@ -112,6 +114,6 @@ cmd "let &fcs='eob: '"
 -- Configure colorscheme
 config_colorscheme(colorscheme)
 
-if not status_ok then
-    return
-end
+-- if not status_ok then
+--     return
+-- end

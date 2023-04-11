@@ -99,11 +99,12 @@ telescope.setup {
         -- builtin picker
         find_files = {
             find_command = { "rg", "--files", "--hidden",
-                "-g", "!.git",
-                "-g", "!__pycache__",
-                "-g", "!.pytest_cache",
-                "-g", "!build",
-                "-g", "!.cache", },
+                "-g", "!**/.git/**",
+                "-g", "!**/__pycache__/**",
+                "-g", "!.pytest_cache/",
+                "-g", "!**/build/**",
+                "-g", "!**/.idea/**",
+                "-g", "!**/.cache/**", },
         },
     },
     extensions = {

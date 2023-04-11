@@ -196,7 +196,8 @@ local mappings = {
     },
     d = {
         name = "Debug",
-        t = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", "Toggle Breakpoint (with condition)" },
+        t = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
+            "Toggle Breakpoint (with condition)" },
         b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
         c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
         C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
@@ -216,7 +217,7 @@ local mappings = {
                 {
                     -- map the type fields in json to the dap's builtin configuration fields
                     cppdbg = { 'c', 'cpp', 'rust' },
-                    codelldb = { 'c', 'cpp', 'rust' },
+                    codelldb = { 'c', 'cpp', 'rust', 'cu' },
                 })
         end, "Reload launch.json" },
         e = { function()
