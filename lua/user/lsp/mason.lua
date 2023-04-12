@@ -20,9 +20,9 @@ M.setup = function()
         ui = {
             border = "none",
             icons = {
-                package_installed = "‚óç",
-                package_pending = "‚óç",
-                package_uninstalled = "‚óç",
+                package_installed = "‚ó?",
+                package_pending = "‚ó?",
+                package_uninstalled = "‚ó?",
             },
         },
         log_level = vim.log.levels.INFO,
@@ -35,6 +35,26 @@ M.setup = function()
         ensure_installed = servers,
         -- automatic_installation = true,
     })
+
+    -- Install servers other than lsps
+    local registry = require("mason-registry")
+    for _, pkg_name in ipairs {
+        "autopep8",
+        "codelldb",
+        "clang-format",
+        "cmakelint",
+        "cmakelang",
+        "debugpy",
+        "prettier",
+        "latexindent",
+    } do
+        local ok, pkg = pcall(registry.get_package, pkg_name)
+        if ok then
+            if not pkg:is_installed() then
+                pkg:install()
+            end
+        end
+    end
 end
 
 return M

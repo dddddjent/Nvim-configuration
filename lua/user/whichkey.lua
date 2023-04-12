@@ -113,7 +113,7 @@ local mappings = {
         -- C = { "<cmd>!cp -rf /home/ljl/.config/nvim/.vscode .<cr>", "Setup config" },
         C = { function()
             if OS == "windows" then
-                vim.cmd "!cp -Recurse -Force .vscode ."
+                vim.cmd "!cp -Recurse -Force C:\\Users\\13060\\AppData\\Local\\nvim\\.vscode ."
             else
                 vim.cmd "!cp -rf /home/ljl/.config/nvim/.vscode ."
             end

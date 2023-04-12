@@ -10,7 +10,7 @@ for Mason, wget needs proxy
 
 4. For cpp
    gcc/g++
-   cmake
+   cmake *On windows, the install of everything related to pip should be without proxy...*
    ninja
 5. Intall from Mason:
    codelldb
