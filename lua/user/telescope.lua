@@ -98,7 +98,7 @@ telescope.setup {
         -- Now the picker_config_key will be applied every time you call this
         -- builtin picker
         find_files = {
-            find_command = { "rg", "--files", "--hidden",
+            find_command = { "rg", "--files", "--hidden","--no-ignore","--follow",
                 "-g", "!**/.git/**",
                 "-g", "!**/__pycache__/**",
                 "-g", "!.pytest_cache/",
