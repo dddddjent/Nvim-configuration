@@ -5,7 +5,8 @@ if not status_ok then
 end
 catppuccin.setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
-    background = { -- :h background
+    background = {
+                       -- :h background
         light = "latte",
         dark = "mocha",
     },
@@ -21,7 +22,7 @@ catppuccin.setup({
         comments = { "italic" },
         conditionals = { "italic" },
         loops = {},
-        functions = {},
+        functions = { "bolds" },
         keywords = {},
         strings = {},
         variables = {},

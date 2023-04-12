@@ -44,20 +44,6 @@ local function config_gruvbox_baby()
     cmd "hi @parameter guifg=#ebdbb2"
 end
 
-require("catppuccin").setup({
-    styles = {
-        loops = {},
-        functions = { "bold" },
-        keywords = {},
-        strings = {},
-        variables = {},
-        numbers = {},
-        booleans = {},
-        properties = {},
-        types = {},
-        operators = {},
-    },
-})
 local function config_catppuccin()
     cmd "hi @comment guifg=#a0a0a0"
 end
