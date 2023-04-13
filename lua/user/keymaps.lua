@@ -141,7 +141,7 @@ keymap("n", "<C-t>", "<Cmd>Telescope<CR>", opts)
 
 -- Replace
 keymap("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+keymap("n", "<leader>x", "<cmd>!chmod +x '%'<CR>", { silent = true })
 
 -- Split
 keymap("n", '|', "<cmd>vsplit<cr>", opts)
