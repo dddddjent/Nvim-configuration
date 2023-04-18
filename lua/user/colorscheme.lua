@@ -1,3 +1,6 @@
+-- 
+-- Use :Inspect to see the field of the varieble
+--
 local cmd = vim.cmd
 
 -- local colorscheme = "catppuccin"
@@ -51,7 +54,8 @@ end
 require("onedarkpro").setup({
     colors = {
         onedark = {
-            bg = "#202123"
+            bg = "#202123",
+            yellow = "#D7C893",
         },
         -- cursorline = "#36383c",
     },
@@ -69,6 +73,15 @@ require("onedarkpro").setup({
 })
 local function config_onedarkpro()
     cmd "hi @property guifg=#C0BAC7"
+    cmd "hi @lsp.type.macro.cpp guifg=#A09A29"
+    cmd "hi Type guifg=#C678DD"
+    cmd "hi @parameter guifg=#ABB2BF"
+    cmd "hi @PreProc guifg=#E5C07B"
+    cmd "hi Include guifg=#E5C07B"
+    cmd "hi Define guifg=#E5C07B"
+    cmd "hi @lsp.type.type.cpp guifg=#D7C893"
+    cmd "hi @lsp.typemod.function.defaultLibrary.cpp guifg=#61AFEF"
+    cmd "hi @storageclass.cpp guifg=#C678DD"
 end
 
 local function config_colorscheme(color_scheme)

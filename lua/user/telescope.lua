@@ -103,6 +103,7 @@ telescope.setup {
                 "-g", "!**/__pycache__/**",
                 "-g", "!.pytest_cache/",
                 "-g", "!**/build/**",
+                "-g", "!build/**",
                 "-g", "!**/.idea/**",
                 "-g", "!**/.cache/**", },
         },
