@@ -138,6 +138,7 @@ end)
 
 -- Telescope
 keymap("n", "<C-t>", "<Cmd>Telescope<CR>", opts)
+keymap("n", "<C-g>", ":Telescope live_grep <CR>", opts)
 
 -- Replace
 keymap("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
