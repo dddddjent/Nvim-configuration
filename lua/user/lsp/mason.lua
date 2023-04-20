@@ -20,9 +20,9 @@ M.setup = function()
         ui = {
             border = "none",
             icons = {
-                package_installed = "â—?",
-                package_pending = "â—?",
-                package_uninstalled = "â—?",
+                package_installed = "I",
+                package_pending = "P",
+                package_uninstalled = "U",
             },
         },
         log_level = vim.log.levels.INFO,
