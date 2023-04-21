@@ -103,7 +103,8 @@ return packer.startup(function(use)
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }
     use { 'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+        run =
+        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter" }
@@ -150,8 +151,12 @@ return packer.startup(function(use)
     -- Latex
     use 'lervag/vimtex'
     -- Markdown
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
-        setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        ft = { "markdown" },
+    })
     use 'img-paste-devs/img-paste.vim'
 
     -- Test
