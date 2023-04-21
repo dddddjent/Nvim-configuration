@@ -41,7 +41,6 @@ require("dapui").setup({
         },
         {
             elements = {
-                "repl",
                 "console",
             },
             size = 0.25, -- 25% of total lines
@@ -52,7 +51,7 @@ require("dapui").setup({
         -- Requires Neovim nightly (or 0.8 when released)
         enabled = true,
         -- Display controls in this element
-        element = "repl",
+        element = "console",
         icons = {
             pause = "",
             play = "",
