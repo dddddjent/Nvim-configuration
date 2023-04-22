@@ -12,8 +12,8 @@ M.process = function(config)
     local dir = ""
     if config.options ~= nil then
         if config.options.cwd ~= nil then
-            cmd = "cd " .. config.options.cwd .. ";" .. cmd
-            cmd = cmd .. ";cd " .. vim.fn.getcwd()
+            cmd = "cd " .. '"' .. config.options.cwd .. '"' .. ";" .. cmd
+            cmd = cmd .. ";cd " .. '"' .. vim.fn.getcwd() .. '"'
         end
     end
 
