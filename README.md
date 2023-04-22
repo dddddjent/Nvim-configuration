@@ -26,3 +26,7 @@ for Mason, wget needs proxy
 
 _clangd:_ <br/>
 `clang-format -style=webkit -dump-config > .clang-format`
+
+6. Add new debuggers:
+    - add new adapter
+    - add the configuration in whichkey(<leader>dR) and dap-config (for start up)
