@@ -43,6 +43,11 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
+local ELLIPSIS_CHAR = '…'
+local MAX_LABEL_WIDTH = 35
+local get_ws = function(max, len)
+    return (" "):rep(max - len)
+end
 cmp.setup {
     snippet = {
         expand = function(args)
@@ -66,10 +71,10 @@ cmp.setup {
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            -- elseif luasnip.expandable() then
-            --     luasnip.expand()
-            -- elseif luasnip.expand_or_jumpable() then
-            --     luasnip.expand_or_jump()
+                -- elseif luasnip.expandable() then
+                --     luasnip.expand()
+                -- elseif luasnip.expand_or_jumpable() then
+                --     luasnip.expand_or_jump()
             elseif check_backspace() then
                 fallback()
             else
@@ -82,9 +87,9 @@ cmp.setup {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            -- elseif luasnip.jumpable(-1) then
-            --     luasnip.jump(-1)
-            -- else
+                -- elseif luasnip.jumpable(-1) then
+                --     luasnip.jump(-1)
+                -- else
                 fallback()
             end
         end, {
@@ -93,11 +98,14 @@ cmp.setup {
         }),
     },
     formatting = {
-        fields = { "kind", "abbr", "menu" },
+        fields = { "abbr", "kind", "menu" },
         format = function(entry, vim_item)
             -- Kind icons
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
             -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+            if #vim_item.abbr > MAX_LABEL_WIDTH then
+                vim_item.abbr = vim.fn.strcharpart(vim_item.abbr, 0, MAX_LABEL_WIDTH) .. ELLIPSIS_CHAR
+            end
             vim_item.menu = ({
                 nvim_lsp = "[LSP]",
                 omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
