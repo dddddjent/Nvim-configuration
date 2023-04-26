@@ -12,6 +12,8 @@ local servers = {
     "ltex",
     "clangd",
     "jdtls",
+    "marksman",
+    "bufls",
 }
 
 local M = {}
@@ -47,6 +49,7 @@ M.setup = function()
         "debugpy",
         "prettier",
         "latexindent",
+        "buf"
     } do
         local ok, pkg = pcall(registry.get_package, pkg_name)
         if ok then

@@ -66,7 +66,7 @@ require("clangd_extensions").setup {
                 '--all-scopes-completion',
                 '--pch-storage=memory',
             },
-            filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+            filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
             root_dir = function(fname)
                 return util.root_pattern(table.unpack(root_files))(fname) or util.find_git_ancestor(fname)
             end,

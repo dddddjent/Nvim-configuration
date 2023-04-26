@@ -9,7 +9,8 @@ local servers = {
     "verible",
     "lemminx",
     "ltex",
-    "marksman"
+    "marksman",
+    "bufls"
 }
 
 local M = {}
