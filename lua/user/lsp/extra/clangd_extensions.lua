@@ -52,27 +52,21 @@ end)()
 require("clangd_extensions").setup {
     server = {
         on_attach = require("user.lsp.handlers").on_attach,
-        capabilities = require("user.lsp.handlers").capabilities,
-        default_config = {
-            cmd = { clang_cmd,
-                '--background-index',
-                '--cross-file-rename',
-                '--header-insertion=never',
-                '--clang-tidy',
-                '-j=8',
-                '--inlay-hints',
-                '--suggest-missing-includes',
-                '--header-insertion-decorators',
-                '--all-scopes-completion',
-                '--pch-storage=memory',
-            },
-            filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
-            root_dir = function(fname)
-                return util.root_pattern(table.unpack(root_files))(fname) or util.find_git_ancestor(fname)
-            end,
-            single_file_support = true,
-            capabilities = default_capabilities,
+        capabilities = default_capabilities,
+        cmd = { clang_cmd,
+            '--background-index',
+            '--cross-file-rename',
+            '--header-insertion=never',
+            '--clang-tidy',
+            '-j=8',
+            '--inlay-hints',
+            '--suggest-missing-includes',
+            '--header-insertion-decorators',
+            '--all-scopes-completion',
+            '--pch-storage=memory',
         },
+        single_file_support = true,
+        filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
         commands = {
             ClangdSwitchSourceHeader = {
                 function()
@@ -124,7 +118,6 @@ require("clangd_extensions").setup {
                 statement = "",
                 ["template argument"] = "",
             },
-
             kind_icons = {
                 Compound = "",
                 Recovery = "",
@@ -134,7 +127,6 @@ require("clangd_extensions").setup {
                 TemplateTemplateParm = "",
                 TemplateParamObject = "",
             },
-
             highlights = {
                 detail = "Comment",
             },
