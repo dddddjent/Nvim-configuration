@@ -50,6 +50,8 @@ null_ls.setup({
         formatting.autopep8,
         formatting.latexindent,
         formatting.cmake_format,
+        formatting.buf,
         diagnostics.cmake_lint,
+        diagnostics.protolint,
     },
 })
