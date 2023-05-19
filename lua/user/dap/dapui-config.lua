@@ -31,17 +31,17 @@ require("dapui").setup({
         {
             elements = {
                 -- Elements can be strings or table with id and size keys.
-                { id = "scopes", size = 0.25 },
-                "breakpoints",
-                "stacks",
-                "watches",
+                { id = "scopes",      size = 0.60 },
+                { id = "breakpoints", size = 0.20 },
+                { id = "watches",     size = 0.20 },
             },
             size = 40, -- 40 columns
             position = "left",
         },
         {
             elements = {
-                "console",
+                { id = "console", size = 0.6 },
+                { id = "stacks",  size = 0.40 },
             },
             size = 0.25, -- 25% of total lines
             position = "bottom",
@@ -64,8 +64,8 @@ require("dapui").setup({
         },
     },
     floating = {
-        max_height = nil, -- These can be integers or a float between 0 and 1.
-        max_width = nil, -- Floats will be treated as percentage of your screen.
+        max_height = nil,  -- These can be integers or a float between 0 and 1.
+        max_width = nil,   -- Floats will be treated as percentage of your screen.
         border = "single", -- Border style. Can be "single", "double" or "rounded"
         mappings = {
             close = { "q", "<Esc>" },
