@@ -69,12 +69,12 @@ lualine.setup({
         component_separators = { left = "", right = "" },
         -- section_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
-
         disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline",
             "dapui_breakpoints", "dapui_scopes", "dapui_stacks", "dapui_watches", "dapui_console",
             "dap-repl" },
         -- disabled_filetypes = { "alpha", "dashboard",  "Outline" },
         always_divide_middle = true,
+        globalstatus = true,
     },
     sections = {
         lualine_a = { branch, diagnostics, },
