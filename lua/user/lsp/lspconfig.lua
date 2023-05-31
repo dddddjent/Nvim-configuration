@@ -10,7 +10,8 @@ local servers = {
     "lemminx",
     "ltex",
     "marksman",
-    "bufls"
+    "bufls",
+    "zls"
 }
 
 local M = {}
@@ -38,4 +39,5 @@ function M.setup()
         lspconfig[server].setup(opts)
     end
 end
+
 return M

@@ -14,6 +14,7 @@ local servers = {
     "jdtls",
     "marksman",
     "bufls",
+    "zls",
 }
 
 local M = {}
