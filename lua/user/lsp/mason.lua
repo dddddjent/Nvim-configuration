@@ -15,6 +15,8 @@ local servers = {
     "marksman",
     "bufls",
     "zls",
+    "texlab",
+    "svlangserver"
 }
 
 local M = {}

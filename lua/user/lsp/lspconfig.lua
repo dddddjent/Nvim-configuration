@@ -6,12 +6,13 @@ local servers = {
     "jsonls",
     "yamlls",
     "cmake",
-    "verible",
     "lemminx",
     "ltex",
     "marksman",
     "bufls",
-    "zls"
+    "zls",
+    "texlab",
+    "svlangserver"
 }
 
 local M = {}

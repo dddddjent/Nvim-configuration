@@ -1,7 +1,8 @@
 return {
     settings = {
         ltex = {
-            completionEnabled = true,
+            enabled = { "latex", "tex", "bib", "md" },
+            diagnosticSeverity = "information",
         }
     },
     cmd = (function()

@@ -28,20 +28,9 @@ null_ls.setup({
                 extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--use-tabs" },
                 filetypes = {
                     "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less",
-                    "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars"
+                    "html", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars"
                 }
             }),
-        formatting.verible_verilog_format.with({
-            filetypes = { "verilog", "systemverilog" },
-            extra_args = {
-                "--indentation_spaces", "4",
-                "--formal_parameters_indentation", "indent",
-                "--assignment_statement_alignment=align",
-                "--named_port_alignment=align",
-                "--port_declarations_alignment=align",
-                "--module_net_variable_alignment=align"
-            },
-        }),
         formatting.clang_format.with({
             -- extra_args = {
             --     "-style=webkit",

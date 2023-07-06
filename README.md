@@ -22,6 +22,8 @@ for Mason, wget needs proxy
    prettier
    latexindent
 
+    - Something cannot be installed from Mason:
+        + Verilator, for verilog (svlangserver needs it to lint)
 <br/>
 
 _clangd:_ <br/>

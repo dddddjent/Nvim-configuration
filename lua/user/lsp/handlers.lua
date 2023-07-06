@@ -34,7 +34,7 @@ M.on_attach = function(client, bufnr)
             client.server_capabilities.documentFormattingProvider = false
         end
     end
-
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     lsp_keymaps(bufnr)
 
     require "lsp_signature".on_attach({
