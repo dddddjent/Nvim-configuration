@@ -1,4 +1,5 @@
 local fn = vim.fn
+vim.loader.enable()
 
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -52,7 +53,7 @@ return packer.startup(function(use)
     use { "nvim-lualine/lualine.nvim", }
     use { "akinsho/toggleterm.nvim", }
     use { "ahmedkhalf/project.nvim", }
-    use { "lewis6991/impatient.nvim", }
+    -- use { "lewis6991/impatient.nvim", } -- substituted by vim.loader.enable()
     use {
         "lukas-reineke/indent-blankline.nvim",
         branch = "master",
@@ -95,9 +96,7 @@ return packer.startup(function(use)
         branch = "main",
         commit = "b7b4777369b441341b2dcd45c738ea4167c11c9e",
     })
-    use {
-        "ray-x/lsp_signature.nvim",
-    }
+    use { "ray-x/lsp_signature.nvim", }
     use { "p00f/clangd_extensions.nvim" }
     use { "mfussenegger/nvim-jdtls" }
     -- use { "folke/neodev.nvim" }
@@ -106,14 +105,16 @@ return packer.startup(function(use)
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim" }
-    use { 'nvim-telescope/telescope-fzf-native.nvim',
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
         run =
-        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+    }
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter", }
-    use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
     use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
+    use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
     -- Git
     use { "lewis6991/gitsigns.nvim" }
