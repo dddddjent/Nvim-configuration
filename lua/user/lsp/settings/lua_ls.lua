@@ -13,6 +13,9 @@ return {
             completion = {
                 callSnippet = "Replace"
             },
+            hint = {
+                enable = true,
+            },
             cmd = (function()
                 if OS == "windows" then
                     return {

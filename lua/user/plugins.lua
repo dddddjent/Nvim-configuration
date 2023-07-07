@@ -53,7 +53,11 @@ return packer.startup(function(use)
     use { "akinsho/toggleterm.nvim", }
     use { "ahmedkhalf/project.nvim", }
     use { "lewis6991/impatient.nvim", }
-    use { "lukas-reineke/indent-blankline.nvim" }
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        branch = "master",
+        commit = "b7aa0aed55887edfaece23f7b46ab22232fc8741"
+    }
     use { "goolord/alpha-nvim" }
     use { "folke/which-key.nvim" }
     use { "p00f/nvim-ts-rainbow" }
@@ -107,7 +111,7 @@ return packer.startup(function(use)
         'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
     -- Treesitter
-    use { "nvim-treesitter/nvim-treesitter" }
+    use { "nvim-treesitter/nvim-treesitter", }
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
     use { 'nvim-treesitter/playground', after = 'nvim-treesitter' }
 
