@@ -3,7 +3,7 @@ local saga = require('lspsaga')
 
 saga.init_lsp_saga({
     border_style = "rounded",
-    code_action_icon = "",
+    code_action_icon = " ",
     definition_action_keys = {
         edit = '<C-c>o',
         vsplit = '<C-c>v',
