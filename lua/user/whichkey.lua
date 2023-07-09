@@ -105,13 +105,11 @@ local mappings = {
     ["1"] = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
 
     p = {
-        name = "Packer/Projects/Paste",
-        c = { "<cmd>PackerCompile<cr>", "Compile" },
-        i = { "<cmd>PackerInstall<cr>", "Install" },
-        s = { "<cmd>PackerSync<cr>", "Sync" },
-        S = { "<cmd>PackerStatus<cr>", "Status" },
-        u = { "<cmd>PackerUpdate<cr>", "Update" },
-        -- C = { "<cmd>!cp -rf /home/ljl/.config/nvim/.vscode .<cr>", "Setup config" },
+        name = "Lazy/Projects/Paste",
+        i = { "<cmd>Lazy<cr>", "Lazy info" },
+        r = { "<cmd>Lazy restore<cr>", "Lazy restores from lockerfinfoile" },
+        u = { "<cmd>Lazy update<cr>", "Update" },
+        s = { "<cmd>Lazy sync<cr>", "Sync" },
         C = { function()
             if OS == "windows" then
                 vim.cmd "!cp -Recurse -Force C:\\Users\\13060\\AppData\\Local\\nvim\\.vscode ."

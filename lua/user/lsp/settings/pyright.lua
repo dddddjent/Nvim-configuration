@@ -19,7 +19,7 @@ return {
             },
         },
     },
-    root_dir = util.root_pattern(unpack(root_files)),
+    root_dir = util.root_pattern(table.unpack(root_files)),
     cmd = (function()
         if OS == "windows" then
             return {
