@@ -4,9 +4,10 @@ if not status_ok then
 end
 configs.setup(
     {
-        ensure_installed = { "lua", "vim",
+        ensure_installed = { 
+            "lua", "vim",
             "cpp", "java", "rust", "python",
-            'json', "cmake", "latex", }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+            'json', "cmake", "latex","verilog" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
         ignore_install = {},
         matchup = {
             enable = false, -- mandatory, false will disable the whole extension
