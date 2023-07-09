@@ -53,7 +53,7 @@ require("clangd_extensions").setup {
     server = {
         on_attach = require("user.lsp.handlers").on_attach,
         capabilities = default_capabilities,
-        cmd = { clang_cmd,
+        cmd = { 'clangd',
             '--background-index',
             '--cross-file-rename',
             '--header-insertion=never',
