@@ -142,7 +142,7 @@ end)
 -- Telescope
 keymap("n", "tt", "<Cmd>Telescope<CR>", opts)
 keymap("n", "th", ":Telescope command_history <CR>", opts)
-keymap("n", "tg", ":Telescope live_grep<CR>", opts)
+keymap("n", "tl", ":Telescope live_grep<CR>", opts)
 keymap("n", "td", ":Telescope diagnostics<CR>", opts)
 
 -- Replace
