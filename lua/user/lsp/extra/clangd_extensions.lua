@@ -39,16 +39,6 @@ local default_capabilities = {
     offsetEncoding = { 'utf-8', 'utf-16' },
 }
 
-local clang_cmd = (function()
-    if OS == "windows" then
-        return {
-            'clangd.cmd'
-        }
-    else
-        return 'clangd'
-    end
-end)()
-
 require("clangd_extensions").setup {
     server = {
         on_attach = require("user.lsp.handlers").on_attach,

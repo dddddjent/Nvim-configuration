@@ -16,15 +16,6 @@ return {
             hint = {
                 enable = true,
             },
-            cmd = (function()
-                if OS == "windows" then
-                    return {
-                        'lua-language-server.cmd'
-                    }
-                else
-                    return nil
-                end
-            end)()
         },
     },
 }

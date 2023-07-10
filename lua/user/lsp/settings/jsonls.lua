@@ -192,15 +192,6 @@ local opts = {
             },
         },
     },
-    cmd = (function()
-        if OS == "windows" then
-            return {
-                'vscode-json-language-server.cmd'
-            }
-        else
-            return nil
-        end
-    end)()
 }
 
 return opts
