@@ -19,7 +19,8 @@ return {
             },
         },
     },
-    root_dir = util.root_pattern(table.unpack(root_files)),
+---@diagnostic disable-next-line: deprecated
+    root_dir = util.root_pattern(unpack(root_files)), -- We may use unpack for now (table.unpack() is not working)
     cmd = (function()
         if OS == "windows" then
             return {
@@ -28,5 +29,5 @@ return {
         else
             return nil
         end
-    end)()
+    end)(),
 }
