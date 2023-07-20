@@ -1,4 +1,3 @@
-
 require("user.lsp.lsp_internal").setup()
 require("user.lsp.lspconfig").setup()
 require("user.lsp.mason").setup()

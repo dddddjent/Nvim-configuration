@@ -7,7 +7,7 @@ local servers = {
     "yamlls",
     "cmake",
     "lemminx",
-    "ltex",
+    -- "ltex",
     "marksman",
     "bufls",
     "zls",
