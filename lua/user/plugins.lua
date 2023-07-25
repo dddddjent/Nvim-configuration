@@ -31,7 +31,7 @@ require("lazy").setup({
     },
     { "goolord/alpha-nvim" },
     { "folke/which-key.nvim" },
-    { "p00f/nvim-ts-rainbow" },
+    { "HiPhish/rainbow-delimiters.nvim" },
     { "ThePrimeagen/harpoon" },
 
     -- Colorschemes
@@ -69,7 +69,6 @@ require("lazy").setup({
     { "ray-x/lsp_signature.nvim", },
     { "p00f/clangd_extensions.nvim" },
     { "mfussenegger/nvim-jdtls" },
-    -- use { "folke/neodev.nvim" },
     { "ap/vim-css-color" },
     { "simrat39/rust-tools.nvim" },
 
