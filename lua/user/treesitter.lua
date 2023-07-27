@@ -4,7 +4,7 @@ if not status_ok then
 end
 configs.setup(
     {
-        ensure_installed = { 
+        ensure_installed = {
             "lua", "vim",
             "cpp", "java", "rust", "python",
             'json', "cmake", "latex","verilog" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages

@@ -1,3 +1,4 @@
+vim.loader.enable()
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({
@@ -13,26 +14,74 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 require("lazy").setup({
     { "nvim-lua/plenary.nvim" },
-    { "windwp/nvim-autopairs" },
-    { "numToStr/Comment.nvim" },
-    { "JoosepAlviste/nvim-ts-context-commentstring" },
+    {
+        "windwp/nvim-autopairs",
+        event = "VeryLazy",
+        config = function()
+            require "user.autopairs"
+        end
+    },
+    {
+        "numToStr/Comment.nvim",
+        event = "VeryLazy",
+        config = function()
+            require "user.comment"
+        end
+    },
     { "kyazdani42/nvim-web-devicons", },
-    { "kyazdani42/nvim-tree.lua", },
-    { "akinsho/bufferline.nvim", },
-    { "moll/vim-bbye", },
+    {
+        "kyazdani42/nvim-tree.lua",
+        event = "VeryLazy",
+        config = function()
+            require "user.nvim-tree"
+        end
+    },
+    {
+        "akinsho/bufferline.nvim",
+        event = "VeryLazy",
+        config = function()
+            require "user.bufferline"
+        end
+    },
+    {
+        "moll/vim-bbye",
+        event = "VeryLazy"
+    },
     { "nvim-lualine/lualine.nvim", },
-    { "akinsho/toggleterm.nvim", },
+    {
+        "akinsho/toggleterm.nvim",
+        event = "VeryLazy",
+        config = function()
+            require "user.toggleterm"
+        end
+    },
     { "ahmedkhalf/project.nvim", },
     -- use { "lewis6991/impatient.nvim", } -- substituted by vim.loader.enable()
     {
         "lukas-reineke/indent-blankline.nvim",
+        event = "VeryLazy",
         branch = "master",
         commit = "b7aa0aed55887edfaece23f7b46ab22232fc8741",
+        config = function()
+            require "user.indentline"
+        end
     },
     { "goolord/alpha-nvim" },
-    { "folke/which-key.nvim" },
-    { "HiPhish/rainbow-delimiters.nvim" },
-    { "ThePrimeagen/harpoon" },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("user.whichkey")
+        end
+    },
+    {
+        "HiPhish/rainbow-delimiters.nvim",
+        event = "VeryLazy"
+    },
+    {
+        "ThePrimeagen/harpoon",
+        event = "VeryLazy",
+    },
 
     -- Colorschemes
     { "lunarvim/darkplus.nvim" },
@@ -46,21 +95,33 @@ require("lazy").setup({
     { "hrsh7th/nvim-cmp" },
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
-    { "saadparwaiz1/cmp_luasnip" },
+    {
+        "saadparwaiz1/cmp_luasnip",
+        event = "VeryLazy",
+    },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
     { "hrsh7th/cmp-omni" },
 
     -- Snippets
-    { "L3MON4D3/LuaSnip" },
+    {
+        "L3MON4D3/LuaSnip",
+        event = "VeryLazy",
+        config = function()
+            require "user.luasnip"
+        end
+    },
     { "rafamadriz/friendly-snippets" },
 
     -- LSP
-    { "neovim/nvim-lspconfig" },
+    { "neovim/nvim-lspconfig", },
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
     { "jose-elias-alvarez/null-ls.nvim" },
-    { "RRethy/vim-illuminate" },
+    {
+        "RRethy/vim-illuminate",
+        event = "VeryLazy",
+    },
     ({
         "glepnir/lspsaga.nvim",
         branch = "main",
@@ -71,6 +132,14 @@ require("lazy").setup({
     { "mfussenegger/nvim-jdtls" },
     { "ap/vim-css-color" },
     { "simrat39/rust-tools.nvim" },
+    {
+        "j-hui/fidget.nvim",
+        tag = "legacy",
+        event = "LspAttach",
+        opts = {
+            -- options
+        },
+    },
 
     -- Telescope
     { "nvim-telescope/telescope.nvim" },
@@ -81,13 +150,35 @@ require("lazy").setup({
     },
 
     -- Treesitter
-    { "nvim-treesitter/nvim-treesitter", },
-    { 'nvim-treesitter/playground', dependencies = 'nvim-treesitter' },
-    { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        event = "VeryLazy",
+        dependencies = {
+            "nvim-treesitter/playground",
+            "JoosepAlviste/nvim-ts-context-commentstring",
+        },
+        config = function()
+            require "user.treesitter"
+        end
+    },
+    {
+        'kevinhwang91/nvim-ufo',
+        dependencies = 'kevinhwang91/promise-async',
+    },
 
     -- Git
-    { "lewis6991/gitsigns.nvim" },
-    { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
+    {
+        "lewis6991/gitsigns.nvim",
+        event = "VeryLazy",
+        config = function()
+            require "user.gitsigns"
+        end
+    },
+    {
+        'sindrets/diffview.nvim',
+        event = "VeryLazy",
+        dependencies = 'nvim-lua/plenary.nvim'
+    },
 
     -- Dap
     { "mfussenegger/nvim-dap" },
@@ -109,6 +200,7 @@ require("lazy").setup({
     -- EasyMotion
     {
         'phaazon/hop.nvim',
+        event = "VeryLazy",
         branch = 'v2', -- optional but strongly recommended,
         config = function()
             -- you can configure Hop the way you like here; see :h hop-config,
@@ -116,26 +208,41 @@ require("lazy").setup({
                 keys = 'ahklyuiopnmqwertzxcvbsdgjf',
                 multi_windows = false
             }
+            require "user.hop-config"
         end
     },
 
     -- UndoTree
-    'mbbill/undotree',
+    {
+        'mbbill/undotree',
+        event = "VeryLazy",
+    },
 
     -- Latex,
-    'lervag/vimtex',
+    {
+        'lervag/vimtex',
+        event = "VeryLazy",
+        config = function()
+            require "user.vimtex"
+        end
+    },
     -- Markdown
     ({
         "iamcco/markdown-preview.nvim",
+        event = "VeryLazy",
         build = "cd app && npm install",
         init = function() vim.g.mkdp_filetypes = { "markdown" } end,
         ft = { "markdown" },
     }),
-    'img-paste-devs/img-paste.vim',
+    {
+        'img-paste-devs/img-paste.vim',
+        event = "VeryLazy"
+    },
 
     -- Test
     {
         "nvim-neotest/neotest",
+        event = "VeryLazy",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
@@ -145,6 +252,9 @@ require("lazy").setup({
             "vim-test/vim-test",
             "rouge8/neotest-rust",
         },
+        config = function()
+            require "user.test"
+        end
     },
 
     -- JSON5
