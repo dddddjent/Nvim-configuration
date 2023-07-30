@@ -11,7 +11,7 @@ telescope.setup {
 
         prompt_prefix = " ",
         selection_caret = " ",
-        path_display = { "smart" },
+        path_display = { "full" },
 
         vimgrep_arguments = {
             "rg",
@@ -98,14 +98,22 @@ telescope.setup {
         -- Now the picker_config_key will be applied every time you call this
         -- builtin picker
         find_files = {
-            find_command = { "rg", "--files", "--hidden","--no-ignore","--follow",
+            find_command = {
+                "rg", "--files", "--hidden",
+                -- "--no-ignore",
+                "--follow",
+                -- "-g", "**.vscode/**"
                 "-g", "!**/.git/**",
-                "-g", "!**/__pycache__/**",
-                "-g", "!.pytest_cache/",
-                "-g", "!**/build/**",
-                "-g", "!build/**",
+                -- "-g", "!**/__pycache__/**",
+                -- "-g", "!.pytest_cache/",
+                -- "-g", "!**/build/**",
+                -- "-g", "!build/**",
                 "-g", "!**/.idea/**",
-                "-g", "!**/.cache/**", },
+                "-g", "!**/.cache/**",
+                -- "-g", "!**/external/**",
+                -- "-g", "!**/cmake-build-*/**",
+                "-g", "!**/.gitlab/**",
+            },
         },
     },
     extensions = {
