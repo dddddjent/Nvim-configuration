@@ -156,3 +156,4 @@ keymap("n", '<c-,>', "ighp_bEMN16BGOrLG0o3aJ4ARBK2kPxW5mn4WXBv", opts)
 
 -- Tasks
 keymap("n", "<C-p>", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)
+keymap("n", "tp", "<Cmd>e .vscode/launch.json <bar> e .vscode/tasks.json <cr>", opts)
