@@ -72,6 +72,7 @@ vim.g.neovide_transparency = 0.95
 
 -- Markdowm paste
 vim.g.mdip_imgdir = '.pic'
+-- vim.g.markdown_fenced_languages={'python','cpp'}
 
 vim.cmd "command RestoreSession :SessionRestore"
 

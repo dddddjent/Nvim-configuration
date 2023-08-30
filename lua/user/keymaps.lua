@@ -144,6 +144,7 @@ keymap("n", "tt", "<Cmd>Telescope<CR>", opts)
 keymap("n", "th", ":Telescope command_history <CR>", opts)
 keymap("n", "tl", ":Telescope live_grep<CR>", opts)
 keymap("n", "td", ":Telescope diagnostics<CR>", opts)
+keymap("n", "tb", ":Telescope buffers<CR>", opts)
 
 -- Replace
 keymap("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
