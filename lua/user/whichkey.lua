@@ -154,7 +154,13 @@ local mappings = {
             "<cmd>Telescope diagnostics<cr>",
             "Workspace Diagnostics",
         },
-        f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
+        f = { function()
+            if vim.bo.filetype == 'html' then
+                require "conform".format()
+            else
+                vim.lsp.buf.format { async = true }
+            end
+        end, "Format" },
         i = { "<cmd>LspInfo<cr>", "Info" },
         j = {
             "<cmd>lua vim.diagnostic.open_float()<CR>",
@@ -257,6 +263,8 @@ local mappings = {
 
     -- Undotree
     ["u"] = { "<cmd>UndotreeToggle<cr>", "Toggle UndoTree" },
+
+    ["H"] = { "<cmd>! nohup microsoft-edge-stable first_page.html &<cr>", "HTML preview"}
 
 }
 

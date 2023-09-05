@@ -23,12 +23,14 @@ null_ls.setup({
     end,
     debug = false,
     sources = {
+        -- Have to use conform to format html (<br> is not correct)
+        -- See which key <leader>lf
         formatting.prettier.with(
             {
                 extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--use-tabs" },
                 filetypes = {
                     "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less",
-                    "html", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars"
+                    "yaml", "html", "markdown", "markdown.mdx", "graphql", "handlebars"
                 }
             }),
         formatting.clang_format.with({

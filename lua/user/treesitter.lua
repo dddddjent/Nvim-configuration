@@ -5,9 +5,10 @@ end
 configs.setup(
     {
         ensure_installed = {
-            "lua", "vim",
+            "lua", "vim", "html", "javascript", "css",
             "cpp", "java", "rust", "python",
-            'json', "cmake", "latex","verilog" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+            'json', "cmake", "latex", "verilog"
+        }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
         ignore_install = {},
         matchup = {
             enable = false, -- mandatory, false will disable the whole extension

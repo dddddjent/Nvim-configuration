@@ -51,8 +51,9 @@ M.setup = function()
         "cmakelang",
         "debugpy",
         "prettier",
+        "prettierd",
         "latexindent",
-        "buf"
+        "buf",
     } do
         local ok, pkg = pcall(registry.get_package, pkg_name)
         if ok then

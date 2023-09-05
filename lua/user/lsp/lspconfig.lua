@@ -12,7 +12,11 @@ local servers = {
     "bufls",
     "zls",
     "texlab",
-    "svlangserver"
+    "svlangserver",
+    "tsserver",
+    "html",
+    "cssls",
+    "eslint",
 }
 
 local M = {}

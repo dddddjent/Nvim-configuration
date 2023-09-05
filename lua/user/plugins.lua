@@ -102,6 +102,18 @@ require("lazy").setup({
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
     { "hrsh7th/cmp-omni" },
+    {
+        "roobert/tailwindcss-colorizer-cmp.nvim",
+        -- optionally, override the default options:
+        config = function()
+            require("tailwindcss-colorizer-cmp").setup({
+                color_square_width = 2,
+            })
+            require("cmp").config.formatting = {
+                format = require("tailwindcss-colorizer-cmp").formatter
+            }
+        end
+    },
 
     -- Snippets
     {
@@ -130,7 +142,6 @@ require("lazy").setup({
     { "ray-x/lsp_signature.nvim", },
     { "p00f/clangd_extensions.nvim" },
     { "mfussenegger/nvim-jdtls" },
-    { "ap/vim-css-color" },
     { "simrat39/rust-tools.nvim" },
     {
         "j-hui/fidget.nvim",
@@ -139,6 +150,10 @@ require("lazy").setup({
         opts = {
             -- options
         },
+    },
+    {
+        'stevearc/conform.nvim',
+        event = "VeryLazy",
     },
 
     -- Telescope
@@ -156,9 +171,15 @@ require("lazy").setup({
         dependencies = {
             "nvim-treesitter/playground",
             "JoosepAlviste/nvim-ts-context-commentstring",
+            "windwp/nvim-ts-autotag",
         },
         config = function()
             require "user.treesitter"
+            require 'nvim-treesitter.configs'.setup {
+                autotag = {
+                    enable = true,
+                }
+            }
         end
     },
     {
@@ -262,4 +283,13 @@ require("lazy").setup({
         'Joakker/lua-json5',
         build = './install.sh',
     },
+
+    {
+        'brenoprata10/nvim-highlight-colors',
+        config = function()
+            vim.cmd "set termguicolors"
+            vim.cmd "set t_Co=256"
+            require('nvim-highlight-colors').setup {}
+        end
+    }
 })
