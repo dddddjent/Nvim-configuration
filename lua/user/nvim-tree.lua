@@ -3,13 +3,6 @@ if not status_ok then
     return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-    return
-end
-
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
 --
 -- This function has been generated from your
 --   view.mappings.list
@@ -27,8 +20,8 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 -- Please see https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach for assistance in migrating.
 --
 
-local WIDTH_RATIO=0.5
-local HEIGHT_RATIO=0.9
+local WIDTH_RATIO = 0.5
+local HEIGHT_RATIO = 0.9
 
 local function on_attach(bufnr)
     local api = require('nvim-tree.api')
@@ -36,7 +29,6 @@ local function on_attach(bufnr)
     local function opts(desc)
         return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
-
 
     -- Default mappings. Feel free to modify or remove as you wish.
     --
