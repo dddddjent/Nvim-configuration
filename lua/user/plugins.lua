@@ -164,6 +164,11 @@ require("lazy").setup({
         'stevearc/conform.nvim',
         event = "VeryLazy",
     },
+    -- need lazy.nvim
+    {
+        "microsoft/python-type-stubs",
+        cond = false
+    },
 
     -- Telescope
     { "nvim-telescope/telescope.nvim" },

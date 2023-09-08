@@ -15,10 +15,11 @@ return {
                 typeCheckingMode = "off",
                 autoSearchPaths = true,
                 diagnosticMode = "workspace",
-                useLibraryCodeForTypes = true,
+                useLibraryCodeForTypes = false,
+                stubPath = vim.fn.stdpath("data") .. "/lazy/python-type-stubs"
             },
         },
     },
----@diagnostic disable-next-line: deprecated
+    ---@diagnostic disable-next-line: deprecated
     root_dir = util.root_pattern(unpack(root_files)), -- We may use unpack for now (table.unpack() is not working)
 }
