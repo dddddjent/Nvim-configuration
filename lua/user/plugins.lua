@@ -293,12 +293,39 @@ require("lazy").setup({
         build = './install.sh',
     },
 
+    -- {
+    --     'brenoprata10/nvim-highlight-colors',
+    --     config = function()
+    --         vim.cmd "set termguicolors"
+    --         vim.cmd "set t_Co=256"
+    --         require('nvim-highlight-colors').setup {}
+    --     end
+    -- },
     {
-        'brenoprata10/nvim-highlight-colors',
+        'NvChad/nvim-colorizer.lua',
         config = function()
-            vim.cmd "set termguicolors"
-            vim.cmd "set t_Co=256"
-            require('nvim-highlight-colors').setup {}
+            require 'colorizer'.setup {
+                filetypes = {
+                    'html',
+                    'javascript',
+                    css = { mode = 'virtualtext'; }
+                },
+                user_default_options = {
+                    mode = "background",
+                    RGB = true, -- #RGB hex codes
+                    RRGGBB = true, -- #RRGGBB hex codes
+                    names = true, -- "Name" codes like Blue or blue
+                    RRGGBBAA = true, -- #RRGGBBAA hex codes
+                    AARRGGBB = false, -- 0xAARRGGBB hex codes
+                    rgb_fn = true, -- CSS rgb() and rgba() functions
+                    hsl_fn = true, -- CSS hsl() and hsla() functions
+                    css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+                    css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+                    -- Available methods are false / true / "normal" / "lsp" / "both"
+                    -- True is same as normal
+                    tailwind = true, -- Enable tailwind colors
+                },
+            }
         end
     }
 })
