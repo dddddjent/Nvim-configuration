@@ -114,6 +114,15 @@ require("lazy").setup({
             }
         end
     },
+    { "Jezda1337/nvim-html-css",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-lua/plenary.nvim"
+        },
+        config = function()
+        end,
+        event = 'VeryLazy'
+    },
 
     -- Snippets
     {

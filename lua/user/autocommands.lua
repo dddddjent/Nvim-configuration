@@ -38,6 +38,7 @@ vim.cmd [[
    augroup _lsp
     autocmd!
     autocmd FileType java lua require('user.lsp.extra.jdtls').set_jdtls()
+    autocmd FileType html lua require("html-css"):setup()
    augroup end
 
   augroup _paste_image
