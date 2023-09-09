@@ -313,7 +313,8 @@ require("lazy").setup({
                 filetypes = {
                     'html',
                     'javascript',
-                    css = { mode = 'virtualtext'; }
+                    css = { mode = 'virtualtext'; },
+                    lua = { names = false }
                 },
                 user_default_options = {
                     mode = "background",
