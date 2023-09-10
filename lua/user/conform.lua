@@ -1,6 +1,7 @@
 require("conform").setup({
     formatters_by_ft = {
-        html = { "my_prettierd", "prettierd", "prettier" },
+        html = { "prettier", "prettierd", "my_prettierd", },
+        -- html = { "my_prettierd" },
     },
     formatters = {
         my_prettierd = {

@@ -121,6 +121,7 @@ require("lazy").setup({
             "nvim-lua/plenary.nvim"
         },
         config = function()
+            require("html-css"):setup()
         end,
         event = 'VeryLazy'
     },
