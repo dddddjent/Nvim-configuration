@@ -90,6 +90,7 @@ require("lazy").setup({
     { 'luisiacc/gruvbox-baby' },
     { "ellisonleao/gruvbox.nvim" },
     { "olimorris/onedarkpro.nvim" },
+    { 'Everblush/nvim', name = 'everblush' },
 
     -- Cmp
     { "hrsh7th/nvim-cmp" },

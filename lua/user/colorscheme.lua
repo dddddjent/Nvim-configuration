@@ -8,6 +8,7 @@ local cmd = vim.cmd
 -- local colorscheme = "gruvbox-baby"
 -- local colorscheme = "gruvbox"
 local colorscheme = "onedark"
+-- local colorscheme = "everblush"
 
 require("gruvbox").setup({
     undercurl = true,
@@ -54,7 +55,8 @@ end
 require("onedarkpro").setup({
     colors = {
         onedark = {
-            bg = "#202123",
+            -- bg = "#202123",
+            bg = "#141b1e",
             yellow = "#D7C893",
         },
         -- cursorline = "#36383c",
@@ -77,9 +79,10 @@ local function config_onedarkpro()
     cmd "hi Type guifg=#C678DD"
     cmd "hi @parameter guifg=#ABB2BF"
     cmd "hi @PreProc guifg=#E5C07B"
+    cmd "hi @variable.builtin guifg=@variable"
     cmd "hi Include guifg=#E5C07B"
     cmd "hi Define guifg=#E5C07B"
-    cmd "hi @lsp.type.type.cpp guifg=#D7C893"
+    -- cmd "hi @lsp.type.type.cpp guifg=#D7C893"
     cmd "hi @lsp.typemod.function.defaultLibrary.cpp guifg=#61AFEF"
     cmd "hi @storageclass.cpp guifg=#C678DD"
 end
