@@ -7,7 +7,7 @@ configs.setup(
         ensure_installed = {
             "lua", "vim", "html", "javascript", "css",
             "cpp", "java", "rust", "python",
-            'json', "cmake", "latex", "verilog"
+            'json', "cmake", "latex", "verilog", "bash"
         }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
         ignore_install = {},
         matchup = {

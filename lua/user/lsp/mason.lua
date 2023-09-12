@@ -54,6 +54,7 @@ M.setup = function()
         "prettierd",
         "latexindent",
         "buf",
+        "protolint",
     } do
         local ok, pkg = pcall(registry.get_package, pkg_name)
         if ok then
