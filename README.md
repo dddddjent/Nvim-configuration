@@ -14,7 +14,7 @@ Don't forget to install font
    - mason uses them to install servers
      - python venv/cmake
      - go
-     - nodejs/npm
+     - nodejs/npm: lsps such as bash-ls require nodejs>=14
 
 4. For cpp
 

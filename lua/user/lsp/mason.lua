@@ -16,7 +16,10 @@ local servers = {
     "bufls",
     "zls",
     "texlab",
-    "svlangserver"
+    "svlangserver",
+    "eslint",
+    "html",
+    "tsserver"
 }
 
 local M = {}
@@ -55,6 +58,7 @@ M.setup = function()
         "latexindent",
         "buf",
         "protolint",
+        "markdown-toc"
     } do
         local ok, pkg = pcall(registry.get_package, pkg_name)
         if ok then
