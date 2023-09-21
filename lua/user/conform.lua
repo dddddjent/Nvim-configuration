@@ -1,7 +1,8 @@
 require("conform").setup({
     formatters_by_ft = {
         html = { "prettier", "prettierd", "my_prettierd", },
-        -- html = { "my_prettierd" },
+        python = { "autopep8" },
+        cmake = { "cmake_format" },
     },
     formatters = {
         my_prettierd = {

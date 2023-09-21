@@ -9,6 +9,12 @@ local function file_exists(path)
     return file ~= nil
 end
 
+local conform_format_list = {
+    "python",
+    "html",
+    "cmake",
+}
+
 local setup = {
     plugins = {
         marks = true, -- shows a list of your marks on ' and `
@@ -155,11 +161,13 @@ local mappings = {
             "Workspace Diagnostics",
         },
         f = { function()
-            if vim.bo.filetype == 'html' then
-                require "conform".format()
-            else
-                vim.lsp.buf.format { async = true }
+            for i, file_type in pairs(conform_format_list) do
+                if vim.bo.filetype == file_type then
+                    require "conform".format()
+                    return
+                end
             end
+            vim.lsp.buf.format { async = true }
         end, "Format" },
         i = { "<cmd>LspInfo<cr>", "Info" },
         j = {
@@ -264,7 +272,7 @@ local mappings = {
     -- Undotree
     ["u"] = { "<cmd>UndotreeToggle<cr>", "Toggle UndoTree" },
 
-    ["H"] = { "<cmd>! nohup microsoft-edge-stable first_page.html &<cr>", "HTML preview"}
+    ["H"] = { "<cmd>! nohup microsoft-edge-stable first_page.html &<cr>", "HTML preview" }
 
 }
 
