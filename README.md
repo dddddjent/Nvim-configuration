@@ -8,7 +8,6 @@ Don't forget to install font
 3. Install
 
    - ripgrep
-   - lazygit
    - zstd _If you want to install zls using Mason. It needs this to decompress it on Windows_
    - fd: required by nvim-html-css
    - mason uses them to install servers
