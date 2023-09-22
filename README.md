@@ -1,28 +1,24 @@
 # My configuration for neovim
 
-for Mason, wget needs proxy
 Don't forget to install font
 
 1. PackerSync
 2. TSUpdateSync
 3. Install
-
-   - ripgrep
+   - gcc/g++
    - zstd _If you want to install zls using Mason. It needs this to decompress it on Windows_
    - fd: required by nvim-html-css
    - mason uses them to install servers
      - python venv/cmake
      - go
      - nodejs/npm: lsps such as bash-ls require nodejs>=14
+   - Something cannot be installed from Mason: + Verilator, for verilog (svlangserver needs it to lint)
+     <br/>
 
 4. For cpp
-
-   - gcc/g++
    - cmake _On windows, the install of everything related to pip should be without proxy..._
    - ninja
 
-   - Something cannot be installed from Mason: + Verilator, for verilog (svlangserver needs it to lint)
-     <br/>
 
 5. Add new debuggers:
 

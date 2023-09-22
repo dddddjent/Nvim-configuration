@@ -6,6 +6,8 @@ end
 local actions = require "telescope.actions"
 local sorters = require "telescope.sorters"
 
+local rg_cmd = vim.fn.stdpath('config') .. '/bin/rg'
+
 telescope.setup {
     defaults = {
 
@@ -14,7 +16,7 @@ telescope.setup {
         path_display = { "full" },
 
         vimgrep_arguments = {
-            "rg",
+            rg_cmd,
             "--color=never",
             "--no-heading",
             "--with-filename",
@@ -43,10 +45,10 @@ telescope.setup {
                 ["<C-t>"] = actions.select_tab,
 
                 ["<C-u>"] = actions.results_scrolling_up,
-                ["<C-d>"] =actions.results_scrolling_down,
+                ["<C-d>"] = actions.results_scrolling_down,
 
-                ["<PageUp>"] =actions.preview_scrolling_up,
-                ["<PageDown>"] =  actions.preview_scrolling_down,
+                ["<PageUp>"] = actions.preview_scrolling_up,
+                ["<PageDown>"] = actions.preview_scrolling_down,
 
                 ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
                 ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
@@ -99,7 +101,7 @@ telescope.setup {
         -- builtin picker
         find_files = {
             find_command = {
-                "rg", "--files", "--hidden",
+                rg_cmd, "--files", "--hidden",
                 -- "--no-ignore",
                 "--follow",
                 -- "-g", "**.vscode/**"
