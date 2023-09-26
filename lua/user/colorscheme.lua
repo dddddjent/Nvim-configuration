@@ -76,7 +76,6 @@ require("onedarkpro").setup({
         -- DiagnosticUnderlineInfo = { sp = "${blue}", style = "undercurl" },
         DiagnosticUnderlineInfo = { sp = "${purple}", style = "undercurl" },
         DiagnosticUnderlineHint = { sp = "${cyan}", style = "undercurl" },
-        PmenuSel = { bg = "#141b1e" },
     },
     options = {
         cursorline = true
@@ -124,7 +123,7 @@ local function config_onedarkpro()
     cmd "hi @storageclass.cpp guifg=#67b0e8"
     cmd "hi @PreProc guifg=#67b0e8"
     cmd "hi Number guifg=#E5C07B"
-
+    cmd "hi PmenuSel guibg=#304759"
 end
 
 local function config_colorscheme(color_scheme)
