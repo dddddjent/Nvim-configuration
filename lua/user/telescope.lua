@@ -7,6 +7,9 @@ local actions = require "telescope.actions"
 local sorters = require "telescope.sorters"
 
 local rg_cmd = vim.fn.stdpath('config') .. '/bin/rg'
+if OS == 'windows' then
+    rg_cmd = vim.fn.stdpath('config') .. '/bin/rg.exe'
+end
 
 telescope.setup {
     defaults = {
@@ -124,11 +127,11 @@ telescope.setup {
         --   extension_config_key = value,
         -- }
         fzf = {
-            fuzzy = true, -- false will only do exact matching
+            fuzzy = true,                   -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-        }, -- please take a look at the readme of the extension you want to configure
+            override_file_sorter = true,    -- override the file sorter
+            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+        },                                  -- please take a look at the readme of the extension you want to configure
     },
     file_sorter = sorters.get_fuzzy_file,
     generic_sorter = sorters.get_generic_fuzzy_sorter,
