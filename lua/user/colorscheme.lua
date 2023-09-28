@@ -120,6 +120,7 @@ local function config_onedarkpro()
     cmd "hi @namespace guifg=#E57474"
     cmd "hi @variable guifg=#ABB2BF"
     cmd "hi @parameter guifg=#ABB2BF"
+    cmd "hi @property guifg=#ABB2BF"
     cmd "hi @storageclass.cpp guifg=#67b0e8"
     cmd "hi @PreProc guifg=#67b0e8"
     cmd "hi Number guifg=#E5C07B"
