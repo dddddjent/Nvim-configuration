@@ -272,8 +272,10 @@ local mappings = {
     -- Undotree
     ["u"] = { "<cmd>UndotreeToggle<cr>", "Toggle UndoTree" },
 
-    ["H"] = { "<cmd>! nohup microsoft-edge-stable first_page.html &<cr>", "HTML preview" }
+    ["H"] = { "<cmd>! nohup microsoft-edge-stable first_page.html &<cr>", "HTML preview" },
 
+    ["9"] = { "1gt", "To tab 1" },
+    ["0"] = { "2gt", "To tab 2" }
 }
 
 which_key.setup(setup)
