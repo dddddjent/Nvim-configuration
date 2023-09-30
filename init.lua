@@ -16,3 +16,4 @@ require "user.dap"
 require "user.autosession"
 require "user.delimiters"
 require "user.task".configure()
+require "user.search"
