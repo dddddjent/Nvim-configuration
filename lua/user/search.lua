@@ -81,4 +81,18 @@ function SEARCH_FILE(...)
     show_result(result)
 end
 
-vim.cmd('command! -nargs=* FD lua SEARCH_FILE(<f-args>)')
+vim.cmd([[
+function! MyArgComplete(ArgLead, CmdLine, CursorPos)
+    let completions = ["-g","-i","--search-path"]
+    let filtered_completions = []
+    for completion in completions
+        if match(completion, '^' . a:ArgLead) != -1
+            call add(filtered_completions, completion)
+        endif
+    endfor
+
+    return filtered_completions
+endfunction
+]])
+
+vim.cmd('command! -nargs=* -complete=customlist,MyArgComplete FD lua SEARCH_FILE(<f-args>)')
