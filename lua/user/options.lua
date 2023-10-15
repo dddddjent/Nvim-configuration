@@ -29,7 +29,7 @@ local options = {
     relativenumber = true,                   -- set relative numbered lines
     numberwidth = 4,                         -- set number column width to 2 {default 4}
 
-    signcolumn = "auto:2",                      -- always show the sign column, otherwise it would shift the text each time
+    signcolumn = "auto:1",                      -- always show the sign column, otherwise it would shift the text each time
     wrap = false,
     -- linebreak = true,                        -- companion to wrap, don't split words
     scrolloff = 8,                           -- minimal number of screen lines to keep above and below the cursor

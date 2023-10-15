@@ -46,7 +46,8 @@ end
 local lazygit = Terminal:new({ cmd = lazygit_cmd, hidden = true })
 
 function _LAZYGIT_TOGGLE()
-    lazygit:toggle()
+    vim.cmd("ToggleTerm direction=float")
+    vim.cmd("TermExec cmd=" .. "'" .. lazygit_cmd .. "'")
 end
 
 local node = Terminal:new({ cmd = "node", hidden = true })
