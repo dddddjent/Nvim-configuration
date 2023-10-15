@@ -153,7 +153,6 @@ keymap("n", "<leader>x", "<cmd>!chmod +x '%'<CR>", { silent = true })
 -- Split
 keymap("n", '|', "<cmd>vsplit<cr>", opts)
 keymap("n", '-', "<cmd>split<cr>", opts)
-keymap("n", '<c-,>', "ighp_bEMN16BGOrLG0o3aJ4ARBK2kPxW5mn4WXBv", opts)
 
 -- Tasks
 keymap("n", "<C-p>", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)
