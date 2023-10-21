@@ -140,8 +140,10 @@ local function config_onedarkpro()
     cmd "hi Boolean guifg=#6cbfbf"
     cmd "hi Number guifg=#e5c76b"
     cmd "hi @lsp.type.typeParameter guifg=#e5c76b"
+    cmd "hi @lsp.type.struct guifg=#e5c76b"
     cmd "hi Comment guifg=#505759"
     cmd "hi PmenuSel guibg=#304759"
+    cmd "hi WhichKeyBorder guibg=#141b1e"
     cmd "hi RainbowDelimiterRed guifg=#b3b9b8"
     cmd "hi RainbowDelimiterBlue guifg=#67b0e8"
 end

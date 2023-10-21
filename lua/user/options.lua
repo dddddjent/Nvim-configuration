@@ -28,7 +28,7 @@ local options = {
     cursorlineopt = "number",
     number = true,                           -- set numbered lines
     relativenumber = true,                   -- set relative numbered lines
-    numberwidth = 2,                         -- set number column width to 2 {default 4}
+    numberwidth = 1,                         -- set number column width to 2 {default 4}
 
     signcolumn = "yes:1",                      -- always show the sign column, otherwise it would shift the text each time
     wrap = false,
