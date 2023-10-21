@@ -57,15 +57,15 @@ require("lazy").setup({
     },
     { "ahmedkhalf/project.nvim", },
     -- use { "lewis6991/impatient.nvim", } -- substituted by vim.loader.enable()
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        event = "VeryLazy",
-        branch = "master",
-        commit = "b7aa0aed55887edfaece23f7b46ab22232fc8741",
-        config = function()
-            require "user.indentline"
-        end
-    },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     event = "VeryLazy",
+    --     branch = "master",
+    --     commit = "b7aa0aed55887edfaece23f7b46ab22232fc8741",
+    --     config = function()
+    --         require "user.indentline"
+    --     end
+    -- },
     { "goolord/alpha-nvim" },
     {
         "folke/which-key.nvim",

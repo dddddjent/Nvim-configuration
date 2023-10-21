@@ -56,16 +56,21 @@ require("onedarkpro").setup({
     colors = {
         onedark = {
             -- bg = "#202123",
-            bg = "#141b1e",
             -- yellow = "#D7C893",
             -- yellow = "#e5c76b",
             -- green = "#8ccf7e",
             -- red = "#ef7e7e",
             -- blue = "#67b0e8",
+            bg = "#141b1e",
             yellow = "#e5c76b",
             green = "#8ccf7e",
             blue = "#ef7e7e",
-            purple = "#67b0e8"
+            purple = "#67b0e8",
+            white = "#dadada",
+            gray = "#b3b9b8",
+            inlay_hint = "#505759",
+            cyan = "#6cbfbf",
+            bg_statusline = "#141b1e"
         },
         -- cursorline = "#36383c",
     },
@@ -78,7 +83,7 @@ require("onedarkpro").setup({
         DiagnosticUnderlineHint = { sp = "${cyan}", style = "undercurl" },
     },
     options = {
-        cursorline = true
+        -- cursorline = true
     }
 })
 local palette = {
@@ -117,15 +122,28 @@ local function config_onedarkpro()
     -- cmd "hi @lsp.typemod.function.defaultLibrary.cpp guifg=#61AFEF"
     -- cmd "hi @storageclass.cpp guifg=#C678DD"
 
-    cmd "hi @namespace guifg=#E57474"
-    cmd "hi @variable guifg=#ABB2BF"
-    cmd "hi @variable.cmake guifg=#67b0e8"
-    cmd "hi @parameter guifg=#ABB2BF"
-    cmd "hi @property guifg=#ABB2BF"
+    cmd "hi @namespace guifg=#ef7e7e"
+    cmd "hi @lsp.typemod.property.declaration guifg=#ef7e7e"
+    cmd "hi @lsp.typemod.property.classScope guifg=#ef7e7e"
+    cmd "hi @lsp.typemod.unknown.classScope guifg=#ef7e7e"
+    cmd "hi @lsp.typemod.method.defaultLibrary guifg=#ef7e7e"
+    cmd "hi @variable guifg=#b3b9b8"
+    cmd "hi @parameter guifg=#b3b9b8"
+    cmd "hi @property guifg=#b3b9b8"
+    cmd "hi CursorLineNr guifg=#b3b9b8"
     cmd "hi @storageclass.cpp guifg=#67b0e8"
+    cmd "hi @variable.cmake guifg=#67b0e8"
     cmd "hi @PreProc guifg=#67b0e8"
-    cmd "hi Number guifg=#E5C07B"
+    cmd "hi @type.qualifier guifg=#67b0e8"
+    cmd "hi @variable.builtin guifg=#67b0e8"
+    cmd "hi @Constant guifg=#6cbfbf"
+    cmd "hi Boolean guifg=#6cbfbf"
+    cmd "hi Number guifg=#e5c76b"
+    cmd "hi @lsp.type.typeParameter guifg=#e5c76b"
+    cmd "hi Comment guifg=#505759"
     cmd "hi PmenuSel guibg=#304759"
+    cmd "hi RainbowDelimiterRed guifg=#b3b9b8"
+    cmd "hi RainbowDelimiterBlue guifg=#67b0e8"
 end
 
 local function config_colorscheme(color_scheme)
