@@ -37,6 +37,13 @@ require('spectre').setup({
             },
         },
     },
+    mapping = {
+        ['run_current_replace'] = {
+            map = "<leader>r",
+            cmd = "<cmd>lua require('spectre.actions').run_current_replace()<CR>",
+            desc = "replace current line"
+        },
+    },
     find = {
         --pick one of item in find_engine
         cmd = rg_cmd,
