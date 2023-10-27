@@ -17,6 +17,7 @@ local servers = {
     "html",
     "cssls",
     "eslint",
+    "taplo",
 }
 
 local M = {}
