@@ -94,6 +94,7 @@ keymap({ "n", "i" }, "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
 keymap({ "n", "i" }, "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
 keymap({ "n", "i" }, "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
 keymap("n", "J", "<Cmd>lua require('dapui').eval()<CR>", opts)
+keymap("n", "<RightMouse>", "<Cmd>lua require('dapui').eval()<CR>", opts)
 
 -- Script
 local script_name = (function()
