@@ -90,7 +90,7 @@ require("lazy").setup({
     { 'luisiacc/gruvbox-baby' },
     { "ellisonleao/gruvbox.nvim" },
     { "olimorris/onedarkpro.nvim" },
-    { 'Everblush/nvim', name = 'everblush' },
+    { 'Everblush/nvim',           name = 'everblush' },
 
     -- Cmp
     { "hrsh7th/nvim-cmp" },
@@ -203,6 +203,11 @@ require("lazy").setup({
             require 'nvim-treesitter.configs'.setup {
                 autotag = {
                     enable = true,
+                    filetypes = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte',
+                        'vue', 'tsx', 'jsx', 'rescript',
+                        'xml',
+                        'php',
+                        'astro', 'glimmer', 'handlebars', 'hbs' },
                 }
             }
         end
@@ -316,20 +321,20 @@ require("lazy").setup({
                 filetypes = {
                     'html',
                     'javascript',
-                    css = { mode = 'virtualtext'; },
+                    css = { mode = 'virtualtext', },
                     lua = { names = false }
                 },
                 user_default_options = {
                     mode = "background",
-                    RGB = true, -- #RGB hex codes
-                    RRGGBB = true, -- #RRGGBB hex codes
-                    names = true, -- "Name" codes like Blue or blue
-                    RRGGBBAA = true, -- #RRGGBBAA hex codes
+                    RGB = true,       -- #RGB hex codes
+                    RRGGBB = true,    -- #RRGGBB hex codes
+                    names = true,     -- "Name" codes like Blue or blue
+                    RRGGBBAA = true,  -- #RRGGBBAA hex codes
                     AARRGGBB = false, -- 0xAARRGGBB hex codes
-                    rgb_fn = true, -- CSS rgb() and rgba() functions
-                    hsl_fn = true, -- CSS hsl() and hsla() functions
-                    css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-                    css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+                    rgb_fn = true,    -- CSS rgb() and rgba() functions
+                    hsl_fn = true,    -- CSS hsl() and hsla() functions
+                    css = true,       -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+                    css_fn = true,    -- Enable all CSS *functions*: rgb_fn, hsl_fn
                     -- Available methods are false / true / "normal" / "lsp" / "both"
                     -- True is same as normal
                     tailwind = true, -- Enable tailwind colors
@@ -345,9 +350,9 @@ require("lazy").setup({
             -- lua, default settings
             require("better_escape").setup {
                 mapping = { "kj", "jk", }, -- a table with mappings to use
-                timeout = 200, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+                timeout = 200,             -- the time in which the keys must be hit in ms. Use option timeoutlen by default
                 clear_empty_lines = false, -- clear line after escaping if there is only whitespace
-                keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
+                keys = "<Esc>",            -- keys used for escaping, if it is a function will use the result everytime
                 -- example(recommended)
                 -- keys = function()
                 --   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
