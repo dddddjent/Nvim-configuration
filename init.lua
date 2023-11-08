@@ -18,3 +18,4 @@ require "user.delimiters"
 require "user.task".configure()
 require "user.search"
 require "user.delaytrain"
+require "user.session"

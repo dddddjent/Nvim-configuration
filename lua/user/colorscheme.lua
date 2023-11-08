@@ -61,7 +61,7 @@ require("onedarkpro").setup({
             -- green = "#8ccf7e",
             -- red = "#ef7e7e",
             -- blue = "#67b0e8",
-            bg = "#141b1e",
+            bg = "#15191f",
             yellow = "#e5c76b",
             green = "#8ccf7e",
             blue = "#ef7e7e",
@@ -70,12 +70,12 @@ require("onedarkpro").setup({
             gray = "#b3b9b8",
             inlay_hint = "#505759",
             cyan = "#6cbfbf",
-            bg_statusline = "#141b1e"
+            bg_statusline = "#15191f"
         },
         -- cursorline = "#36383c",
     },
     highlights = {
-        WhichKeyFloat = { bg = "#141b1e" },
+        WhichKeyFloat = { bg = "#15191f" },
         DiagnosticUnderlineError = { sp = "${red}", style = "undercurl" },
         DiagnosticUnderlineWarn = { sp = "${yellow}", style = "undercurl" },
         -- DiagnosticUnderlineInfo = { sp = "${blue}", style = "undercurl" },
@@ -143,7 +143,7 @@ local function config_onedarkpro()
     cmd "hi @lsp.type.struct guifg=#e5c76b"
     cmd "hi Comment guifg=#505759"
     cmd "hi PmenuSel guibg=#304759"
-    cmd "hi WhichKeyBorder guibg=#141b1e"
+    cmd "hi WhichKeyBorder guibg=#15191f"
     cmd "hi RainbowDelimiterRed guifg=#b3b9b8"
     cmd "hi RainbowDelimiterBlue guifg=#67b0e8"
 end
