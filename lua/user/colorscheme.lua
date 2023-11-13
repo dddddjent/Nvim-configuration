@@ -146,7 +146,11 @@ local function config_onedarkpro()
     cmd "hi WhichKeyBorder guibg=#15191f"
     cmd "hi RainbowDelimiterRed guifg=#ef7e7e"
     cmd "hi RainbowDelimiterBlue guifg=#67b0e8"
-    cmd "hi RainbowDelimiterYellow guifg=#e5c76b"
+    cmd "hi RainbowDelimiterYellow guifg=#f4d67a"
+    cmd "hi RainbowDelimiterOrange guifg=#e5c76b"
+    cmd "hi RainbowDelimiterGreen guifg=#8ccf7e"
+    cmd "hi RainbowDelimiterViolet guifg=#c47fd5"
+    cmd "hi RainbowDelimiterCyan guifg=#6cbfbf"
 end
 
 local function config_colorscheme(color_scheme)
