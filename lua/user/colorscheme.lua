@@ -20,7 +20,7 @@ require("gruvbox").setup({
     invert_signs = false,
     invert_tabline = false,
     invert_intend_guides = false,
-    inverse = true, -- invert background for search, diffs, statuslines and errors
+    inverse = true,    -- invert background for search, diffs, statuslines and errors
     contrast = "hard", -- can be "hard", "soft" or empty string
     palette_overrides = {
         dark1 = "#1d2021",
@@ -151,6 +151,9 @@ local function config_onedarkpro()
     cmd "hi RainbowDelimiterGreen guifg=#8ccf7e"
     cmd "hi RainbowDelimiterViolet guifg=#c47fd5"
     cmd "hi RainbowDelimiterCyan guifg=#6cbfbf"
+    cmd "hi NormalFloat guibg=#15191f"
+    cmd "hi FloatBorder guibg=#15191f"
+    cmd "hi SagaCount guifg=white guibg=#15191f gui=bold"
 end
 
 local function config_colorscheme(color_scheme)
