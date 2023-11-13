@@ -164,3 +164,13 @@ reddit
 egl
 xml
 d3d10
+PPI
+OSs
+gitlab
+libprotobuf
+protobuf3
+libbrpc
+Brpc
+proto
+gcc13
+nvcc12

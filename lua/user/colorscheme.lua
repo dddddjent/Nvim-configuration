@@ -144,8 +144,9 @@ local function config_onedarkpro()
     cmd "hi Comment guifg=#505759"
     cmd "hi PmenuSel guibg=#304759"
     cmd "hi WhichKeyBorder guibg=#15191f"
-    cmd "hi RainbowDelimiterRed guifg=#b3b9b8"
+    cmd "hi RainbowDelimiterRed guifg=#ef7e7e"
     cmd "hi RainbowDelimiterBlue guifg=#67b0e8"
+    cmd "hi RainbowDelimiterYellow guifg=#e5c76b"
 end
 
 local function config_colorscheme(color_scheme)

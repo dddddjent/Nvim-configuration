@@ -60,7 +60,7 @@
   "plenary.nvim": { "branch": "master", "commit": "a56bf0071bf63d35274fdc4738bb1e8821cfd2ea" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "promise-async": { "branch": "main", "commit": "e94f35161b8c5d4a4ca3b6ff93dd073eb9214c0e" },
-  "rainbow-delimiters.nvim": { "branch": "master", "commit": "9cbd3dc409af1f5531778ccd1ea6bce668241f39" },
+  "rainbow-delimiters.nvim": { "branch": "master", "commit": "9515abd92ae0e42044d47716537f3997991a037b" },
   "rust-tools.nvim": { "branch": "master", "commit": "0cc8adab23117783a0292a0c8a2fbed1005dc645" },
   "tailwindcss-colorizer-cmp.nvim": { "branch": "main", "commit": "65565c62963579897d28390dbd1ba8fb15ba545f" },
   "telescope-dap.nvim": { "branch": "master", "commit": "313d2ea12ae59a1ca51b62bf01fc941a983d9c9c" },
