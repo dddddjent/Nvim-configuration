@@ -319,6 +319,8 @@ require("lazy").setup({
         config = function()
             require 'colorizer'.setup {
                 filetypes = {
+                    'json',
+                    rust = { names = false },
                     'html',
                     'javascript',
                     css = { mode = 'virtualtext', },

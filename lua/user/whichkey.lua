@@ -13,6 +13,7 @@ local conform_format_list = {
     "python",
     "html",
     "cmake",
+    "json",
 }
 
 local setup = {
