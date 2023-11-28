@@ -156,5 +156,6 @@ keymap("n", '|', "<cmd>vsplit<cr>", opts)
 keymap("n", '-', "<cmd>split<cr>", opts)
 
 -- Tasks
-keymap("n", "<C-p>", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)
+keymap("n", "<backspace>", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)
+keymap("n", "<leader>n", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)
 keymap("n", "tp", "<Cmd>e .vscode/launch.json <bar> e .vscode/tasks.json <cr>", opts)

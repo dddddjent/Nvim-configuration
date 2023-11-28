@@ -3,9 +3,7 @@ if not null_ls_status_ok then
     return
 end
 
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
 -- Avoid null-ls useless warning
@@ -38,10 +36,21 @@ null_ls.setup({
             --     "-style=webkit",
             -- }
         }),
-        formatting.autopep8,
         formatting.latexindent,
         formatting.cmake_format,
         formatting.buf,
         diagnostics.protolint,
+        formatting.black,
+        formatting.isort,
+        diagnostics.mypy,
+        diagnostics.flake8.with({
+            -- Force the severity
+            diagnostics_postprocess = function(diagnostic)
+                diagnostic.severity = vim.diagnostic.severity.WARN
+                if diagnostic.message:find("unused") then
+                    diagnostic.severity = vim.diagnostic.severity.HINT
+                end
+            end,
+        }),
     },
 })

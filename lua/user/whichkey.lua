@@ -10,7 +10,6 @@ local function file_exists(path)
 end
 
 local conform_format_list = {
-    "python",
     "html",
     "cmake",
     "json",
