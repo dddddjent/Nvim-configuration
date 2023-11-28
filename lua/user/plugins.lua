@@ -362,5 +362,5 @@ require("lazy").setup({
             }
         end,
     },
-    { "ja-ford/delaytrain.nvim" },
+    -- { "ja-ford/delaytrain.nvim" },
 })
