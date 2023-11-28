@@ -1,6 +1,5 @@
 local servers = {
     "lua_ls",
-    "cssls",
     "jedi_language_server",
     "bashls",
     "jsonls",

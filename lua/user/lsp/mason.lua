@@ -19,7 +19,8 @@ local servers = {
     "svlangserver",
     "eslint",
     "html",
-    "tsserver"
+    "tsserver",
+    "taplo",
 }
 
 local M = {}
@@ -47,6 +48,7 @@ M.setup = function()
     -- Install servers other than lsps
     local registry = require("mason-registry")
     for _, pkg_name in ipairs {
+        "flake8",
         "isort",
         "mypy",
         "black",
