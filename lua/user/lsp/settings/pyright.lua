@@ -12,12 +12,17 @@ return {
     settings = {
         python = {
             analysis = {
-                typeCheckingMode = "off",
+                diagnosticMode = "openFilesOnly", -- Very Important
+                typeCheckingMode = "off",         -- Set in separted projects
                 autoSearchPaths = true,
-                diagnosticMode = "workspace",
-                useLibraryCodeForTypes = false,
-                stubPath = vim.fn.stdpath("data") .. "/lazy/python-type-stubs"
+                useLibraryCodeForTypes = true,
+                reportMissingTypeStubs = true,
+                stubPath = vim.fn.stdpath("data") .. "/lazy/python-type-stubs" -- Needs to be cloned yourself
             },
+        },
+        pyright = {
+            disableLanguageServices = false,
+            disableOrganizeImports = false
         },
     },
     ---@diagnostic disable-next-line: deprecated

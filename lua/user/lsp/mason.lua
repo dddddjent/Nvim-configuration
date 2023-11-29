@@ -1,7 +1,7 @@
 local servers = {
     "lua_ls",
     "cssls",
-    "jedi_language_server",
+    "pyright",
     "bashls",
     "jsonls",
     "yamlls",
@@ -48,10 +48,8 @@ M.setup = function()
     -- Install servers other than lsps
     local registry = require("mason-registry")
     for _, pkg_name in ipairs {
-        "flake8",
         "isort",
         "mypy",
-        "black",
         "codelldb",
         "clang-format",
         "cmakelint",

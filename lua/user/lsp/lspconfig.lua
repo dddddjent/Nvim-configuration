@@ -1,6 +1,7 @@
 local servers = {
     "lua_ls",
-    "jedi_language_server",
+    "pyright",
+    "ruff_lsp",
     "bashls",
     "jsonls",
     "yamlls",

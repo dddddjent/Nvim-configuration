@@ -39,18 +39,8 @@ null_ls.setup({
         formatting.latexindent,
         formatting.cmake_format,
         formatting.buf,
-        diagnostics.protolint,
-        formatting.black,
         formatting.isort,
         diagnostics.mypy,
-        diagnostics.flake8.with({
-            -- Force the severity
-            diagnostics_postprocess = function(diagnostic)
-                diagnostic.severity = vim.diagnostic.severity.WARN
-                if diagnostic.message:find("unused") then
-                    diagnostic.severity = vim.diagnostic.severity.HINT
-                end
-            end,
-        }),
+        diagnostics.protolint,
     },
 })

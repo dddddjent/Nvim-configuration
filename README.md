@@ -28,3 +28,6 @@ Don't forget to install font
 6. Tips
    - _clangd:_ <br/>
      `clang-format -style=webkit -dump-config > .clang-format`
+
+7. Python:
+Maybe stubs need to be installed manually in Lazy
