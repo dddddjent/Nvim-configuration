@@ -2,6 +2,7 @@ local servers = {
     "lua_ls",
     "cssls",
     "pyright",
+    "ruff_lsp",
     "bashls",
     "jsonls",
     "yamlls",
