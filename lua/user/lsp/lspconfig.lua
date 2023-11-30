@@ -1,6 +1,7 @@
 local servers = {
     "lua_ls",
     "pyright",
+    -- "pylance",
     "ruff_lsp",
     "bashls",
     "jsonls",
@@ -32,6 +33,7 @@ function M.setup()
         opts = {
             on_attach = require("user.lsp.handlers").on_attach,
             capabilities = require("user.lsp.handlers").capabilities,
+            inlay_hints = { enabled = true },
         }
 
         server = vim.split(server, "@")[1]
