@@ -30,7 +30,7 @@ return {
         python = {
             analysis = {
                 diagnosticMode = "openFilesOnly", -- Very Important
-                typeCheckingMode = "strict",      -- Set in separted projects
+                typeCheckingMode = "off",      -- Set in separted projects
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
                 reportMissingTypeStubs = true,
@@ -43,10 +43,10 @@ return {
                 stubPath = vim.fn.stdpath("data") .. "/lazy/python-type-stubs" -- Needs to be cloned yourself
             },
         },
-        -- pyright = {
-        --     disableLanguageServices = false,
-        --     disableOrganizeImports = false
-        -- },
+        pyright = {
+            disableLanguageServices = false,
+            disableOrganizeImports = false
+        },
     },
     cmd = cmd,
     ---@diagnostic disable-next-line: deprecated
