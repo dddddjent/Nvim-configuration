@@ -13,11 +13,11 @@ local function file_exists(path)
     if file then file:close() end
     return file ~= nil
 end
-local pylsp_path = vim.fn.expand("$HOME/Documents/applications/pylsp/pylsp")
+local pylsp_path = vim.fn.expand("$HOME/Documents/applications/pylsp/src/server.bundle.js")
 local cmd = {}
 if file_exists(pylsp_path) == true then
     cmd = {
-        pylsp_path, "", "--stdio",
+        "node", pylsp_path, "--stdio",
     }
 else
     cmd = {
@@ -30,7 +30,7 @@ return {
         python = {
             analysis = {
                 diagnosticMode = "openFilesOnly", -- Very Important
-                typeCheckingMode = "off",         -- Set in separted projects
+                typeCheckingMode = "strict",      -- Set in separted projects
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
                 reportMissingTypeStubs = true,
@@ -43,10 +43,10 @@ return {
                 stubPath = vim.fn.stdpath("data") .. "/lazy/python-type-stubs" -- Needs to be cloned yourself
             },
         },
-        pyright = {
-            disableLanguageServices = false,
-            disableOrganizeImports = false
-        },
+        -- pyright = {
+        --     disableLanguageServices = false,
+        --     disableOrganizeImports = false
+        -- },
     },
     cmd = cmd,
     ---@diagnostic disable-next-line: deprecated
