@@ -1,5 +1,12 @@
 -- This file is for the on_attach and capabilities for lspconfig
 
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local bufnr = args.buf
+        vim.lsp.inlay_hint(bufnr, true)
+    end,
+})
+
 local M = {}
 
 -- capabilities: cmp_nvim_lsp

@@ -154,7 +154,6 @@ require("lazy").setup({
     { "ray-x/lsp_signature.nvim", },
     { "p00f/clangd_extensions.nvim" },
     { "mfussenegger/nvim-jdtls" },
-    { "simrat39/rust-tools.nvim" },
     {
         "j-hui/fidget.nvim",
         tag = "legacy",

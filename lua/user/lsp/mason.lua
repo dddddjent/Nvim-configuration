@@ -9,7 +9,7 @@ local servers = {
     "yamlls",
     "cmake",
     "verible",
-    "rust_analyzer",
+    -- "rust_analyzer",
     "lemminx",
     "ltex",
     "clangd",
@@ -51,7 +51,7 @@ M.setup = function()
     local registry = require("mason-registry")
     for _, pkg_name in ipairs {
         "isort",
-        "mypy",
+        -- "mypy",
         "codelldb",
         "clang-format",
         "cmakelint",

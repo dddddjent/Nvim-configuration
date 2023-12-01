@@ -5,6 +5,7 @@ Don't forget to install font
 1. PackerSync
 2. TSUpdateSync
 3. Install
+
    - gcc/g++
    - zstd _If you want to install zls using Mason. It needs this to decompress it on Windows_
    - fd: required by nvim-html-css
@@ -16,9 +17,9 @@ Don't forget to install font
      <br/>
 
 4. For cpp
+
    - cmake _On windows, the install of everything related to pip should be without proxy..._
    - ninja
-
 
 5. Add new debuggers:
 
@@ -26,8 +27,12 @@ Don't forget to install font
    - add the configuration in whichkey(<leader>dR) and dap-config (for start up)
 
 6. Tips
+
    - _clangd:_ <br/>
      `clang-format -style=webkit -dump-config > .clang-format`
 
 7. Python:
-Maybe stubs need to be installed manually in Lazy
+   Maybe stubs need to be installed manually in Lazy
+
+8. Rust:
+   It seems like `rust-src` is necessary for rust-analyzer to work properly
