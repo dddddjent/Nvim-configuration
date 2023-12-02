@@ -16,3 +16,10 @@ require("neotest").setup({
         require("neotest-rust"),
     },
 })
+
+require "which-key".register({
+    t = {
+        name = "Terminal and Test",
+        o = { "<cmd>lua require('neotest').summary.open()<cr> ", "Open test summary" }
+    },
+}, WHICH_KEY_OPTS)

@@ -67,7 +67,14 @@ configs.setup(
             },
         },
         indent = { enable = true, disable = { "yaml", "python" } },
-        autotag = { enable = false },
+        autotag = {
+            enable = true,
+            filetypes = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte',
+                'vue', 'tsx', 'jsx', 'rescript',
+                'xml',
+                'php',
+                'astro', 'glimmer', 'handlebars', 'hbs' },
+        },
         textobjects = {
             swap = {
                 enable = false,
@@ -86,7 +93,7 @@ configs.setup(
         playground = {
             enable = true,
             disable = {},
-            updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+            updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
             persist_queries = false, -- Whether the query persists across vim sessions
             keybindings = {
                 toggle_query_editor = "o",
@@ -103,7 +110,7 @@ configs.setup(
         },
         rainbow = {
             enable = true,
-            extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+            extended_mode = true,  -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
             max_file_lines = 3000, -- Do not enable for files with more than 1000 lines, int
         },
     }

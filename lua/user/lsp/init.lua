@@ -36,6 +36,7 @@ local null_ls_servers = {
 
 require "user.lsp.lsp".setup(servers)
 require "user.lsp.null-ls".setup()
+require "user.lsp.keymaps"
 
 for _, server_name in pairs(null_ls_servers) do
     local pkg = require("mason-registry").get_package(server_name)

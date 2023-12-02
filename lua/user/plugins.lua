@@ -1,6 +1,6 @@
 vim.loader.enable()
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.uv.fs_stat(lazypath) then
+if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
         "git",
         "clone",
@@ -12,6 +12,7 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
+
 require("lazy").setup({
     { "nvim-lua/plenary.nvim" },
     {
@@ -47,7 +48,12 @@ require("lazy").setup({
         "moll/vim-bbye",
         event = "VeryLazy"
     },
-    { "nvim-lualine/lualine.nvim", },
+    {
+        "nvim-lualine/lualine.nvim",
+        config = function()
+            require "user.lualine"
+        end
+    },
     {
         "akinsho/toggleterm.nvim",
         event = "VeryLazy",
@@ -55,18 +61,12 @@ require("lazy").setup({
             require "user.toggleterm"
         end
     },
-    { "ahmedkhalf/project.nvim", },
-    -- use { "lewis6991/impatient.nvim", } -- substituted by vim.loader.enable()
-    -- {
-    --     "lukas-reineke/indent-blankline.nvim",
-    --     event = "VeryLazy",
-    --     branch = "master",
-    --     commit = "b7aa0aed55887edfaece23f7b46ab22232fc8741",
-    --     config = function()
-    --         require "user.indentline"
-    --     end
-    -- },
-    { "goolord/alpha-nvim" },
+    {
+        "goolord/alpha-nvim",
+        config = function()
+            require "user.alpha"
+        end
+    },
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -76,16 +76,20 @@ require("lazy").setup({
     },
     {
         "HiPhish/rainbow-delimiters.nvim",
-        event = "VeryLazy"
-    },
-    {
-        "ThePrimeagen/harpoon",
         event = "VeryLazy",
+        config = function()
+            require "user.delimiters"
+        end
     },
 
     -- Colorschemes
     { "lunarvim/darkplus.nvim" },
-    { "catppuccin/nvim" },
+    {
+        "catppuccin/nvim",
+        config = function()
+            require "user.catppuccin"
+        end
+    },
     { 'folke/tokyonight.nvim' },
     { 'luisiacc/gruvbox-baby' },
     { "ellisonleao/gruvbox.nvim" },
@@ -93,7 +97,12 @@ require("lazy").setup({
     { 'Everblush/nvim',           name = 'everblush' },
 
     -- Cmp
-    { "hrsh7th/nvim-cmp" },
+    {
+        "hrsh7th/nvim-cmp",
+        config = function()
+            require("user.cmp")
+        end
+    },
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
     {
@@ -105,7 +114,6 @@ require("lazy").setup({
     { "hrsh7th/cmp-omni" },
     {
         "roobert/tailwindcss-colorizer-cmp.nvim",
-        -- optionally, override the default options:
         config = function()
             require("tailwindcss-colorizer-cmp").setup({
                 color_square_width = 2,
@@ -115,17 +123,6 @@ require("lazy").setup({
             }
         end
     },
-    -- { "Jezda1337/nvim-html-css",
-    --     dependencies = {
-    --         "nvim-treesitter/nvim-treesitter",
-    --         "nvim-lua/plenary.nvim"
-    --     },
-    --     config = function()
-    --         require("html-css"):setup()
-    --     end,
-    --     event = 'VeryLazy',
-    --     enable = false
-    -- },
 
     -- Snippets
     {
@@ -149,7 +146,6 @@ require("lazy").setup({
     ({
         "glepnir/lspsaga.nvim",
         branch = "main",
-        -- commit = "b7b4777369b441341b2dcd45c738ea4167c11c9e",
     }),
     { "ray-x/lsp_signature.nvim", },
     { "mfussenegger/nvim-jdtls" },
@@ -157,13 +153,6 @@ require("lazy").setup({
         "j-hui/fidget.nvim",
         tag = "legacy",
         event = "LspAttach",
-        opts = {
-            -- options
-        },
-    },
-    {
-        'stevearc/conform.nvim',
-        event = "VeryLazy",
     },
     -- need lazy.nvim
     {
@@ -172,7 +161,12 @@ require("lazy").setup({
     },
 
     -- Telescope
-    { "nvim-telescope/telescope.nvim" },
+    {
+        "nvim-telescope/telescope.nvim",
+        config = function()
+            require "user.telescope"
+        end
+    },
     {
         'nvim-telescope/telescope-fzf-native.nvim',
         build =
@@ -198,21 +192,14 @@ require("lazy").setup({
         },
         config = function()
             require "user.treesitter"
-            require 'nvim-treesitter.configs'.setup {
-                autotag = {
-                    enable = true,
-                    filetypes = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte',
-                        'vue', 'tsx', 'jsx', 'rescript',
-                        'xml',
-                        'php',
-                        'astro', 'glimmer', 'handlebars', 'hbs' },
-                }
-            }
         end
     },
     {
         'kevinhwang91/nvim-ufo',
         dependencies = 'kevinhwang91/promise-async',
+        config = function()
+            require "user.ufo-config"
+        end
     },
 
     -- Git
@@ -239,10 +226,7 @@ require("lazy").setup({
     {
         "rmagatti/auto-session",
         config = function()
-            require("auto-session").setup {
-                log_level = "error",
-                auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-            }
+            require "user.autosession"
         end
     },
 
@@ -250,13 +234,8 @@ require("lazy").setup({
     {
         'phaazon/hop.nvim',
         event = "VeryLazy",
-        branch = 'v2', -- optional but strongly recommended,
+        branch = 'v2',
         config = function()
-            -- you can configure Hop the way you like here; see :h hop-config,
-            require 'hop'.setup {
-                keys = 'ahklyuiopnmqwertzxcvbsdgjf',
-                multi_windows = false
-            }
             require "user.hop-config"
         end
     },
@@ -302,7 +281,7 @@ require("lazy").setup({
             "rouge8/neotest-rust",
         },
         config = function()
-            require "user.test"
+            require "user.neotest"
         end
     },
 
@@ -335,8 +314,6 @@ require("lazy").setup({
                     hsl_fn = true,    -- CSS hsl() and hsla() functions
                     css = true,       -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
                     css_fn = true,    -- Enable all CSS *functions*: rgb_fn, hsl_fn
-                    -- Available methods are false / true / "normal" / "lsp" / "both"
-                    -- True is same as normal
                     tailwind = true, -- Enable tailwind colors
                 },
             }
@@ -347,16 +324,11 @@ require("lazy").setup({
     {
         "max397574/better-escape.nvim",
         config = function()
-            -- lua, default settings
             require("better_escape").setup {
                 mapping = { "kj", "jk", }, -- a table with mappings to use
                 timeout = 200,             -- the time in which the keys must be hit in ms. Use option timeoutlen by default
                 clear_empty_lines = false, -- clear line after escaping if there is only whitespace
                 keys = "<Esc>",            -- keys used for escaping, if it is a function will use the result everytime
-                -- example(recommended)
-                -- keys = function()
-                --   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
-                -- end,
             }
         end,
     },

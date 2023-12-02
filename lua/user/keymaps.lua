@@ -1,69 +1,39 @@
-local opts = { noremap = true, silent = true }
-
+KEY_OPTS = { noremap = true, silent = true }
+local keymap = vim.keymap.set
 local term_opts = { silent = true }
 
--- Shorten function name
--- local keymap = vim.api.nvim_set_keymap
-local keymap = vim.keymap.set
-
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
+keymap("", "<Space>", "<Nop>", KEY_OPTS)
 
 -- Normal --
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-
+keymap("n", "<C-h>", "<C-w>h", KEY_OPTS)
+keymap("n", "<C-j>", "<C-w>j", KEY_OPTS)
+keymap("n", "<C-k>", "<C-w>k", KEY_OPTS)
+keymap("n", "<C-l>", "<C-w>l", KEY_OPTS)
+keymap("n", "<C-Up>", ":resize -2<CR>", KEY_OPTS)
+keymap("n", "<C-Down>", ":resize +2<CR>", KEY_OPTS)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", KEY_OPTS)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", KEY_OPTS)
+keymap("n", "<S-l>", ":bnext<CR>", KEY_OPTS)
+keymap("n", "<S-h>", ":bprevious<CR>", KEY_OPTS)
+keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", KEY_OPTS)
+keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", KEY_OPTS)
 -- Center horizontally
-keymap("n", "z.", "zszH", opts)
-
--- Insert --
--- Press jk fast to exit insert mode
--- keymap("i", "jk", "<ESC>", opts)
--- keymap("i", "kj", "<ESC>", opts)
+keymap("n", "z.", "zszH", KEY_OPTS)
 
 -- Visual --
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-
+keymap("v", "<", "<gv", KEY_OPTS)
+keymap("v", ">", ">gv", KEY_OPTS)
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
+keymap("v", "<A-j>", ":m .+1<CR>==", KEY_OPTS)
+keymap("v", "<A-k>", ":m .-2<CR>==", KEY_OPTS)
+keymap("v", "p", '"_dP', KEY_OPTS)
 
 -- Visual Block --
--- Move text up and down
--- keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", KEY_OPTS)
+keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", KEY_OPTS)
 
 -- Terminal --
 -- Better terminal navigation
@@ -74,88 +44,61 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 ----------------------------------------------------
 -- My mappings
-keymap("i", "<C-h>", "<Left>", opts)
-keymap("i", "<C-j>", "<Down>", opts)
-keymap("i", "<C-k>", "<Up>", opts)
-keymap("i", "<C-l>", "<Right>", opts)
-keymap("n", "Q", "<nop>", opts)
-
--- Comment
-keymap("n", "<C-_>", "<Plug>(comment_toggle_linewise_current) ", opts)
-keymap("i", "<C-_>", "<esc><Plug>(comment_toggle_linewise_current) i", opts)
-keymap("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", opts)
-keymap("n", "<C-/>", "<Plug>(comment_toggle_linewise_current) ", opts)
-keymap("i", "<C-/>", "<esc><Plug>(comment_toggle_linewise_current) i", opts)
-keymap("v", "<C-/>", "<Plug>(comment_toggle_linewise_visual)", opts)
-
--- For debug
-keymap({ "n", "i" }, "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
-keymap({ "n", "i" }, "<F6>", "<Cmd>lua require'dap'.terminate()<CR>", opts)
-keymap({ "n", "i" }, "<F9>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
-keymap({ "n", "i" }, "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
-keymap("n", "J", "<Cmd>lua require('dapui').eval()<CR>", opts)
-keymap("n", "<RightMouse>", "<Cmd>lua require('dapui').eval()<CR>", opts)
-
--- Script
-local script_name = (function()
-    if OS == "windows" then return 'script.ps1'
-    else return 'script.sh'
-    end
-end)()
-keymap({ "n", "i" }, "<F1>", function()
-    local cmd = "./.vscode/" .. script_name .. ' f' .. 1
-    vim.cmd("ToggleTerm direction=float")
-    vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
-end)
-keymap({ "n", "i" }, "<F2>", function()
-    local cmd = "./.vscode/" .. script_name .. ' f' .. 2
-    vim.cmd("ToggleTerm direction=float")
-    vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
-end)
-keymap({ "n", "i" }, "<F3>", function()
-    local cmd = "./.vscode/" .. script_name .. ' f' .. 3
-    vim.cmd("ToggleTerm direction=float")
-    vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
-end)
-keymap({ "n", "i" }, "<F4>", function()
-    local cmd = "./.vscode/" .. script_name .. ' f' .. 4
-    vim.cmd("ToggleTerm direction=float")
-    vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
-end)
-keymap({ "n", "i" }, "<F12>", function()
-    local param = vim.fn.input('Param: ')
-    local cmd = "./.vscode/" .. script_name .. ' ' .. param
-    vim.cmd("ToggleTerm direction=float")
-    vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
-end, opts)
-
--- Foldings
-keymap('n', 'zR', require('ufo').openAllFolds, opts)
-keymap('n', 'zM', require('ufo').closeAllFolds, opts)
-keymap('n', 'K', function()
-    local winid = require('ufo').peekFoldedLinesUnderCursor()
-    if not winid then
-        -- choose one of coc.nvim and nvim lsp
-        vim.lsp.buf.hover()
-    end
-end)
-
--- Telescope
-keymap("n", "tt", "<Cmd>Telescope<CR>", opts)
-keymap("n", "th", ":Telescope command_history <CR>", opts)
-keymap("n", "tl", ":Telescope live_grep<CR>", opts)
-keymap("n", "td", ":Telescope diagnostics<CR>", opts)
-keymap("n", "tb", ":Telescope buffers<CR>", opts)
+keymap("i", "<C-h>", "<Left>", KEY_OPTS)
+keymap("i", "<C-j>", "<Down>", KEY_OPTS)
+keymap("i", "<C-k>", "<Up>", KEY_OPTS)
+keymap("i", "<C-l>", "<Right>", KEY_OPTS)
+keymap("n", "Q", "<nop>", KEY_OPTS)
 
 -- Replace
 keymap("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap("n", "<leader>x", "<cmd>!chmod +x '%'<CR>", { silent = true })
 
 -- Split
-keymap("n", '|', "<cmd>vsplit<cr>", opts)
-keymap("n", '-', "<cmd>split<cr>", opts)
+keymap("n", '|', "<cmd>vsplit<cr>", KEY_OPTS)
+keymap("n", '-', "<cmd>split<cr>", KEY_OPTS)
 
--- Tasks
-keymap("n", "<backspace>", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)
-keymap("n", "<leader>n", "<Cmd>lua require'user.task'.trigger_ui()<CR>", opts)
-keymap("n", "tp", "<Cmd>e .vscode/launch.json <bar> e .vscode/tasks.json <cr>", opts)
+require "which-key".register({
+    ["w"] = { "<cmd>w!<CR>", "Save" },
+    ["q"] = { "<cmd>q!<CR>", "Quit" },
+    ["4"] = { "<cmd>qa!<CR>", "Quit All" },
+    ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+    ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+
+    p = {
+        name = "Lazy/Projects/Paste",
+        C = { function()
+            if OS == "windows" then
+                vim.cmd "!cp -Recurse -Force C:\\Users\\13060\\AppData\\Local\\nvim\\.vscode ."
+            else
+                vim.cmd "!cp -rf /home/ljl/.config/nvim/.vscode ."
+            end
+        end, "Setup config" },
+        p = { "<cmd>call mdip#MarkdownClipboardImage()<cr>", "Paste an image in markdown" },
+    },
+
+    g = {
+        name = "Git",
+        g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+    },
+
+    -- Markdown
+    m = {
+        name = "Markdown preview",
+        s = { "<Plug>MarkdownPreview", "Preview start" },
+        p = { "<Plug>MarkdownPreviewStop", "Preview stop" },
+        t = { "<Plug>MarkdownPreviewToggle", "Preview toggle" },
+    },
+
+    -- Undotree
+    u = { "<cmd>UndotreeToggle<cr>", "Toggle UndoTree" },
+
+    H = { function()
+        local file_name = vim.fn.expand("%")
+        local cmd = "nohup firefox " .. file_name .. " &"
+        local job = vim.fn.jobstart(cmd)
+    end, "HTML preview" },
+
+    ["9"] = { "1gt", "To tab 1" },
+    ["0"] = { "2gt", "To tab 2" }
+}, WHICH_KEY_OPTS)

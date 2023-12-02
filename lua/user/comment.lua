@@ -31,3 +31,10 @@ comment.setup {
   end,
 }
 
+local keymap = vim.keymap.set
+keymap("n", "<C-_>", "<Plug>(comment_toggle_linewise_current) ", KEY_OPTS)
+keymap("i", "<C-_>", "<esc><Plug>(comment_toggle_linewise_current) i", KEY_OPTS)
+keymap("v", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", KEY_OPTS)
+keymap("n", "<C-/>", "<Plug>(comment_toggle_linewise_current) ", KEY_OPTS)
+keymap("i", "<C-/>", "<esc><Plug>(comment_toggle_linewise_current) i", KEY_OPTS)
+keymap("v", "<C-/>", "<Plug>(comment_toggle_linewise_visual)", KEY_OPTS)

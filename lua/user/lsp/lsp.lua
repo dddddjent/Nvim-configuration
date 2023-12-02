@@ -50,21 +50,6 @@ local init_lspsaga = function()
     })
 end
 
-local init_keymap = function()
-    local opts = { noremap = true, silent = true }
-    local keymap = vim.keymap.set
-    keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    keymap("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    keymap("n", "gh", "<cmd>Lspsaga finder<CR>", { silent = true })
-    keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
-    keymap("n", "gD", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-    keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-    keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-    keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true })
-    keymap("n", "<a-cr>", "<cmd>Lspsaga code_action<CR>", { silent = true })
-end
-
 local init_mason = function()
     require("mason").setup({
         ui = {
@@ -130,7 +115,6 @@ M.setup = function(server_names)
     end
 
     init_internal()
-    init_keymap()
     init_lspsaga()
     init_mason()
     init_server(server_cfgs)
