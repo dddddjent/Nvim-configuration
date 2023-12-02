@@ -197,4 +197,7 @@ local opts = {
     init_options = { provideFormatter = false }
 }
 
-return opts
+return {
+    lspconfig = opts,
+    ensure_installed = true
+}

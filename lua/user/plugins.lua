@@ -152,7 +152,6 @@ require("lazy").setup({
         -- commit = "b7b4777369b441341b2dcd45c738ea4167c11c9e",
     }),
     { "ray-x/lsp_signature.nvim", },
-    { "p00f/clangd_extensions.nvim" },
     { "mfussenegger/nvim-jdtls" },
     {
         "j-hui/fidget.nvim",

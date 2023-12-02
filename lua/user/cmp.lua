@@ -98,46 +98,24 @@ cmp.setup {
         }),
     },
     formatting = {
-        fields = { "abbr", "kind", "menu" },
+        fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
             -- Kind icons
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-            -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
             if #vim_item.abbr > MAX_LABEL_WIDTH then
                 vim_item.abbr = vim.fn.strcharpart(vim_item.abbr, 0, MAX_LABEL_WIDTH) .. ELLIPSIS_CHAR
             end
             vim_item.menu = ({
                 nvim_lsp = "[LSP]",
-                omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
                 luasnip = "[Snippet]",
                 buffer = "[Buffer]",
                 path = "[Path]",
             })[entry.source.name]
-            -- if entry.source.name == "html-css" then
-            --     vim_item.menu = entry.completion_item.menu
-            -- end
             return vim_item
         end,
     },
     sources = {
         { name = "nvim_lsp" },
-        -- { name = "omni" },
-        -- {
-        --     name = "html-css",
-        --     option = {
-        --         max_count = {}, -- not ready yet
-        --         enable_on = {
-        --             "html"
-        --         }, -- set the file types you want the plugin to work on
-        --         file_extensions = { "css", "sass", "less" }, -- set the local filetypes from which you want to derive classes
-        --         style_sheets = {
-        --             -- example of remote styles, only css no js for now
-        --             -- "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
-        --             -- "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css",
-        --             -- "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css",
-        --         }
-        --     }
-        -- },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
@@ -160,7 +138,6 @@ cmp.setup {
             cmp.config.compare.offset,
             cmp.config.compare.exact,
             cmp.config.compare.recently_used,
-            require("clangd_extensions.cmp_scores"),
             cmp.config.compare.kind,
             cmp.config.compare.sort_text,
             cmp.config.compare.length,

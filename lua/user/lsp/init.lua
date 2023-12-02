@@ -1,8 +1,45 @@
-require("user.lsp.lsp_internal").setup()
-require("user.lsp.lspconfig").setup()
-require("user.lsp.mason").setup()
-require "user.lsp.null-ls"
-require "user.lsp.lspsaga" --lspui
-require "user.lsp.extra.clangd_extensions"
-require "user.lsp.extra.jdtls"
-require "user.lsp.extra.rust_tools"
+local servers = {
+    "lua_ls",
+    "pyright",
+    "ruff_lsp",
+    "bashls",
+    "jsonls",
+    "yamlls",
+    "cmake",
+    "lemminx",
+    "marksman",
+    "bufls",
+    "zls",
+    "texlab",
+    "svlangserver",
+    "tsserver",
+    "html",
+    "cssls",
+    "eslint",
+    "taplo",
+    "rust_analyzer",
+    "clangd",
+}
+
+local null_ls_servers = {
+    "isort",
+    "mypy",
+    "clang-format",
+    "prettierd",
+    "latexindent",
+    "buf",
+    "protolint",
+    "markdown-toc",
+    "codelldb",
+    "debugpy",
+}
+
+require "user.lsp.lsp".setup(servers)
+require "user.lsp.null-ls".setup()
+
+for _, server_name in pairs(null_ls_servers) do
+    local pkg = require("mason-registry").get_package(server_name)
+    if not pkg:is_installed() then
+        pkg:install()
+    end
+end

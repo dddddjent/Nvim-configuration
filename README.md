@@ -36,3 +36,18 @@ Don't forget to install font
 
 8. Rust:
    It seems like `rust-src` is necessary for rust-analyzer to work properly
+
+## Add new LSP/Null-ls client
+
+### LSP
+
+1. Add the name in lsp/init.lua
+2. Add alternative options in servers/
+   - `lspconfig`: for nvim-lspconfig
+   - `is_format_disabled`: to disable the format capabilities
+   - `ensure_installed`: whether install automatically
+
+### Null-ls
+
+1. Add the name in lsp/init.lua
+2. Add the config in null-ls.lua

@@ -209,3 +209,6 @@ flake8
 mypy
 isort
 debugpy
+lsp
+linter
+formatter
