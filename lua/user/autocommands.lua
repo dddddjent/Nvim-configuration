@@ -35,12 +35,6 @@ vim.cmd [[
     autocmd FileType dap-repl set statusline=\
   augroup end
 
-   augroup _lsp
-    autocmd!
-    autocmd FileType java lua require('user.lsp.extra.jdtls').set_jdtls()
-    " autocmd FileType html lua require("html-css"):setup()
-   augroup end
-
   augroup _paste_image
     autocmd FileType markdown let g:PasteImageFunction = 'g:MarkdownPasteImage'
     autocmd FileType tex let g:PasteImageFunction = 'g:LatexPasteImage'

@@ -148,7 +148,7 @@ require("lazy").setup({
     {
         "j-hui/fidget.nvim",
         tag = "legacy",
-        -- event = "LspAttach",
+        event = "LspAttach",
     },
 
     -- Telescope

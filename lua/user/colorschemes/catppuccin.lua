@@ -41,4 +41,8 @@ catppuccin.setup({
     },
 })
 
-vim.cmd "hi @comment guifg=#a0a0a0"
+return {
+    post_set_scheme = function()
+        vim.cmd "hi @comment guifg=#a0a0a0"
+    end
+}

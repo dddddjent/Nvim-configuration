@@ -1,6 +1,11 @@
 local which_key = require "which-key"
 
 local setup = {
+    plugins = {
+        presets = {
+            operators = false,
+        }
+    },
     window = {
         border = "rounded",       -- none, single, double, shadow
         padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]

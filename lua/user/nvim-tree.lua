@@ -6,7 +6,21 @@ end
 local WIDTH_RATIO = 0.5
 local HEIGHT_RATIO = 0.9
 
+local function on_attach(bufnr)
+    local api = require('nvim-tree.api')
+    local function opts(desc)
+        return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+    vim.keymap.set('n', 'q', api.tree.close, opts('Close'))
+    vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
+    vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
+    vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
+    vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
+    vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
+end
+
 nvim_tree.setup {
+    on_attach = on_attach,
     update_focused_file = {
         enable = true,
         -- On windows has to be opened under the exact cwd (this cwd will not chang automatically)
