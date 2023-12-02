@@ -51,3 +51,8 @@ Don't forget to install font
 
 1. Add the name in lsp/init.lua
 2. Add the config in null-ls.lua
+
+## Add new dap
+
+1. Add a new adapter
+2. See if you need extra mappings to map adapter to the filetype
