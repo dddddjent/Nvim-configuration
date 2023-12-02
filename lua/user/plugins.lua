@@ -86,9 +86,6 @@ require("lazy").setup({
     { "lunarvim/darkplus.nvim" },
     {
         "catppuccin/nvim",
-        config = function()
-            require "user.catppuccin"
-        end
     },
     { 'folke/tokyonight.nvim' },
     { 'luisiacc/gruvbox-baby' },
@@ -148,16 +145,10 @@ require("lazy").setup({
         branch = "main",
     }),
     { "ray-x/lsp_signature.nvim", },
-    { "mfussenegger/nvim-jdtls" },
     {
         "j-hui/fidget.nvim",
         tag = "legacy",
-        event = "LspAttach",
-    },
-    -- need lazy.nvim
-    {
-        "microsoft/python-type-stubs",
-        cond = false
+        -- event = "LspAttach",
     },
 
     -- Telescope
@@ -175,7 +166,6 @@ require("lazy").setup({
     {
         'nvim-pack/nvim-spectre',
         dependencies = 'nvim-lua/plenary.nvim',
-        build = "build.sh nvim-oxi",
         config = function()
             require('user.spectre')
         end,
@@ -294,29 +284,7 @@ require("lazy").setup({
     {
         'NvChad/nvim-colorizer.lua',
         config = function()
-            require 'colorizer'.setup {
-                filetypes = {
-                    'json',
-                    rust = { names = false },
-                    'html',
-                    'javascript',
-                    css = { mode = 'virtualtext', },
-                    lua = { names = false }
-                },
-                user_default_options = {
-                    mode = "background",
-                    RGB = true,       -- #RGB hex codes
-                    RRGGBB = true,    -- #RRGGBB hex codes
-                    names = true,     -- "Name" codes like Blue or blue
-                    RRGGBBAA = true,  -- #RRGGBBAA hex codes
-                    AARRGGBB = false, -- 0xAARRGGBB hex codes
-                    rgb_fn = true,    -- CSS rgb() and rgba() functions
-                    hsl_fn = true,    -- CSS hsl() and hsla() functions
-                    css = true,       -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-                    css_fn = true,    -- Enable all CSS *functions*: rgb_fn, hsl_fn
-                    tailwind = true, -- Enable tailwind colors
-                },
-            }
+            require "user.nvim-colorizer"
         end
     },
 
@@ -324,13 +292,14 @@ require("lazy").setup({
     {
         "max397574/better-escape.nvim",
         config = function()
-            require("better_escape").setup {
-                mapping = { "kj", "jk", }, -- a table with mappings to use
-                timeout = 200,             -- the time in which the keys must be hit in ms. Use option timeoutlen by default
-                clear_empty_lines = false, -- clear line after escaping if there is only whitespace
-                keys = "<Esc>",            -- keys used for escaping, if it is a function will use the result everytime
-            }
+            require "user.better-escape"
         end,
+    },
+
+    -- need lazy.nvim
+    {
+        "microsoft/python-type-stubs",
+        cond = false
     },
     -- { "ja-ford/delaytrain.nvim" },
 })

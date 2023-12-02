@@ -1,12 +1,9 @@
-local status_ok, catppuccin = pcall(require, 'catppuccin')
-if not status_ok then
-    print('Not OK?')
-    return
-end
+local catppuccin = require 'catppuccin'
+
 catppuccin.setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = {
-                       -- :h background
+        -- :h background
         light = "latte",
         dark = "mocha",
     },
@@ -22,7 +19,7 @@ catppuccin.setup({
         comments = { "italic" },
         conditionals = { "italic" },
         loops = {},
-        functions = { "bolds" },
+        -- functions = { "bolds" },
         keywords = {},
         strings = {},
         variables = {},
@@ -43,4 +40,5 @@ catppuccin.setup({
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
     },
 })
--- print("set up")
+
+vim.cmd "hi @comment guifg=#a0a0a0"

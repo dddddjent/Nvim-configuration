@@ -34,7 +34,6 @@ require('ufo').setup({
 })
 
 local keymap = vim.keymap.set
-print(111)
 keymap('n', 'zR', require('ufo').openAllFolds, KEY_OPTS)
 keymap('n', 'zM', require('ufo').closeAllFolds, KEY_OPTS)
 keymap('n', 'K', function()

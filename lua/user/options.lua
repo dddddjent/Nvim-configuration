@@ -45,9 +45,7 @@ function CHECK_OS()
         return "linux"
     end
 end
-
 OS = CHECK_OS()
-
 if OS == "windows" then
     vim.cmd "set shell=pwsh"
     vim.cmd "set shellcmdflag=-command"
