@@ -251,7 +251,7 @@ local mappings = {
     },
 
     -- Vimtex
-    ["v"] = {
+    v = {
         name = "Vimtex",
         c = { "<Plug>(vimtex-compile)", "Compile latex file" },
         i = { "<Plug>(vimtex-info)", "Info" },
@@ -259,7 +259,7 @@ local mappings = {
     },
 
     -- Markdown
-    ["m"] = {
+    m = {
         name = "Markdown preview",
         s = { "<Plug>MarkdownPreview", "Preview start" },
         p = { "<Plug>MarkdownPreviewStop", "Preview stop" },
@@ -267,9 +267,9 @@ local mappings = {
     },
 
     -- Undotree
-    ["u"] = { "<cmd>UndotreeToggle<cr>", "Toggle UndoTree" },
+    u = { "<cmd>UndotreeToggle<cr>", "Toggle UndoTree" },
 
-    ["H"] = { function()
+    H = { function()
         local file_name = vim.fn.expand("%")
         local cmd = "nohup firefox " .. file_name .. " &"
         local job = vim.fn.jobstart(cmd)
