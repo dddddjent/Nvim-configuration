@@ -29,7 +29,7 @@ M.setup = function()
             formatting.markdown_toc,
             formatting.buf,
             formatting.isort,
-            diagnostics.mypy,
+            -- diagnostics.mypy,
             diagnostics.protolint,
         },
     })
