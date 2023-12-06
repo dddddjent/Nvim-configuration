@@ -21,7 +21,6 @@ require "which-key".register({
         o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
         u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
         p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
-        r = { "<cmd>lua require'user.task'.configure()<cr>", "Reload Tasks.json" },
         s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
         q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
         U = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
