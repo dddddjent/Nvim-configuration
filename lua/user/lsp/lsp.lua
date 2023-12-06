@@ -117,7 +117,7 @@ M.setup = function(server_names)
     init_internal()
     init_lspsaga()
     init_mason()
-    init_server(server_cfgs)
+    -- init_server(server_cfgs)
     require("mason-lspconfig").setup {
         ensure_installed = server_names_filtered
     }

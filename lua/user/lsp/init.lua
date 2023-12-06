@@ -38,9 +38,9 @@ require "user.lsp.lsp".setup(servers)
 require "user.lsp.null-ls".setup()
 require "user.lsp.keymaps"
 
-for _, server_name in pairs(null_ls_servers) do
-    local pkg = require("mason-registry").get_package(server_name)
-    if not pkg:is_installed() then
-        pkg:install()
-    end
-end
+-- for _, server_name in pairs(null_ls_servers) do
+--     local pkg = require("mason-registry").get_package(server_name)
+--     if not pkg:is_installed() then
+--         pkg:install()
+--     end
+-- end
