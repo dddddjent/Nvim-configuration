@@ -1,0 +1,3 @@
+[submodule "bin"]
+	path = nvim-dep-bin
+	url = https://github.com/dddddjent/nvim-dep-bin.git
