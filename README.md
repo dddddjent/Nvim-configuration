@@ -1,5 +1,15 @@
 # My configuration for neovim
 
+## Installation
+
+### Clone
+
+```bash
+git clone --recursive https://github.com/dddddjent/Nvim-configuration.git ~/.config/nvim/
+cd ~/.config/nvim
+```
+
+
 Don't forget to install font
 
 1. PackerSync
