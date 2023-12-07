@@ -1,6 +1,10 @@
 # My configuration for neovim
 
-## Installation
+## 1. Installation
+
+### Requirements
+
+- gcc make curl wget tar gzip unzip cmake git
 
 ### Clone
 
@@ -9,45 +13,52 @@ git clone --recursive https://github.com/dddddjent/Nvim-configuration.git ~/.con
 cd ~/.config/nvim
 ```
 
+- Fonts are under fonts/ directory
 
-Don't forget to install font
+### Language specific
 
-1. PackerSync
-2. TSUpdateSync
-3. Install
+Mason may need:
 
-   - gcc/g++
-   - zstd _If you want to install zls using Mason. It needs this to decompress it on Windows_
-   - fd: required by nvim-html-css
-   - mason uses them to install servers
-     - python venv/cmake
-     - go
-     - nodejs/npm: lsps such as bash-ls require nodejs>=14
-   - Something cannot be installed from Mason: + Verilator, for verilog (svlangserver needs it to lint)
-     <br/>
+- python venv/cmake
+- go
+- nodejs/npm: >= 16
+  - `wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash`
+    - create .bashrc before exe this command
+  - `nvm install --lts`
 
-4. For cpp
+**None of the servers are installed automatically! (except lua-ls)**
 
-   - cmake _On windows, the install of everything related to pip should be without proxy..._
-   - ninja
+- Read lsp/init.lua to install servers
 
-5. Add new debuggers:
+#### Cpp
 
-   - add new adapter
-   - add the configuration in whichkey(<leader>dR) and dap-config (for start up)
+- ninja
+- _clangd:_ `clang-format -style=webkit -dump-config > .clang-format`
 
-6. Tips
+#### Python
 
-   - _clangd:_ <br/>
-     `clang-format -style=webkit -dump-config > .clang-format`
+Maybe stubs need to be installed manually in Lazy
 
-7. Python:
-   Maybe stubs need to be installed manually in Lazy
+#### Rust
 
-8. Rust:
-   It seems like `rust-src` is necessary for rust-analyzer to work properly
+It seems like `rust-src` is necessary for rust-analyzer to work properly
 
-## Add new LSP/Null-ls client
+#### Zig
+
+- zstd _If you want to install zls using Mason. It needs this to decompress it on Windows_
+
+#### Verilog
+
+- Something cannot be installed from Mason: + Verilator, for verilog (svlangserver needs it to lint)
+
+## 2. Keymaps
+
+- `<leader>dr`: reload tasks
+- `<leader>dR`: reload dap launches
+- `<leader>pC`: setup task.json&launch.json
+- `tp`: open up jsons
+
+## 3. Add new LSP/Null-ls client
 
 ### LSP
 
@@ -62,7 +73,7 @@ Don't forget to install font
 1. Add the name in lsp/init.lua
 2. Add the config in null-ls.lua
 
-## Add new dap
+## 4. Add new dap
 
 1. Add a new adapter
 2. See if you need extra mappings to map adapter to the filetype
