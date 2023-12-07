@@ -119,7 +119,7 @@ M.setup = function(server_names)
     init_mason()
     init_server(server_cfgs)
     require("mason-lspconfig").setup {
-        ensure_installed = { 'lua-ls' }
+        ensure_installed = { 'lua_ls' }
     }
 end
 

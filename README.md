@@ -4,7 +4,11 @@
 
 ### Requirements
 
-- gcc make curl wget tar gzip unzip cmake git
+- gcc make curl wget tar gzip unzip cmake git cargo nodejs
+- nodejs/npm: >= 16
+  - `wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash`
+    - create .bash_profile (the one executed during login) before exe this command
+  - `nvm install --lts`
 
 ### Clone
 
@@ -22,9 +26,6 @@ Mason may need:
 - python venv/cmake
 - go
 - nodejs/npm: >= 16
-  - `wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash`
-    - create .bashrc before exe this command
-  - `nvm install --lts`
 
 **None of the servers are installed automatically! (except lua-ls)**
 
