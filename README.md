@@ -10,6 +10,13 @@
     - create .bash_profile (the one executed during login) before exe this command
   - `nvm install --lts`
 
+### Install neovim
+
+Version `c3e176f6e24e2b97603b59bb89b125d540e1274d` with inlay-hint
+
+- download the prebuilt version with correct glibc version
+- extract and add it to the env: `export PATH=".../nvim/bin/:$PATH"`
+
 ### Clone
 
 ```bash

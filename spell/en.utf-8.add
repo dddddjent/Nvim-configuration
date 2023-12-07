@@ -228,3 +228,5 @@ init
 Ada
 RMS
 softmax
+prebuilt
+glibc
