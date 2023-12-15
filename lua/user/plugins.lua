@@ -181,6 +181,9 @@ require("lazy").setup({
             "windwp/nvim-ts-autotag",
         },
         config = function()
+            if OS == "windows" then
+                require 'nvim-treesitter.install'.compilers = { 'cl' }
+            end
             require "user.treesitter"
         end
     },

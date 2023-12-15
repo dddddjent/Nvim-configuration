@@ -118,9 +118,11 @@ M.setup = function(server_names)
     init_lspsaga()
     init_mason()
     init_server(server_cfgs)
-    require("mason-lspconfig").setup {
-        ensure_installed = { 'lua_ls' }
-    }
+    if OS == 'linux' then
+        require("mason-lspconfig").setup {
+            ensure_installed = { 'lua_ls' }
+        }
+    end
 end
 
 return M
