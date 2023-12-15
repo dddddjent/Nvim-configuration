@@ -47,6 +47,8 @@ Mason may need:
 
 Maybe stubs need to be installed manually in Lazy
 
+- Pyright can only work in root (workspace) mod?
+
 #### Rust
 
 It seems like `rust-src` is necessary for rust-analyzer to work properly
@@ -85,3 +87,42 @@ It seems like `rust-src` is necessary for rust-analyzer to work properly
 
 1. Add a new adapter
 2. See if you need extra mappings to map adapter to the filetype
+
+## Windows
+
+- `Appdata/Local/nvim`
+- `Appdata/Local/nvim-data`
+
+### Install nvim
+
+The locale of the system should be changed to force UTF-8 (the default is gb2312)
+
+- Otherwise it will not compile
+
+### Install Fonts
+
+Nerd font has windows compatible versions. Install that one (check the name of it!)
+
+### Treesitter
+
+Only cl.exe right now can compile the correct win32 dll, so install it.
+
+### Telescope
+
+fzf native can't work properly on windows (can't recognize win32 dll)
+
+- **To let it create a history**, uncheck `vim.opt.shellslash = true` in option.lua when you run it the first time.
+- rg has changed `--hidden` before version 14. It can't accept `--hidden=true` anymore.
+
+### Mason
+
+Mason can only install the servers built on node and python
+
+- Install lua-language-server manually
+- cmake-language-server is not able to install by mason. So far **0.1.7** has been the latest version that can run on my windows
+
+### Markdown
+
+It seems like you have to do npm install in app folder of that plugin manually?
+
+- If it doesn't work, then remove the plugin and don't let it install automatically

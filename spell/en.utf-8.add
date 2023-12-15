@@ -231,8 +231,6 @@ softmax
 prebuilt
 glibc
 deblurring
-deblurring
-deblurring
 LLE
 Denoising
 UNet
@@ -241,3 +239,11 @@ DRV
 SOTA
 iter
 propogate
+gb2312
+Pyright
+rg
+fzf
+fzf
+dll
+win32
+Treesitter

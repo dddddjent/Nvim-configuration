@@ -25,14 +25,15 @@ telescope.setup {
             "--line-number",
             "--column",
             "--smart-case",
-            "--hidden=true",
+            -- "--hidden=true",
+            "--hidden",
             "--glob=!.git/",
         },
     },
     pickers = {
         find_files = {
             find_command = {
-                rg_cmd, "--files", "--hidden",
+                "rg", "--files", "--hidden",
                 "--follow",
                 "-g", "!**/.git/**",
                 "-g", "!**/.idea/**",
@@ -52,7 +53,9 @@ telescope.setup {
     file_sorter = sorters.get_fuzzy_file,
     generic_sorter = sorters.get_generic_fuzzy_sorter,
 }
-require("telescope").load_extension "fzf"
+if OS == "linux" then
+    require("telescope").load_extension "fzf"
+end
 require('telescope').load_extension "dap"
 
 local keymap = vim.keymap.set
