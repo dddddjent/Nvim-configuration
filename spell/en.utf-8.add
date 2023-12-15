@@ -230,3 +230,11 @@ RMS
 softmax
 prebuilt
 glibc
+gb2312
+Pyright
+rg
+fzf
+fzf
+dll
+win32
+Treesitter
