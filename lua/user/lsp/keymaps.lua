@@ -37,5 +37,12 @@ require "which-key".register({
             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
             "Workspace Symbols",
         },
+        h = {
+            function()
+                local bufnr = vim.fn.bufnr()
+                vim.lsp.inlay_hint(bufnr, nil) -- nil to toggle
+            end,
+            'Toggle inlay hint'
+        }
     },
 }, WHICH_KEY_OPTS)
