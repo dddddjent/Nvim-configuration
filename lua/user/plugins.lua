@@ -208,6 +208,12 @@ require("lazy").setup({
         event = "VeryLazy",
         dependencies = 'nvim-lua/plenary.nvim'
     },
+    {
+        "jemag/telescope-diff.nvim",
+        dependencies = {
+            { "nvim-telescope/telescope.nvim" },
+        }
+    },
 
     -- Dap
     { "mfussenegger/nvim-dap" },

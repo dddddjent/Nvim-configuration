@@ -57,6 +57,7 @@ if OS == "linux" then
     require("telescope").load_extension "fzf"
 end
 require('telescope').load_extension "dap"
+require("telescope").load_extension("diff")
 
 local keymap = vim.keymap.set
 keymap("n", "tt", "<Cmd>Telescope<CR>", KEY_OPTS)
@@ -70,4 +71,14 @@ require "which-key".register({
         "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         "Find files",
     },
+    ["t"] = {
+        ["c"] = {
+            "<cmd>lua require('telescope').extensions.diff.diff_current({ hidden = true })<cr>",
+            "Telescope compare with current"
+        },
+        ["C"] = {
+            "<cmd>lua require('telescope').extensions.diff.diff_files({ hidden = true })<cr>",
+            "Telescope compare 2 files"
+        }
+    }
 }, WHICH_KEY_OPTS)

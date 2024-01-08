@@ -57,6 +57,7 @@
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "9515abd92ae0e42044d47716537f3997991a037b" },
   "tailwindcss-colorizer-cmp.nvim": { "branch": "main", "commit": "65565c62963579897d28390dbd1ba8fb15ba545f" },
   "telescope-dap.nvim": { "branch": "master", "commit": "313d2ea12ae59a1ca51b62bf01fc941a983d9c9c" },
+  "telescope-diff.nvim": { "branch": "master", "commit": "141afaaed3e2dfdb7badad6558cdd682441dfe5f" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
   "telescope.nvim": { "branch": "master", "commit": "18f10f28007cb8b4d50324217349c3f568684be2" },
   "toggleterm.nvim": { "branch": "main", "commit": "f2c720746238bc3ec620fe4bf92b58368317c266" },
