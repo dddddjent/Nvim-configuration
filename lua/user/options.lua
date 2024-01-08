@@ -28,7 +28,7 @@ local options = {
     relativenumber = true,                   -- set relative numbered lines
     numberwidth = 1,                         -- set number column width to 2 {default 4}
 
-    signcolumn = "yes:1",                      -- always show the sign column, otherwise it would shift the text each time
+    signcolumn = "yes:1",                    -- always show the sign column, otherwise it would shift the text each time
     wrap = false,
     -- linebreak = true,                        -- companion to wrap, don't split words
     scrolloff = 8,                           -- minimal number of screen lines to keep above and below the cursor
@@ -45,6 +45,7 @@ function CHECK_OS()
         return "linux"
     end
 end
+
 OS = CHECK_OS()
 if OS == "windows" then
     vim.cmd "set shell=pwsh"
@@ -74,3 +75,9 @@ vim.g.mdip_imgdir = '.pic'
 vim.cmd "command RestoreSession :SessionRestore"
 
 vim.cmd "set fencs=utf-8,gbk,big5,cp936,gb18030,gb2312,utf-16"
+
+-- remove status line
+vim.cmd "set laststatus=0"
+vim.cmd "hi! link StatusLine Normal"
+vim.cmd "hi! link StatusLineNC Normal"
+vim.cmd "set statusline=%{repeat('─',winwidth('.'))}"

@@ -51,7 +51,7 @@ require("lazy").setup({
     {
         "nvim-lualine/lualine.nvim",
         config = function()
-            require "user.lualine"
+            -- require "user.lualine"
         end
     },
     {
