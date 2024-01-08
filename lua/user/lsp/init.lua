@@ -19,6 +19,7 @@ local servers = {
     "taplo",
     "rust_analyzer",
     "clangd",
+    "tailwindcss",
 }
 
 local null_ls_servers = {

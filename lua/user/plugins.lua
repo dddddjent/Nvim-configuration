@@ -115,9 +115,6 @@ require("lazy").setup({
             require("tailwindcss-colorizer-cmp").setup({
                 color_square_width = 2,
             })
-            require("cmp").config.formatting = {
-                format = require("tailwindcss-colorizer-cmp").formatter
-            }
         end
     },
 
@@ -129,7 +126,7 @@ require("lazy").setup({
             require "user.luasnip"
         end
     },
-    { "rafamadriz/friendly-snippets" },
+    -- { "rafamadriz/friendly-snippets" },
 
     -- LSP
     { "neovim/nvim-lspconfig", },

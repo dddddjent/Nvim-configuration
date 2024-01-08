@@ -101,6 +101,10 @@ cmp.setup {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
             -- Kind icons
+            local tw_item = require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
+            if tw_item.kind == "XX" then -- They use XX to represent color squares
+                return tw_item
+            end
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
             if #vim_item.abbr > MAX_LABEL_WIDTH then
                 vim_item.abbr = vim.fn.strcharpart(vim_item.abbr, 0, MAX_LABEL_WIDTH) .. ELLIPSIS_CHAR
