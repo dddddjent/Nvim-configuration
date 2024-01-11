@@ -103,6 +103,12 @@ cmp.setup {
             -- Kind icons
             local tw_item = require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
             if tw_item.kind == "XX" then -- They use XX to represent color squares
+                tw_item.menu = ({
+                    nvim_lsp = "[LSP]",
+                    luasnip = "[Snippet]",
+                    buffer = "[Buffer]",
+                    path = "[Path]",
+                })[entry.source.name]
                 return tw_item
             end
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
