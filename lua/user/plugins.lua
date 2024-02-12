@@ -109,6 +109,7 @@ require("lazy").setup({
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
     { "hrsh7th/cmp-omni" },
+    { "hrsh7th/cmp-cmdline" },
     {
         "roobert/tailwindcss-colorizer-cmp.nvim",
         config = function()
