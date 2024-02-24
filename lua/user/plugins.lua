@@ -168,6 +168,13 @@ require("lazy").setup({
             require('user.spectre')
         end,
     },
+    {
+        "ibhagwan/fzf-lua",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require "user.fzf_lua"
+        end
+    },
 
     -- Treesitter
     {
