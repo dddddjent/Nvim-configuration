@@ -13,45 +13,15 @@ local function parse_result(inputString)
 end
 
 local function show_result(result)
-    -- for i, row in ipairs(result) do
-    --     print(i .. ' ' .. row)
-    -- end
-
-    local ui = function(opts)
-        opts = opts or {}
-        pickers.new(opts, {
-            -- Trigger UI
-            prompt_title = "Projects",
-            finder = finders.new_table {
-                -- results = { "read", "blue" },
-                results = result,
-                entry_maker = function(entry)
-                    return {
-                        value = entry,
-                        display = entry,
-                        ordinal = entry,
-                    }
-                end
-            },
-            sorter = conf.generic_sorter(opts), -- To filter the results
-
-            -- Define actions in UI
-            attach_mappings = function(prompt_bufnr, map)
-                actions.select_default:replace(
-                    function()
-                        actions.close(prompt_bufnr)
-                        local selection = action_state.get_selected_entry() -- Still able to get state after closed
-
-                        local project_name = selection.value
-                        vim.cmd(":! tmuxinator s " .. project_name)
-                        -- vim.cmd(":! echo " .. project_name)
-                    end)
-                return true
-            end,
-        }):find() -- Where the picker is actually triggered
-    end
-
-    ui()
+    require "fzf-lua".fzf_exec(result, {
+        actions = {
+            ['default'] = function(selected)
+                vim.cmd(":silent ! tmuxinator s " .. selected[1])
+            end
+        },
+        winopts = { height = 0.38, width = 0.4, row = 0.5 },
+        fzf_opts = { ['--layout'] = 'reverse' },
+    })
 end
 
 local function get_projects()
@@ -65,10 +35,6 @@ local function get_projects()
 
     result = parse_result(result)
 
-    -- for line in pairs(result) do
-    --     print(line)
-    -- end
-    --
     show_result(result)
 end
 

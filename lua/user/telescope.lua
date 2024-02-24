@@ -67,10 +67,10 @@ require("telescope").load_extension("diff")
 -- keymap("n", "tb", ":Telescope buffers<CR>", KEY_OPTS)
 
 require "which-key".register({
---     ["f"] = {
---         "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
---         "Find files",
---     },
+    --     ["f"] = {
+    --         "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    --         "Find files",
+    --     },
     ["t"] = {
         ["c"] = {
             "<cmd>lua require('telescope').extensions.diff.diff_current({ hidden = true })<cr>",
