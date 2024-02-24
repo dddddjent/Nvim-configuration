@@ -59,18 +59,18 @@ end
 require('telescope').load_extension "dap"
 require("telescope").load_extension("diff")
 
-local keymap = vim.keymap.set
-keymap("n", "tt", "<Cmd>Telescope<CR>", KEY_OPTS)
-keymap("n", "th", ":Telescope command_history <CR>", KEY_OPTS)
-keymap("n", "tl", ":Telescope live_grep<CR>", KEY_OPTS)
-keymap("n", "td", ":Telescope diagnostics<CR>", KEY_OPTS)
-keymap("n", "tb", ":Telescope buffers<CR>", KEY_OPTS)
+-- local keymap = vim.keymap.set
+-- keymap("n", "tt", "<Cmd>Telescope<CR>", KEY_OPTS)
+-- keymap("n", "th", ":Telescope command_history <CR>", KEY_OPTS)
+-- keymap("n", "tl", ":Telescope live_grep<CR>", KEY_OPTS)
+-- keymap("n", "td", ":Telescope diagnostics<CR>", KEY_OPTS)
+-- keymap("n", "tb", ":Telescope buffers<CR>", KEY_OPTS)
 
 require "which-key".register({
-    ["f"] = {
-        "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        "Find files",
-    },
+--     ["f"] = {
+--         "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+--         "Find files",
+--     },
     ["t"] = {
         ["c"] = {
             "<cmd>lua require('telescope').extensions.diff.diff_current({ hidden = true })<cr>",
