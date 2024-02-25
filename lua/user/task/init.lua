@@ -7,9 +7,11 @@ local function file_exists(path)
 end
 
 local M = {}
+
+-- ui is a function above to be triggered
 local ui = function()
 end
-M.setup = function()
+M.trigger_ui = function()
     local path = vim.fn.getcwd() .. "/.vscode/tasks.json"
     if file_exists(path) == false then
         ui = require("user.task.ui").setup({ { label = "No tasks.json" } })
@@ -19,11 +21,6 @@ M.setup = function()
     local obj = require("user.task.parse").get_object()
 
     ui = require("user.task.ui").setup(obj.tasks or { { label = "Where is the task?" } })
-end
-M.setup()
-
--- ui is a function above to be triggered
-M.trigger_ui = function()
     ui()
 end
 
