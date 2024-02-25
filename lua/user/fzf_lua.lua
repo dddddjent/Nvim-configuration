@@ -44,7 +44,7 @@ require "which-key".register({
     ["f"] = {
         function()
             require "fzf-lua".files({
-                cmd = "fd",
+                cmd = "fd --hidden",
                 previewer = false,
                 winopts = { height = 0.38, width = 0.4, row = 0.5 },
                 fzf_opts = { ['--layout'] = 'reverse' },
