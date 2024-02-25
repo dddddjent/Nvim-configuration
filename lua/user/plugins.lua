@@ -163,7 +163,8 @@ require("lazy").setup({
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require "user.fzf_lua"
-        end
+        end,
+        event = "VeryLazy",
     },
 
     -- Treesitter
