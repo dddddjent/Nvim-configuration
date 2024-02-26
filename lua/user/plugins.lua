@@ -155,16 +155,6 @@ require("lazy").setup({
 
     -- -- Telescope
     {
-        "nvim-telescope/telescope.nvim",
-        config = function()
-            require "user.telescope"
-        end
-    },
-    {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make',
-    },
-    {
         'nvim-pack/nvim-spectre',
         dependencies = 'nvim-lua/plenary.nvim',
         config = function()
@@ -176,7 +166,8 @@ require("lazy").setup({
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require "user.fzf_lua"
-        end
+        end,
+        event = "VeryLazy",
     },
 
     -- Treesitter
@@ -216,18 +207,11 @@ require("lazy").setup({
         event = "VeryLazy",
         dependencies = 'nvim-lua/plenary.nvim'
     },
-    {
-        "jemag/telescope-diff.nvim",
-        dependencies = {
-            { "nvim-telescope/telescope.nvim" },
-        }
-    },
 
     -- Dap
     { "mfussenegger/nvim-dap" },
     { "rcarriga/nvim-dap-ui" },
     { "theHamsta/nvim-dap-virtual-text" },
-    { "nvim-telescope/telescope-dap.nvim" },
 
     -- Session
     {

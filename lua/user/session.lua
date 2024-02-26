@@ -1,9 +1,3 @@
-local pickers = require "telescope.pickers"
-local finders = require "telescope.finders"            -- Transform table / add a few keys
-local conf = require("telescope.config").values
-local actions = require "telescope.actions"            -- All actions we can remap
-local action_state = require "telescope.actions.state" -- Utility function to get picker/selection/line
-
 local function parse_result(inputString)
     local list = {}
     for line in inputString:gmatch("[^\n]+") do
