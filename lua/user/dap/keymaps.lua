@@ -29,10 +29,14 @@ require "which-key".register({
         end, "Reload launch.json" },
         e = { function()
             local cmd = "echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope"
-            vim.opt.shellslash = true
+            if OS == "windows" then
+                vim.opt.shellslash = true
+            end
             vim.cmd("ToggleTerm direction=float")
             vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'")
-            vim.opt.shellslash = false
+            if OS == "windows" then
+                vim.opt.shellslash = false
+            end
         end, "Enable the attach privilege" },
     },
 }, WHICH_KEY_OPTS)
