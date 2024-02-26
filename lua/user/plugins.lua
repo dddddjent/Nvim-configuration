@@ -133,7 +133,10 @@ require("lazy").setup({
     { "neovim/nvim-lspconfig", },
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
-    { "nvimtools/none-ls.nvim" },
+    {
+        "nvimtools/none-ls.nvim",
+        commit = "bb680d752cec37949faca7a1f509e2fe67ab418a",
+    },
     {
         "RRethy/vim-illuminate",
         event = "VeryLazy",
@@ -150,7 +153,7 @@ require("lazy").setup({
         opts = {},
     },
 
-    -- Telescope
+    -- -- Telescope
     {
         "nvim-telescope/telescope.nvim",
         config = function()
@@ -187,7 +190,7 @@ require("lazy").setup({
         },
         config = function()
             if OS == "windows" then
-                require 'nvim-treesitter.install'.compilers = { 'cl' }
+                require 'nvim-treesitter.install'.compilers = { 'clang' }
             end
             require "user.treesitter"
         end

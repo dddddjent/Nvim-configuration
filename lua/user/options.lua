@@ -52,8 +52,7 @@ if OS == "windows" then
     vim.cmd "set shellcmdflag=-command"
     vim.cmd 'set shellquote=\"'
     vim.cmd "set shellxquote="
-
-    vim.opt.shellslash = true
+    -- vim.opt.shellslash = true
 end
 
 vim.opt.shortmess:append "c"

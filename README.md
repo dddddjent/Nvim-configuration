@@ -105,7 +105,7 @@ Nerd font has windows compatible versions. Install that one (check the name of i
 
 ### Treesitter
 
-Only cl.exe right now can compile the correct win32 dll, so install it.
+Only cl.exe or clang? right now can compile the correct win32 dll, so install it.
 
 ### Telescope
 

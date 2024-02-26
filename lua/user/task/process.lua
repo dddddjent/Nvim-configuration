@@ -18,9 +18,11 @@ M.process = function(config)
     end
 
     -- EXECUTE
+    vim.opt.shellslash = true
     vim.cmd("ToggleTerm direction=float")
     -- TermExec cmd='cmd' dir=dir
     vim.cmd("TermExec cmd=" .. "'" .. cmd .. "'" .. " dir=" .. dir)
+    vim.opt.shellslash = false
 end
 
 return M

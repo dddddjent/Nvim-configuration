@@ -33,7 +33,7 @@ local init_internal = function()
     -- inlay_hint
     vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
-            vim.lsp.inlay_hint(args.buf, false)
+            vim.lsp.inlay_hint.enable(args.buf, false)
         end,
     })
 end
