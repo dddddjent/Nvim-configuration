@@ -61,9 +61,9 @@ require "which-key".register({
             "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
             "Undo Stage Hunk",
         },
-        o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-        c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+        o = { "<cmd>FzfLua git_status<cr>", "Open changed file" },
+        b = { "<cmd>FzfLua git_branches<cr>", "Checkout branch" },
+        c = { "<cmd>FzfLua git_commits<cr>", "Checkout commit" },
         d = {
             "<cmd>Gitsigns diffthis HEAD<cr>",
             "Diff",

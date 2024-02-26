@@ -153,7 +153,7 @@ require("lazy").setup({
         opts = {},
     },
 
-    -- -- Telescope
+    -- Search
     {
         'nvim-pack/nvim-spectre',
         dependencies = 'nvim-lua/plenary.nvim',

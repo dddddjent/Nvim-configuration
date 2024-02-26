@@ -15,11 +15,11 @@ require "which-key".register({
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
         d = {
-            "<cmd>Telescope diagnostics bufnr=0<cr>",
+            "<cmd>FzfLua diagnostics_document<cr>",
             "Document Diagnostics",
         },
         w = {
-            "<cmd>Telescope diagnostics<cr>",
+            "<cmd>FzfLua diagnostics_workspace<cr>",
             "Workspace Diagnostics",
         },
         f = { function()
@@ -32,9 +32,9 @@ require "which-key".register({
         },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
         r = { "<cmd>LspRestart<cr>", "Restart server" },
-        s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+        s = { "<cmd>FzfLua lsp_document_symbols<cr>", "Document Symbols" },
         S = {
-            "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+            "<cmd>FzfLua lsp_live_workspace_symbols<cr>",
             "Workspace Symbols",
         },
         h = {
