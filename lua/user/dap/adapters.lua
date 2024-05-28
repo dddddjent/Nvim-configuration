@@ -25,12 +25,6 @@ dap.adapters.python = function(cb, config)
     end
 end
 
-dap.adapters.cppdbg = {
-    id = 'cppdbg',
-    type = 'executable',
-    command = '/home/ljl/.local/share/nvim/mason/bin/OpenDebugAD7',
-}
-
 dap.adapters.codelldb = {
     type = 'server',
     port = "${port}",
@@ -46,4 +40,9 @@ dap.adapters.codelldb = {
         end)(),
         args = { "--port", "${port}" },
     }
+}
+
+dap.adapters.go = { -- install delve and vscode's dap impl (vscode-go)
+    type = 'executable',
+    command = 'go-debug-adapter',
 }

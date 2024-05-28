@@ -20,6 +20,9 @@ local servers = {
     "rust_analyzer",
     "clangd",
     "tailwindcss",
+    "gopls",
+    "dockerls",
+    "docker_compose_language_service",
 }
 
 local null_ls_servers = {

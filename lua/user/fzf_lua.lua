@@ -3,7 +3,14 @@ if OS == 'windows' then
     rg_cmd = vim.fn.stdpath('config') .. '/bin/rg.exe'
 end
 
-require("fzf-lua").setup({ "telescope" })
+require("fzf-lua").setup({
+    "telescope",
+    keymap = {
+        fzf = {
+            ["alt-a"] = "select-all+accept",
+        }
+    }
+})
 
 local function split_files(first_file, second_file)
     vim.cmd.tabnew(first_file)
