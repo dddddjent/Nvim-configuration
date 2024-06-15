@@ -42,7 +42,7 @@ local init_lspsaga = function()
     local saga = require('lspsaga')
     saga.setup({
         ui = {
-            code_action = "",
+            code_action = "󰌶",
         },
         symbol_in_winbar = {
             enable = false,
