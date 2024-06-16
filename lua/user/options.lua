@@ -80,3 +80,7 @@ vim.cmd "set laststatus=0"
 vim.cmd "hi! link StatusLine Normal"
 vim.cmd "hi! link StatusLineNC Normal"
 vim.cmd "set statusline=%{repeat('─',winwidth('.'))}"
+
+vim.filetype.add({
+    pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})

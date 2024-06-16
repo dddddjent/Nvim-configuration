@@ -59,7 +59,7 @@ keymap("n", '|', "<cmd>vsplit<cr>", KEY_OPTS)
 keymap("n", '-', "<cmd>split<cr>", KEY_OPTS)
 
 require "which-key".register({
-    ["w"] = { "<cmd>w!<CR>", "Save" },
+    ["w"] = { "<cmd>silent w!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
     ["4"] = { "<cmd>qa!<CR>", "Quit All" },
     ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },

@@ -23,6 +23,7 @@ local servers = {
     "gopls",
     "dockerls",
     "docker_compose_language_service",
+    "hyprls",
 }
 
 local null_ls_servers = {

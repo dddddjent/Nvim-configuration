@@ -41,8 +41,8 @@ end
 local init_lspsaga = function()
     local saga = require('lspsaga')
     saga.setup({
-        ui = {
-            code_action = "󰌶",
+        lightbulb = {
+            virtual_text = false,
         },
         symbol_in_winbar = {
             enable = false,
