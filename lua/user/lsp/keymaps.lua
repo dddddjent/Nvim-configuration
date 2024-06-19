@@ -40,7 +40,7 @@ require "which-key".register({
         h = {
             function()
                 local bufnr = vim.fn.bufnr()
-                vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enabled())
+                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end,
             'Toggle inlay hint'
         }
