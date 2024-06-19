@@ -29,6 +29,9 @@ local options = {
     numberwidth = 1,                         -- set number column width to 2 {default 4}
 
     signcolumn = "yes:1",                    -- always show the sign column, otherwise it would shift the text each time
+    -- &nu is for alpha, it will unset number
+    statuscolumn = "%s%=%{&nu?(v:lnum==line('.')?v:lnum:v:relnum):''} ",
+
     wrap = false,
     -- linebreak = true,                        -- companion to wrap, don't split words
     scrolloff = 8,                           -- minimal number of screen lines to keep above and below the cursor
