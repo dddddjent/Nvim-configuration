@@ -40,3 +40,11 @@ vim.cmd [[
     autocmd FileType tex let g:PasteImageFunction = 'g:LatexPasteImage'
   augroup end
 ]]
+
+local glsl_extensions = { '*.vert', '*.frag', '*.glsl', '*.tesc', '*.tese', '*.geom', '*.comp' }
+for _, extension_name in ipairs(glsl_extensions) do
+    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNewFile' }, {
+        pattern = extension_name,
+        command = 'set filetype=glsl',
+    })
+end
