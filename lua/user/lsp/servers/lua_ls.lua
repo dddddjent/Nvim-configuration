@@ -33,7 +33,6 @@ return {
             },
         },
         root_dir = function(fname)
-            print('1')
             ---@diagnostic disable-next-line: deprecated
             local root = util.root_pattern(unpack(root_files))(fname)
             if root and root ~= vim.env.HOME then
