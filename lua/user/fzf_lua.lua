@@ -98,7 +98,7 @@ require "which-key".register({
     ["f"] = {
         function()
             require "fzf-lua".files({
-                cmd = "fd --hidden --type file",
+                cmd = "fd --hidden --type file --exclude .git",
                 previewer = false,
                 winopts = { height = 0.38, width = 0.4, row = 0.5, col = 0.5 },
                 fzf_opts = { ['--layout'] = 'reverse' },
