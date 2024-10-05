@@ -12,7 +12,7 @@ local servers = {
     "zls",
     "texlab",
     "svlangserver",
-    "tsserver",
+    "ts_ls",
     "html",
     "cssls",
     "eslint",

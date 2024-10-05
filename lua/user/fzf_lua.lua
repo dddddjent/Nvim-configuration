@@ -100,7 +100,7 @@ require "which-key".register({
             require "fzf-lua".files({
                 cmd = "fd --hidden --type file",
                 previewer = false,
-                winopts = { height = 0.38, width = 0.4, row = 0.5 },
+                winopts = { height = 0.38, width = 0.4, row = 0.5, col = 0.5 },
                 fzf_opts = { ['--layout'] = 'reverse' },
             })
         end,
