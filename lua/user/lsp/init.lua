@@ -25,6 +25,7 @@ local servers = {
     "docker_compose_language_service",
     "hyprls",
     "glsl_analyzer",
+    "ocamllsp",
 }
 
 local null_ls_servers = {

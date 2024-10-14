@@ -94,3 +94,5 @@ function OpenMarkdownPreview (url)
 endfunction
 let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 ]])
+
+vim.cmd("let no_ocaml_maps = 1")

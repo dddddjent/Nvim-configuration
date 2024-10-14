@@ -104,5 +104,8 @@ return {
         cmd "hi TelescopeBorder guibg = #15191f"
         cmd "hi FloatBorder guibg=#15191f"
         cmd "hi SagaCount guifg=white guibg=#15191f gui=bold"
+        cmd "hi LspCodeLens guifg=#505759 gui=italic"
+        cmd "hi LspCodeLensText guifg=#A0A0A0"
+        cmd "hi LspCodeLensSeparator guifg=#555555"
     end
 }
