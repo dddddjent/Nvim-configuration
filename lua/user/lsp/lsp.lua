@@ -80,15 +80,17 @@ local init_server = function(server_cfgs)
                     client.server_capabilities.documentFormattingProvider = false
                 end
 
-                local codelens = vim.api.nvim_create_augroup(
-                    'LSPCodeLens',
-                    { clear = true }
-                )
-                vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'CursorHold' }, {
-                    group = codelens,
-                    callback = vim.lsp.codelens.refresh,
-                    buffer = bufnr,
-                })
+                if cfg.enable_codelens then
+                    local codelens = vim.api.nvim_create_augroup(
+                        'LSPCodeLens',
+                        { clear = true }
+                    )
+                    vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'CursorHold' }, {
+                        group = codelens,
+                        callback = vim.lsp.codelens.refresh,
+                        buffer = bufnr,
+                    })
+                end
 
                 require "lsp_signature".on_attach({
                     bind = true, -- This is mandatory, otherwise border config won't get registered.

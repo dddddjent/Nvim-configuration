@@ -32,5 +32,7 @@ dashboard.opts.opts.noautocmd = true
 alpha.setup(dashboard.opts)
 
 require "which-key".register({
-    ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+    a = {
+        ["p"] = { "<cmd>Alpha<cr>", "Alpha" },
+    }
 }, WHICH_KEY_OPTS)

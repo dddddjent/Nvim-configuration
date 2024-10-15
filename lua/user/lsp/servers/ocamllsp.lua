@@ -7,4 +7,5 @@ return {
         },
     },
     is_format_disabled = true,
+    enable_codelens = true,
 }
