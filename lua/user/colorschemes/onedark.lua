@@ -59,6 +59,15 @@ local render_markdown_colors = function()
     api.nvim_set_hl(0, "RenderMarkdownH4Bg", { fg = palette.background, bg = palette.color6 })
     api.nvim_set_hl(0, "RenderMarkdownH4", { fg = palette.color6, bg = palette.background })
 
+    -- api.nvim_set_hl(0, "RenderMarkdownH1Bg", { fg = palette.color9, bg = palette.contrast })
+    -- api.nvim_set_hl(0, "RenderMarkdownH1", { fg = palette.contrast, bg = palette.color9 })
+    -- api.nvim_set_hl(0, "RenderMarkdownH2Bg", { fg = palette.color5, bg = palette.contrast})
+    -- api.nvim_set_hl(0, "RenderMarkdownH2", { fg = palette.contrast, bg = palette.color5 })
+    api.nvim_set_hl(0, "RenderMarkdownH3Bg", { fg = palette.color4, bg = palette.background})
+    api.nvim_set_hl(0, "RenderMarkdownH3", { fg = palette.background, bg = palette.color4 })
+    api.nvim_set_hl(0, "RenderMarkdownH4Bg", { fg = palette.color6, bg = palette.background })
+    api.nvim_set_hl(0, "RenderMarkdownH4", { fg = palette.background, bg = palette.color6 })
+
     api.nvim_set_hl(0, "RenderMarkdownCode", { bg = palette.contrast })
     api.nvim_set_hl(0, "RenderMarkdownCodeInline", { bg = palette.contrast })
 
@@ -68,7 +77,7 @@ end
 return {
     post_set_scheme = function()
         local api = vim.api
-        api.nvim_set_hl(0, "@lsp.type.macro.cpp", { fg = palette.color11 })
+        api.nvim_set_hl(0, "@lsp.type.macro.cpp", { fg = palette.marcro })
         api.nvim_set_hl(0, "@lsp.type.typeParameter", { fg = palette.color3 })
         api.nvim_set_hl(0, "@lsp.type.struct", { fg = palette.color3 })
         api.nvim_set_hl(0, "@lsp.typemod.property.declaration", { fg = palette.color9 })

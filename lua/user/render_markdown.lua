@@ -31,9 +31,10 @@ require('render-markdown').setup({
         icons = { '󰎤 ', '󰎧 ', '󰎪 ', '󰎭 ', '󰎱 ', '󰎳 ' },
         -- icons = { '', '', '', '', '', '' },
         signs = { '󰫎 ' },
-        width = 'block',
+        -- width = 'block',
+        width = 'full',
         left_pad = 1,
-        left_margin = 1,
+        -- left_margin = 1,
         right_pad = 1,
         border = false,
         -- Alway use virtual lines for heading borders instead of attempting to use empty lines

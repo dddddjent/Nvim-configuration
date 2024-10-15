@@ -1,6 +1,6 @@
 local keymap = vim.keymap.set
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", KEY_OPTS)
-keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", KEY_OPTS)
+-- keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", KEY_OPTS)
 keymap("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", KEY_OPTS)
 keymap("n", "gh", "<cmd>Lspsaga finder<CR>", { silent = true })
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
