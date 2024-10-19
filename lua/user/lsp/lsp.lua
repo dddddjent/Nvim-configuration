@@ -70,6 +70,10 @@ local init_server = function(server_cfgs)
     local default_capabilities = vim.lsp.protocol.make_client_capabilities()
     default_capabilities.textDocument.completion.completionItem.snippetSupport = true
     default_capabilities = require "cmp_nvim_lsp".default_capabilities(default_capabilities)
+    default_capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true
+    }
 
     local lspconfig = require "lspconfig"
     for server_name, cfg in pairs(server_cfgs) do
