@@ -194,7 +194,7 @@ local opts = {
             },
         },
     },
-    init_options = { provideFormatter = false }
+    init_options = { provideFormatter = true }
 }
 
 return {

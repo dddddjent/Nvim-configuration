@@ -21,7 +21,7 @@ M.setup = function()
                     extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--use-tabs" },
                     filetypes = {
                         "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less",
-                        "yaml", "html", "markdown", "markdown.mdx", "graphql", "handlebars", "json",
+                        "yaml", "html", "markdown", "markdown.mdx", "graphql", "handlebars",
                     }
                 }),
             formatting.clang_format,
