@@ -13,4 +13,6 @@ local colorscheme = "everblush"
 --     scheme.post_set_scheme()
 -- end
 
-require("user.colorschemes.lush." .. colorscheme .. ".colors." .. colorscheme)
+vim.opt.background = 'dark'
+vim.g.colors_name = colorscheme
+require("lush")(require("user.colorschemes.lush." .. colorscheme))
