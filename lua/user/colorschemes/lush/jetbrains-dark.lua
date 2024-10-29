@@ -3,38 +3,35 @@ local hsl = lush.hsl
 local hsluv = lush.hsluv
 
 local palette = {
-    red        = hsl('#e57474'), -- error, git removed, delimiter
-    green      = hsl('#8ccf7e'), -- msg, git added, delimiter
-    yellow     = hsl('#e5c76b'), -- warning, git changed, delimiter
-    blue       = hsl('#67b0e8'), -- info, delimiter
-    purple     = hsl('#c678dd'), -- delimiter
-    white      = hsl('#dadada'),
-    cyan       = hsl('#6cbfbf'), -- hint, git merged, delimiter
+    red        = hsl('#F75464').darken(0),              -- error, git removed, delimiter
+    green      = hsl('#73AD2B').darken(0),              -- msg, git added, delimiter
+    yellow     = hsl('#F2C55C').darken(0),              -- warning, git changed, delimiter
+    blue       = hsl('#548AF7').darken(0),              -- info, delimiter
+    purple     = hsl('#B189F5').darken(0),              -- delimiter
+    white      = hsl('#BCBEC4').lighten(20),
+    cyan       = hsl('#548AF7').rotate(10).lighten(20), -- hint, git merged, delimiter
 
-    -- color0     = hsl('#232a2d'),
-    -- color1     = hsl('#e57474'),
-    -- color2     = hsl('#8ccf7e'),
-    color3     = hsl('#e5c76b'), -- IncSearch, Type
-    color4     = hsl('#67b0e8'), -- Directory
-    -- color5     = hsl('#c678dd'),
-    color6     = hsl('#6cbfbf'), -- quickfix, constant, special, operator, delimiter, todo
-    -- color7     = hsl('#bdc3c2'),
-    -- color8     = hsl('#2d3437'),
-    color9     = hsl('#ef7e7e'), -- function, nvimtree icon, markdown
-    color10    = hsl('#96d988'), -- strings, markdown
-    color11    = hsl('#f4d67a'), -- number, markdown
-    color12    = hsl('#71baf2'), -- cursor, tablinesel, keyword, markdown
-    color13    = hsl('#ce89df'), -- markdown
-    -- color14    = hsl('#67cbe7'),
-    color15    = hsl('#dadada'), -- cursorline nr, sagacount, title
+    color10    = hsl('#6AAB73'),                        -- strings, markdown
+    color11    = hsl('#2AACB8'),                        -- number, markdown
+    color9     = hsl('#56A8F5'),                        -- function, nvimtree icon, markdown
+    color4     = hsl('#67b0e8'),                        -- Directory
+    color3     = hsl('#9192BA'),                        -- IncSearch, Type
+    color8     = hsl('#9192BA'),                        -- namespace
+    color6     = hsl('#C77DBB'),                        -- quickfix, constant, special, delimiter, todo
+    color13    = hsl('#ce89df'),                        -- markdown
+    color12    = hsl('#CF8E6D'),                        -- cursor, tablinesel, keyword, markdown
+    color14    = hsl('#B3AE60'),                        -- metadata
+    color7     = hsl('#BCBEC4').lighten(10),            -- operator
+    color15    = hsl('#dadada'),                        -- cursorline nr, sagacount, title
 
-    comment    = hsl('#505759'),
+    comment    = hsl('#5F826B').darken(35),
     contrast   = hsl('#0d1014'),
-    background = hsl('#15191f'),
-    foreground = hsl('#bdc3c2'),
+    background = hsl('#BCBEC4').darken(88),
+    foreground = hsl('#BCBEC4'), -- line number
     cursorline = hsl('#2c3333'),
-    macro      = hsl('#A09A29'),
+    macro      = hsl('#908B25'),
     pmenusel   = hsl('#304759'),
+    property   = hsl('#9373A5').lighten(5),
 }
 
 ---@diagnostic disable: undefined-global
@@ -47,8 +44,6 @@ local theme = lush(function(injected_functions)
         NormalFloat{ Normal },
         StatusLine{ Normal },
         StatusLineNC{ Normal },
-
-        Title{ Normal, fg = palette.color15, gui = "bold" },
 
         Directory{ fg = palette.color4 },
         qfFileName{ Directory },
@@ -86,9 +81,9 @@ local theme = lush(function(injected_functions)
         PmenuSel{ bg = palette.pmenusel, },
         PmenuThumb{ Normal },
 
-        LineNr{ fg = palette.comment.lighten(20), },
+        LineNr{ fg = Normal.fg.darken(45), },
         CursorLine{ bg = palette.cursorline, },
-        CursorLineNr{ gui = "bold", fg = palette.color15, },
+        CursorLineNr{ gui = "bold", fg = palette.color7, },
         Cursor{ fg = Normal.bg, bg = palette.color12, },
         TermCursor{ Cursor },
         CursorIM{ Cursor },
@@ -96,7 +91,7 @@ local theme = lush(function(injected_functions)
         HopCursor{ Cursor },
 
         TabLineSel{ fg = palette.color12, bg = palette.background, },
-        QuickFixLine{ fg = palette.color6, },
+        QuickFixLine{ fg = palette.cyan, },
 
         ------------------------------------------
         -- Languages
@@ -109,6 +104,7 @@ local theme = lush(function(injected_functions)
         cudaConstant{ Constant },
         sym"@constant"{ Constant },
         sym"@constant.builtin"{ Constant },
+        sym"@lsp.type.enumMember"{ Constant, gui = "italic" },
         Number{ fg = palette.color11, },
         Float{ Number },
         sym"@number"{ Number },
@@ -119,6 +115,8 @@ local theme = lush(function(injected_functions)
         sym"@type.qualifier"{ Keyword },
         sym"@type.builtin"{ Keyword },
         sym"@lsp.type.builtin"{ fg = palette.color12, },
+        sym"@keyword.directive"{ fg = palette.color14, },
+        sym"@keyword.import"{ fg = palette.color14, },
         Type{ fg = palette.color3, },
         Typedef{ Type },
         cType{ Type },
@@ -155,15 +153,15 @@ local theme = lush(function(injected_functions)
         cFunctionPointer{ Function },
         sym"@function"{ Function },
         sym"@lsp.typemod.function.defaultLibrary.cpp"{ Function },
-        Operator{ fg = palette.color6, },
+        Operator{ fg = palette.color7, },
         sym"@operator"{ Operator },
         Delimiter{ Operator },
         Todo{ gui = "bold", fg = Special.fg, },
         sym"@comment.todo"{ Todo },
         sym"@text.todo"{ Todo },
         sym"@lsp.type.macro"{ fg = palette.macro, },
-        sym"@namespace"{ fg = palette.color9, },
-        sym"@property"{ gui = "bold", fg = Normal.fg.lighten(16).saturate(20), },
+        sym"@namespace"{ fg = palette.color8, },
+        sym"@property"{ gui = "bold", fg = palette.property, },
         sym"@variable"{ Normal },
         sym"@variable.go"{ Normal },
 
@@ -217,7 +215,7 @@ local theme = lush(function(injected_functions)
         FzfLuaSearch{ IncSearch },
 
         WhichKey{ Function },
-        SagaCount{ gui = "bold", fg = palette.color15, bg = Normal.bg, },
+        SagaCount{ gui = "bold", fg = palette.color7, bg = Normal.bg, },
 
     }
 end)
