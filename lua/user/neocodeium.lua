@@ -17,12 +17,21 @@ neocodeium.setup(
     }
 )
 
+local notify = vim.notify
+---@diagnostic disable-next-line: duplicate-set-field
+vim.notify = function(msg, ...)
+    if msg:match("NeoCodeium") then
+        return
+    end
+    notify(msg, ...)
+end
+
 vim.keymap.set("i", "<c-f>", neocodeium.accept)
 vim.keymap.set("i", "<c-c>", neocodeium.clear)
 vim.keymap.set("i", "<c-n>", neocodeium.cycle_or_complete)
 vim.keymap.set("i", "<c-p>", function() neocodeium.cycle_or_complete(-1) end)
 
-require "which-key".register({
+require"which-key".register({
     a = {
         ["c"] = { "<cmd>NeoCodeium! toggle<cr>", "NeoCodeium" },
     }

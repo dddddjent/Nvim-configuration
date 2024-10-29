@@ -22,7 +22,6 @@ local palette = {
     cursorline = '#2c3333',
     marcro     = '#A09A29',
     pmenusel   = '#304759',
-    none       = 'NONE',
 }
 
 require("onedarkpro").setup({
@@ -63,7 +62,7 @@ local render_markdown_colors = function()
     -- api.nvim_set_hl(0, "RenderMarkdownH1", { fg = palette.contrast, bg = palette.color9 })
     -- api.nvim_set_hl(0, "RenderMarkdownH2Bg", { fg = palette.color5, bg = palette.contrast})
     -- api.nvim_set_hl(0, "RenderMarkdownH2", { fg = palette.contrast, bg = palette.color5 })
-    api.nvim_set_hl(0, "RenderMarkdownH3Bg", { fg = palette.color4, bg = palette.background})
+    api.nvim_set_hl(0, "RenderMarkdownH3Bg", { fg = palette.color4, bg = palette.background })
     api.nvim_set_hl(0, "RenderMarkdownH3", { fg = palette.background, bg = palette.color4 })
     api.nvim_set_hl(0, "RenderMarkdownH4Bg", { fg = palette.color6, bg = palette.background })
     api.nvim_set_hl(0, "RenderMarkdownH4", { fg = palette.background, bg = palette.color6 })

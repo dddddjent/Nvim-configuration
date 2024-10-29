@@ -1,0 +1,5 @@
+[*.lua]
+space_before_function_call_single_arg = false
+align_table_field = true
+extra_sep_at_table_end = true
+chop_down_table = true

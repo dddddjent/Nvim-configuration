@@ -19,14 +19,14 @@ require("lazy").setup({
         "windwp/nvim-autopairs",
         event = "VeryLazy",
         config = function()
-            require "user.autopairs"
+            require"user.autopairs"
         end
     },
     {
         "numToStr/Comment.nvim",
         event = "VeryLazy",
         config = function()
-            require "user.comment"
+            require"user.comment"
         end
     },
     { "kyazdani42/nvim-web-devicons", },
@@ -34,14 +34,14 @@ require("lazy").setup({
         "kyazdani42/nvim-tree.lua",
         event = "VeryLazy",
         config = function()
-            require "user.nvim-tree"
+            require"user.nvim-tree"
         end
     },
     {
         "akinsho/bufferline.nvim",
         event = "VeryLazy",
         config = function()
-            require "user.bufferline"
+            require"user.bufferline"
         end
     },
     {
@@ -58,13 +58,13 @@ require("lazy").setup({
         "akinsho/toggleterm.nvim",
         event = "VeryLazy",
         config = function()
-            require "user.toggleterm"
+            require"user.toggleterm"
         end
     },
     {
         "goolord/alpha-nvim",
         config = function()
-            require "user.alpha"
+            require"user.alpha"
         end
     },
     {
@@ -78,7 +78,7 @@ require("lazy").setup({
         "HiPhish/rainbow-delimiters.nvim",
         event = "VeryLazy",
         config = function()
-            require "user.delimiters"
+            require"user.delimiters"
         end
     },
 
@@ -91,7 +91,9 @@ require("lazy").setup({
     { 'luisiacc/gruvbox-baby' },
     { "ellisonleao/gruvbox.nvim" },
     { "olimorris/onedarkpro.nvim" },
-    { 'Everblush/nvim',           name = 'everblush' },
+    {
+        "rktjmp/lush.nvim",
+    },
 
     -- Cmp
     {
@@ -123,7 +125,7 @@ require("lazy").setup({
         "L3MON4D3/LuaSnip",
         event = "VeryLazy",
         config = function()
-            require "user.luasnip"
+            require"user.luasnip"
         end
     },
     -- { "rafamadriz/friendly-snippets" },
@@ -164,7 +166,7 @@ require("lazy").setup({
         "ibhagwan/fzf-lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            require "user.fzf_lua"
+            require"user.fzf_lua"
         end,
         event = "VeryLazy",
     },
@@ -180,16 +182,16 @@ require("lazy").setup({
         },
         config = function()
             if OS == "windows" then
-                require 'nvim-treesitter.install'.compilers = { 'clang' }
+                require'nvim-treesitter.install'.compilers = { 'clang' }
             end
-            require "user.treesitter"
+            require"user.treesitter"
         end
     },
     {
         'kevinhwang91/nvim-ufo',
         dependencies = 'kevinhwang91/promise-async',
         config = function()
-            require "user.ufo-config"
+            require"user.ufo-config"
         end
     },
 
@@ -198,7 +200,7 @@ require("lazy").setup({
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
         config = function()
-            require "user.gitsigns"
+            require"user.gitsigns"
         end
     },
     {
@@ -216,7 +218,7 @@ require("lazy").setup({
     {
         "rmagatti/auto-session",
         config = function()
-            require "user.autosession"
+            require"user.autosession"
         end
     },
 
@@ -226,7 +228,7 @@ require("lazy").setup({
         event = "VeryLazy",
         branch = 'v2',
         config = function()
-            require "user.hop-config"
+            require"user.hop-config"
         end
     },
 
@@ -241,7 +243,7 @@ require("lazy").setup({
         'lervag/vimtex',
         event = "VeryLazy",
         config = function()
-            require "user.vimtex"
+            require"user.vimtex"
         end
     },
     -- Markdown
@@ -271,7 +273,7 @@ require("lazy").setup({
             "rouge8/neotest-rust",
         },
         config = function()
-            require "user.neotest"
+            require"user.neotest"
         end
     },
 
@@ -284,14 +286,14 @@ require("lazy").setup({
     {
         'NvChad/nvim-colorizer.lua',
         config = function()
-            require "user.nvim-colorizer"
+            require"user.nvim-colorizer"
         end
     },
 
     {
         "max397574/better-escape.nvim",
         config = function()
-            require "user.better-escape"
+            require"user.better-escape"
         end,
     },
 
@@ -306,7 +308,7 @@ require("lazy").setup({
         "LunarVim/bigfile.nvim",
         config = function()
             -- default config
-            require("bigfile").setup {
+            require("bigfile").setup{
                 filesize = 1,      -- size of the file in MiB, the plugin round file sizes to the closest MiB
                 pattern = { "*" }, -- autocmd pattern or function see <### Overriding the detection of big files>
                 features = {       -- features to disable
@@ -366,7 +368,7 @@ require("lazy").setup({
         "monkoose/neocodeium",
         event = "VeryLazy",
         config = function()
-            require "user.neocodeium"
+            require"user.neocodeium"
         end,
     },
 })
