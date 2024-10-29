@@ -75,7 +75,7 @@ require("lazy").setup({
         end
     },
     {
-        "HiPhish/rainbow-delimiters.nvim",
+        "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
         event = "VeryLazy",
         config = function()
             require"user.delimiters"

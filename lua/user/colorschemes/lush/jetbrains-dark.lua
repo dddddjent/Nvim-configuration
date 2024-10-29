@@ -21,13 +21,13 @@ local palette = {
     color13    = hsl('#ce89df'),                        -- markdown
     color12    = hsl('#CF8E6D'),                        -- cursor, tablinesel, keyword, markdown
     color14    = hsl('#B3AE60'),                        -- metadata
-    color7     = hsl('#BCBEC4').lighten(10),            -- operator
+    color7     = hsl('#BCBEC4').lighten(20),            -- operator
     color15    = hsl('#dadada'),                        -- cursorline nr, sagacount, title
 
     comment    = hsl('#5F826B').darken(35),
     contrast   = hsl('#0d1014'),
-    background = hsl('#BCBEC4').darken(88),
-    foreground = hsl('#BCBEC4'), -- line number
+    background = hsl('#BCBEC4').darken(85),
+    foreground = hsl('#BCBEC4').lighten(20), -- line number
     cursorline = hsl('#2c3333'),
     macro      = hsl('#908B25'),
     pmenusel   = hsl('#304759'),
@@ -199,13 +199,13 @@ local theme = lush(function(injected_functions)
         RenderMarkdownCodeQuote{ bg = palette.contrast, },
         sym"@markup.strong.markdown_inline"{ gui = "bold", fg = palette.color11, },
         --
-        RainbowDelimiterCyan{ fg = palette.cyan, },
-        RainbowDelimiterViolet{ fg = palette.purple, },
-        RainbowDelimiterGreen{ fg = palette.green, },
-        RainbowDelimiterOrange{ fg = palette.yellow, },
-        RainbowDelimiterYellow{ fg = palette.yellow, },
-        RainbowDelimiterRed{ fg = palette.red, },
-        RainbowDelimiterBlue{ fg = palette.blue, },
+        RainbowDelimiterCyan{ fg = palette.cyan.desaturate(30), },
+        RainbowDelimiterViolet{ fg = palette.purple.desaturate(30), },
+        RainbowDelimiterGreen{ fg = palette.green.desaturate(30), },
+        RainbowDelimiterOrange{ fg = palette.yellow.desaturate(30), },
+        RainbowDelimiterYellow{ fg = palette.yellow.desaturate(30), },
+        RainbowDelimiterRed{ fg = palette.red.desaturate(30), },
+        RainbowDelimiterBlue{ fg = palette.blue.desaturate(30), },
 
         TelescopeNormal{ bg = Normal.bg, },
         TelescopeBorder{ bg = Normal.bg, },
