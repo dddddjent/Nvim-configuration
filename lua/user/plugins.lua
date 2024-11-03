@@ -94,31 +94,62 @@ require("lazy").setup({
     {
         "rktjmp/lush.nvim",
     },
+    {
+        "rktjmp/shipwright.nvim"
+    },
 
     -- Cmp
     {
         "hrsh7th/nvim-cmp",
+        enable = false,
         config = function()
-            require("user.cmp")
+            -- require("user.cmp")
         end
     },
-    { "hrsh7th/cmp-buffer" },
-    { "hrsh7th/cmp-path" },
+    {
+        "hrsh7th/cmp-buffer",
+        enable = false,
+    },
+    {
+        "hrsh7th/cmp-path",
+        enable = false,
+    },
     {
         "saadparwaiz1/cmp_luasnip",
+        enable = false,
         event = "VeryLazy",
     },
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/cmp-nvim-lua" },
-    { "hrsh7th/cmp-omni" },
+    {
+        "hrsh7th/cmp-nvim-lsp",
+        enable = false,
+    },
+    {
+        "hrsh7th/cmp-nvim-lua",
+        enable = false,
+    },
+    {
+        "hrsh7th/cmp-omni",
+        enable = false,
+    },
     {
         "roobert/tailwindcss-colorizer-cmp.nvim",
+        enable = false,
         config = function()
             require("tailwindcss-colorizer-cmp").setup({
                 color_square_width = 2,
             })
         end
     },
+    {
+        'saghen/blink.cmp',
+        lazy = false,
+        dependencies = 'rafamadriz/friendly-snippets',
+        version = 'v0.*',
+        config = function()
+            require"user.blink"
+        end,
+    },
+
 
     -- Snippets
     {

@@ -19,7 +19,7 @@ local function split_files(first_file, second_file)
 end
 local function diff_current()
     local current_filepath = vim.fn.expand(vim.api.nvim_buf_get_name(vim.fn.bufnr()))
-    require "fzf-lua".files({
+    require"fzf-lua".files({
         cmd = "fd --hidden",
         previewer = false,
         winopts = { height = 0.38, width = 0.4, row = 0.5 },
@@ -33,7 +33,7 @@ local function diff_current()
     })
 end
 local function diff_files()
-    require "fzf-lua".files({
+    require"fzf-lua".files({
         cmd = "fd --hidden",
         previewer = false,
         winopts = { height = 0.38, width = 0.4, row = 0.5 },
@@ -41,7 +41,7 @@ local function diff_files()
         actions = {
             ['default'] = function(selected1)
                 local file_name1 = string.sub(selected1[1], 7, string.len(selected1[1]))
-                require "fzf-lua".files({
+                require"fzf-lua".files({
                     cmd = "fd --hidden",
                     previewer = false,
                     winopts = { height = 0.38, width = 0.4, row = 0.5 },
@@ -62,10 +62,10 @@ end
 local keymap = vim.keymap.set
 keymap("n", "tt", "<cmd>FzfLua<cr>", KEY_OPTS)
 keymap("n", "th", function()
-    require "fzf-lua".command_history()
+    require"fzf-lua".command_history()
 end, KEY_OPTS)
 keymap("n", "tl", function()
-    require "fzf-lua".live_grep(
+    require"fzf-lua".live_grep(
         {
             cmd = rg_cmd ..
                 " --no-heading " ..
@@ -82,22 +82,22 @@ keymap("n", "tl", function()
     )
 end, KEY_OPTS)
 keymap("n", "td", function()
-    require "fzf-lua".diagnostics_workspace()
+    require"fzf-lua".diagnostics_workspace()
 end, KEY_OPTS)
 keymap("n", "tb", function()
-    require "fzf-lua".buffers()
+    require"fzf-lua".buffers()
 end, KEY_OPTS)
 keymap("n", "tg", function()
-    require "fzf-lua".grep()
+    require"fzf-lua".grep()
 end, KEY_OPTS)
 keymap("n", "tr", function()
-    require "fzf-lua".resume()
+    require"fzf-lua".resume()
 end, KEY_OPTS)
 
-require "which-key".register({
+require"which-key".register({
     ["f"] = {
         function()
-            require "fzf-lua".files({
+            require"fzf-lua".files({
                 cmd = "fd --hidden --type file --exclude .git",
                 previewer = false,
                 winopts = { height = 0.38, width = 0.4, row = 0.5, col = 0.5 },

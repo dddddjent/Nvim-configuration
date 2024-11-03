@@ -5,8 +5,8 @@
 -- local colorscheme = "gruvbox-baby"
 -- local colorscheme = "gruvbox"
 -- local colorscheme = "onedark"
--- local colorscheme = "everblush"
-local colorscheme = "jetbrains-dark"
+-- COLORSCHEME = "everblush"
+COLORSCHEME = "jetbrains-dark"
 
 -- local scheme = require("user.colorschemes." .. colorscheme)
 -- vim.cmd("colorscheme " .. colorscheme)
@@ -14,6 +14,7 @@ local colorscheme = "jetbrains-dark"
 --     scheme.post_set_scheme()
 -- end
 
-vim.opt.background = 'dark'
-vim.g.colors_name = colorscheme
-require("lush")(require("user.colorschemes.lush." .. colorscheme))
+-- vim.opt.background = 'dark'
+-- vim.g.colors_name = colorscheme
+-- require("lush")(require("user.colorschemes.lush." .. colorscheme))
+require("user.colorschemes.lush.colorscheme")

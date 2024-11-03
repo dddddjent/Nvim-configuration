@@ -28,18 +28,18 @@ configs.setup(
                 if ok and stats and stats.size > max_filesize or vim.api.nvim_buf_line_count(buf) > max_lines then
                     vim.schedule(function()
                         vim.api.nvim_buf_call(buf, function()
-                            vim.cmd "setlocal noswapfile noundofile"
+                            vim.cmd"setlocal noswapfile noundofile"
 
                             if vim.tbl_contains({ "json" }, lang) then
-                                vim.cmd "NoMatchParen"
-                                vim.cmd "syntax off"
-                                vim.cmd "syntax clear"
-                                vim.cmd "setlocal nocursorline nolist bufhidden=unload"
+                                vim.cmd"NoMatchParen"
+                                vim.cmd"syntax off"
+                                vim.cmd"syntax clear"
+                                vim.cmd"setlocal nocursorline nolist bufhidden=unload"
 
                                 vim.api.nvim_create_autocmd({ "BufDelete" }, {
                                     callback = function()
-                                        vim.cmd "DoMatchParen"
-                                        vim.cmd "syntax on"
+                                        vim.cmd"DoMatchParen"
+                                        vim.cmd"syntax on"
                                     end,
                                     buffer = buf,
                                 })
@@ -53,7 +53,7 @@ configs.setup(
                 end
             end,
         },
-        indent = { enable = true, disable = { "yaml", "python" } },
+        indent = { enable = true, disable = { "yaml", "python", "cuda" } },
         autotag = {
             enable = true,
             filetypes = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte',
@@ -102,7 +102,7 @@ configs.setup(
         },
     }
 )
-require "ts_context_commentstring".setup {
+require"ts_context_commentstring".setup{
     enable = true,
     enable_autocmd = false,
     config = {

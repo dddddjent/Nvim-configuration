@@ -69,13 +69,14 @@ end
 local init_server = function(server_cfgs)
     local default_capabilities = vim.lsp.protocol.make_client_capabilities()
     default_capabilities.textDocument.completion.completionItem.snippetSupport = true
-    default_capabilities = require "cmp_nvim_lsp".default_capabilities(default_capabilities)
+    -- default_capabilities = require"cmp_nvim_lsp".default_capabilities(default_capabilities)
+    default_capabilities = require('blink.cmp').get_lsp_capabilities(default_capabilities)
     default_capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
         lineFoldingOnly = true
     }
 
-    local lspconfig = require "lspconfig"
+    local lspconfig = require"lspconfig"
     for server_name, cfg in pairs(server_cfgs) do
         local default_opts = {
             capabilities = default_capabilities,
@@ -95,14 +96,13 @@ local init_server = function(server_cfgs)
                         buffer = bufnr,
                     })
                 end
-
-                require "lsp_signature".on_attach({
-                    bind = true, -- This is mandatory, otherwise border config won't get registered.
-                    handler_opts = {
-                        border = "rounded",
-                        hi_parameter = "IncSearch",
-                    }
-                }, bufnr)
+                -- require"lsp_signature".on_attach({
+                --     bind = true, -- This is mandatory, otherwise border config won't get registered.
+                --     handler_opts = {
+                --         border = "rounded",
+                --         hi_parameter = "IncSearch",
+                --     }
+                -- }, bufnr)
             end,
         }
         local opts = vim.tbl_deep_extend("force", default_opts, cfg.lspconfig)
@@ -135,7 +135,7 @@ M.setup = function(server_names)
     init_mason()
     init_server(server_cfgs)
     if OS == 'linux' then
-        require("mason-lspconfig").setup {
+        require("mason-lspconfig").setup{
             ensure_installed = { 'lua_ls' }
         }
     end

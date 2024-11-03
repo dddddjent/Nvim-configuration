@@ -11,7 +11,6 @@ local palette = {
     white      = hsl('#BCBEC4').lighten(20),
     cyan       = hsl('#548AF7').rotate(10).lighten(20), -- hint, git merged, delimiter
 
-    color10    = hsl('#6AAB73'),                        -- strings, markdown
     color11    = hsl('#2AACB8'),                        -- number, markdown
     color9     = hsl('#56A8F5'),                        -- function, nvimtree icon, markdown
     color4     = hsl('#67b0e8'),                        -- Directory
@@ -105,6 +104,8 @@ local theme = lush(function(injected_functions)
         sym"@constant"{ Constant },
         sym"@constant.builtin"{ Constant },
         sym"@lsp.type.enumMember"{ Constant, gui = "italic" },
+        sym"@lsp.mod.readonly"{ Constant, gui = "bold" },
+        sym"@lsp.typemod.vairable.readonly"{ Constant, gui = "bold" },
         Number{ fg = palette.color11, },
         Float{ Number },
         sym"@number"{ Number },
@@ -207,12 +208,14 @@ local theme = lush(function(injected_functions)
         RainbowDelimiterRed{ fg = palette.red.desaturate(30), },
         RainbowDelimiterBlue{ fg = palette.blue.desaturate(30), },
 
-        TelescopeNormal{ bg = Normal.bg, },
-        TelescopeBorder{ bg = Normal.bg, },
-        FzfLuaNormal{ Normal },
-        FzfLuaBorder{ Normal },
-        FzfLuaDirIcon{ Directory },
-        FzfLuaSearch{ IncSearch },
+        -- fzflua follows telescope highlights now
+        TelescopeNormal{ bg = Normal.bg.darken(10), },
+        TelescopeBorder{ bg = TelescopeNormal.bg, },
+        TelescopeSelection{ bg = TelescopeNormal.bg, },
+        TelescopeSelectionCaret{ fg = palette.red },
+        TelescopePromptPrefix{ fg = palette.blue },
+        FzfLuaNormal{ bg = TelescopeNormal.bg, },
+        FzfLuaBorder{ bg = TelescopeNormal.bg, },
 
         WhichKey{ Function },
         SagaCount{ gui = "bold", fg = palette.color7, bg = Normal.bg, },

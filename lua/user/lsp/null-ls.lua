@@ -10,7 +10,7 @@ M.setup = function()
         notify(msg, ...)
     end
 
-    local null_ls = require "null-ls"
+    local null_ls = require"null-ls"
     local formatting = null_ls.builtins.formatting
     local diagnostics = null_ls.builtins.diagnostics
     null_ls.setup({
@@ -24,7 +24,11 @@ M.setup = function()
                         "yaml", "html", "markdown", "markdown.mdx", "graphql", "handlebars",
                     }
                 }),
-            formatting.clang_format,
+            formatting.clang_format.with(
+                {
+                    filetypes = { "cpp", "c", "cuda", "glsl" }
+                }
+            ),
             formatting.latexindent,
             formatting.markdown_toc,
             formatting.buf,

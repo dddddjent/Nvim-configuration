@@ -1,5 +1,5 @@
-require "user.plugins"
 require "user.colorschemes"
+require "user.plugins"
 require "user.options"
 require "user.keymaps"
 require "user.lsp"
