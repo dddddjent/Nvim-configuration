@@ -7,6 +7,7 @@ local filetypes = {
 }
 neocodeium.setup(
     {
+        silent = true,
         -- function accepts one argument `bufnr`
         filter = function(bufnr)
             if vim.tbl_contains(filetypes, vim.api.nvim_get_option_value('filetype', { buf = bufnr })) then
@@ -17,14 +18,14 @@ neocodeium.setup(
     }
 )
 
-local notify = vim.notify
----@diagnostic disable-next-line: duplicate-set-field
-vim.notify = function(msg, ...)
-    if msg:match("NeoCodeium") then
-        return
-    end
-    notify(msg, ...)
-end
+-- local notify = vim.notify
+-- ---@diagnostic disable-next-line: duplicate-set-field
+-- vim.notify = function(msg, ...)
+--     if msg:match("NeoCodeium") then
+--         return
+--     end
+--     notify(msg, ...)
+-- end
 
 vim.keymap.set("i", "<c-f>", neocodeium.accept)
 vim.keymap.set("i", "<c-c>", neocodeium.clear)

@@ -17,6 +17,7 @@ local palette = {
     color3     = hsl('#9192BA'),                        -- IncSearch, Type
     color8     = hsl('#9192BA'),                        -- namespace
     color6     = hsl('#C77DBB'),                        -- quickfix, constant, special, delimiter, todo
+    color10    = hsl('#6AAB73'),                        -- strings, markdown
     color13    = hsl('#ce89df'),                        -- markdown
     color12    = hsl('#CF8E6D'),                        -- cursor, tablinesel, keyword, markdown
     color14    = hsl('#B3AE60'),                        -- metadata

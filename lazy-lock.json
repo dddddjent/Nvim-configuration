@@ -28,7 +28,7 @@
   "img-paste.vim": { "branch": "master", "commit": "787be15ff52ea2db5ae7b813ab8808c8d4cf749e" },
   "lazy.nvim": { "branch": "main", "commit": "4c6479e98ad643cd584e9e7c4095c463e0d810eb" },
   "lsp_signature.nvim": { "branch": "master", "commit": "a38da0a61c172bb59e34befc12efe48359884793" },
-  "lspsaga.nvim": { "branch": "main", "commit": "e64351d0e6335eadf089aa2b9f17221e54ca10a4" },
+  "lspsaga.nvim": { "branch": "main", "commit": "d027f8b9c7c55e26cf4030c8657a2fc8222ed762" },
   "lua-json5": { "branch": "master", "commit": "014fcab8093b48b3932dd0d51ae2d98bbb578d67" },
   "lualine.nvim": { "branch": "master", "commit": "7d131a8d3ba5016229e8a1d08bf8782acea98852" },
   "lush.nvim": { "branch": "main", "commit": "45a79ec4acb5af783a6a29673a999ce37f00497e" },
