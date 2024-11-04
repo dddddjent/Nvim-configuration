@@ -24,4 +24,9 @@ require("blink.cmp").setup({
             show_in_snippet = true,
         }
     },
+    sources = {
+        completion = {
+            enabled_providers = { 'lsp', 'path', 'buffer' },
+        }
+    }
 })

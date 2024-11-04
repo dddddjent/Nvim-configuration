@@ -152,14 +152,7 @@ require("lazy").setup({
 
 
     -- Snippets
-    {
-        "L3MON4D3/LuaSnip",
-        event = "VeryLazy",
-        config = function()
-            require"user.luasnip"
-        end
-    },
-    -- { "rafamadriz/friendly-snippets" },
+    { "rafamadriz/friendly-snippets" },
 
     -- LSP
     { "neovim/nvim-lspconfig", },
