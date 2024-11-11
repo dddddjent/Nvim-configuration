@@ -5,8 +5,8 @@
 -- local colorscheme = "gruvbox-baby"
 -- local colorscheme = "gruvbox"
 -- local colorscheme = "onedark"
--- COLORSCHEME = "everblush"
-COLORSCHEME = "jetbrains-dark"
+COLORSCHEME = "everblush"
+-- COLORSCHEME = "jetbrains-dark"
 
 -- local scheme = require("user.colorschemes." .. colorscheme)
 -- vim.cmd("colorscheme " .. colorscheme)

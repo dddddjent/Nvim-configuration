@@ -19,6 +19,7 @@ local servers = {
     "taplo",
     "rust_analyzer",
     "clangd",
+    -- "ccls",
     "tailwindcss",
     "gopls",
     "dockerls",

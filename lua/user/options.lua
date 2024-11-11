@@ -38,6 +38,7 @@ local options = {
     -- sidescrolloff = 8, -- minimal number of screen columns either side of cursor if wrap is `false`
     guifont = "MesloLGL Nerd Font Mono:h20", -- the font used in graphical neovim applications
     -- linespace = 4,
+    sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions",
 }
 
 function CHECK_OS()
@@ -51,14 +52,14 @@ end
 
 OS = CHECK_OS()
 if OS == "windows" then
-    vim.cmd "set shell=pwsh"
-    vim.cmd "set shellcmdflag=-command"
-    vim.cmd 'set shellquote=\"'
-    vim.cmd "set shellxquote="
+    vim.cmd"set shell=pwsh"
+    vim.cmd"set shellcmdflag=-command"
+    vim.cmd'set shellquote=\"'
+    vim.cmd"set shellxquote="
     -- vim.opt.shellslash = true
 end
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append"c"
 
 for k, v in pairs(options) do
     vim.opt[k] = v
@@ -74,15 +75,15 @@ vim.g.neovide_transparency = 0.95
 vim.g.mdip_imgdir = '.pic'
 -- vim.g.markdown_fenced_languages={'python','cpp'}
 
-vim.cmd "command RestoreSession :SessionRestore"
+vim.cmd"command RestoreSession :SessionRestore"
 
-vim.cmd "set fencs=utf-8,gbk,big5,cp936,gb18030,gb2312,utf-16"
+vim.cmd"set fencs=utf-8,gbk,big5,cp936,gb18030,gb2312,utf-16"
 
 -- remove status line
-vim.cmd "set laststatus=0"
-vim.cmd "hi! link StatusLine Normal"
-vim.cmd "hi! link StatusLineNC Normal"
-vim.cmd "set statusline=%{repeat('─',winwidth('.'))}"
+vim.cmd"set laststatus=0"
+vim.cmd"hi! link StatusLine Normal"
+vim.cmd"hi! link StatusLineNC Normal"
+vim.cmd"set statusline=%{repeat('─',winwidth('.'))}"
 
 vim.filetype.add({
     pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },

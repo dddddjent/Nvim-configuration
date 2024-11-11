@@ -29,7 +29,6 @@ require("lazy").setup({
             require"user.comment"
         end
     },
-    { "kyazdani42/nvim-web-devicons", },
     {
         "kyazdani42/nvim-tree.lua",
         event = "VeryLazy",
@@ -144,7 +143,9 @@ require("lazy").setup({
         'saghen/blink.cmp',
         lazy = false,
         dependencies = 'rafamadriz/friendly-snippets',
-        version = 'v0.*',
+        -- version = 'v0.*',
+        commit = "db3d1ad8d6420ce29d548991468cc0107fe9d04b",
+        build = "rustup run nightly cargo build --release",
         config = function()
             require"user.blink"
         end,
