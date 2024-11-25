@@ -14,7 +14,7 @@ LOAD_LAUNCHJS = function()
             {
                 -- map the type fields in json to the dap's builtin configuration fields
                 cppdbg = { 'c', 'cpp', 'rust' },
-                codelldb = { 'c', 'cpp', 'rust', 'cu' },
+                codelldb = { 'c', 'cpp', 'rust', 'cuda' },
                 delve = {'go'},
             })
     end
