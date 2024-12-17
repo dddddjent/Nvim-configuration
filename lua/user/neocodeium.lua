@@ -27,7 +27,7 @@ neocodeium.setup(
 --     notify(msg, ...)
 -- end
 
-vim.keymap.set("i", "<c-f>", neocodeium.accept)
+vim.keymap.set("i", "<c-f>", neocodeium.accept) -- this is actually in blink's keymap
 vim.keymap.set("i", "<c-c>", neocodeium.clear)
 vim.keymap.set("i", "<c-n>", neocodeium.cycle_or_complete)
 vim.keymap.set("i", "<c-p>", function() neocodeium.cycle_or_complete(-1) end)
