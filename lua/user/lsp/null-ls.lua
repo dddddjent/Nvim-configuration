@@ -33,6 +33,8 @@ M.setup = function()
             formatting.markdown_toc,
             formatting.buf,
             formatting.isort,
+            (WORKSPACE_JSON["python-formatter"] == "autopep8" and formatting.autopep8 or nil),
+            (WORKSPACE_JSON["python-formatter"] == "black" and formatting.black or nil),
             formatting.ocamlformat,
             -- diagnostics.mypy,
             diagnostics.protolint,
