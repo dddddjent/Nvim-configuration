@@ -26,6 +26,11 @@ require("blink.cmp").setup({
             enabled_providers = { 'lsp', 'path', 'buffer' },
         }
     },
+    enabled = function()
+        return vim.bo.buftype ~= "prompt"
+            and vim.bo.filetype ~= "DressingInput"
+            and vim.b.completion ~= false
+    end,
     completion = {
         trigger = {
             show_on_blocked_trigger_characters =
