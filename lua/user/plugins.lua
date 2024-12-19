@@ -265,7 +265,7 @@ require("lazy").setup({
     -- Latex,
     {
         'lervag/vimtex',
-        event = "VeryLazy",
+        lazy = false,
         config = function()
             require"user.vimtex"
         end
