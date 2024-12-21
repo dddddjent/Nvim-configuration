@@ -96,13 +96,16 @@ local init_server = function(server_cfgs)
                         buffer = bufnr,
                     })
                 end
-                require"lsp_signature".on_attach({
-                    bind = true, -- This is mandatory, otherwise border config won't get registered.
-                    handler_opts = {
-                        border = "rounded",
-                        hi_parameter = "IncSearch",
-                    }
-                }, bufnr)
+                local lsp_signature_disable = cfg.lsp_signature_disable or false
+                if lsp_signature_disable == false then
+                    require"lsp_signature".on_attach({
+                        bind = true, -- This is mandatory, otherwise border config won't get registered.
+                        handler_opts = {
+                            border = "rounded",
+                            hi_parameter = "IncSearch",
+                        }
+                    }, bufnr)
+                end
             end,
         }
         local opts = vim.tbl_deep_extend("force", default_opts, cfg.lspconfig)
