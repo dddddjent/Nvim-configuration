@@ -1,5 +1,5 @@
 require('render-markdown').setup({
-    file_types = { 'markdown', 'Avante' },
+    file_types = { 'markdown', 'Avante', 'codecompanion' },
     render_modes = true,
     anti_conceal = {
         enabled = true,

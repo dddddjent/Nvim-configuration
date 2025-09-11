@@ -3,14 +3,13 @@ local M = {}
 local init_internal = function()
     -- Signs
     local signs = {
-        { name = "DiagnosticSignError", text = "E" },
-        { name = "DiagnosticSignWarn",  text = "W" },
-        { name = "DiagnosticSignHint",  text = "H" },
-        { name = "DiagnosticSignInfo",  text = "I" },
+        text = {
+            [vim.diagnostic.severity.ERROR] = "E",
+            [vim.diagnostic.severity.WARN] = "W",
+            [vim.diagnostic.severity.HINT] = "H",
+            [vim.diagnostic.severity.INFO] = "I",
+        },
     }
-    for _, sign in ipairs(signs) do
-        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-    end
 
     -- Diagnostic
     vim.diagnostic.config({
@@ -20,6 +19,7 @@ local init_internal = function()
         float = {
             border = "rounded",
         },
+        signs = signs,
     })
 
     -- Hover ui
@@ -46,6 +46,11 @@ local init_lspsaga = function()
         },
         symbol_in_winbar = {
             enable = false,
+        },
+        rename = {
+            keys = {
+                quit = "<C-c>",
+            }
         }
     })
 end

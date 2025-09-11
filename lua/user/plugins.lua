@@ -143,7 +143,7 @@ require("lazy").setup({
         'saghen/blink.cmp',
         lazy = false,
         dependencies = 'rafamadriz/friendly-snippets',
-        version = 'v0.*',
+        version = '1.6.0',
         config = function()
             require"user.blink"
         end,
@@ -159,7 +159,13 @@ require("lazy").setup({
     { "williamboman/mason-lspconfig.nvim" },
     {
         "nvimtools/none-ls.nvim",
-        commit = "bb680d752cec37949faca7a1f509e2fe67ab418a",
+        -- commit = "bb680d752cec37949faca7a1f509e2fe67ab418a",
+    },
+    {
+        'stevearc/conform.nvim',
+        config = function()
+            require"user.lsp.conform"
+        end
     },
     {
         "RRethy/vim-illuminate",
@@ -345,56 +351,12 @@ require("lazy").setup({
         opts = {},
     },
 
-    -- {
-    --     "yetone/avante.nvim",
-    --     opts = {
-    --         provider = "openai",
-    --         behaviour = {
-    --             auto_suggestions = false, -- Experimental stage
-    --         },
-    --         openai = {
-    --             endpoint = "https://api.openai.com/v1",
-    --             model = "gpt-4o",
-    --             timeout = 30000, -- Timeout in milliseconds
-    --             temperature = 0,
-    --             max_tokens = 4096,
-    --             ["local"] = false,
-    --         },
-    --     },
-    --     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    --     build = "make",
-    --     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-    --     dependencies = {
-    --         "nvim-treesitter/nvim-treesitter",
-    --         "stevearc/dressing.nvim",
-    --         "nvim-lua/plenary.nvim",
-    --         "MunifTanjim/nui.nvim",
-    --         --- The below dependencies are optional,
-    --         "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    --         {
-    --             -- Make sure to set this up properly if you have lazy=true
-    --             'MeanderingProgrammer/render-markdown.nvim',
-    --             ft = { "markdown", "Avante" },
-    --             config = function()
-    --                 require("user.render_markdown")
-    --             end,
-    --         },
-    --     },
-    -- },
+    -- AI
     {
         -- Make sure to set this up properly if you have lazy=true
         'MeanderingProgrammer/render-markdown.nvim',
-        ft = { "markdown" },
         config = function()
             require("user.render_markdown")
-        end,
-    },
-    {
-        "monkoose/neocodeium",
-        event = "VeryLazy",
-        commit = "ee82f89a25dd6b149f156d5a710879ebfb450878",
-        config = function()
-            require"user.neocodeium"
         end,
     },
     {
@@ -409,5 +371,14 @@ require("lazy").setup({
                 { expr = true, silent = true })
             vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
         end
-    }
+    },
+    {
+        "olimorris/codecompanion.nvim",
+        config = function()
+            require("user.codecompanion")
+        end,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+    },
 })

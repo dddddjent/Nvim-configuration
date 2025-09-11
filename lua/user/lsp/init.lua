@@ -8,7 +8,7 @@ local servers = {
     "cmake",
     "lemminx",
     "marksman",
-    "bufls",
+    "buf_ls",
     "zls",
     "texlab",
     "svlangserver",
