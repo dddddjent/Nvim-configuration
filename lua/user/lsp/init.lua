@@ -1,7 +1,7 @@
 local servers = {
     "lua_ls",
     "basedpyright",
-    (WORKSPACE_JSON["enable_ruff"] and "ruff_lsp" or nil),
+    (WORKSPACE_JSON["enable_ruff"] and "ruff" or nil),
     "bashls",
     "jsonls",
     "yamlls",
@@ -25,13 +25,14 @@ local servers = {
     "dockerls",
     "docker_compose_language_service",
     "hyprls",
-    -- "glsl_analyzer",
-    "glslls",
+    "glsl_analyzer",
+    -- "glslls",
     "ocamllsp",
+    -- "grammarly",
 }
 
 local null_ls_servers = {
-    "isort",
+    -- "isort",
     "mypy",
     "clang-format",
     "prettierd",

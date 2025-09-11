@@ -144,7 +144,6 @@ require("lazy").setup({
         lazy = false,
         dependencies = 'rafamadriz/friendly-snippets',
         version = 'v0.*',
-        build = "rustup run nightly cargo build --release",
         config = function()
             require"user.blink"
         end,
@@ -383,10 +382,32 @@ require("lazy").setup({
     --     },
     -- },
     {
+        -- Make sure to set this up properly if you have lazy=true
+        'MeanderingProgrammer/render-markdown.nvim',
+        ft = { "markdown" },
+        config = function()
+            require("user.render_markdown")
+        end,
+    },
+    {
         "monkoose/neocodeium",
         event = "VeryLazy",
+        commit = "ee82f89a25dd6b149f156d5a710879ebfb450878",
         config = function()
             require"user.neocodeium"
         end,
     },
+    {
+        "Exafunction/windsurf.vim",
+        config = function()
+            -- Change '<C-g>' here to any keycode you like.
+            vim.g.codeium_disable_bindings = 1
+            vim.keymap.set('i', '<c-f>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+            vim.keymap.set('i', '<c-n>', function() return vim.fn['codeium#CycleCompletions'](1) end,
+                { expr = true, silent = true })
+            vim.keymap.set('i', '<c-p>', function() return vim.fn['codeium#CycleCompletions'](-1) end,
+                { expr = true, silent = true })
+            vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+        end
+    }
 })

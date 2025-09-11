@@ -1,4 +1,4 @@
-local neocodeium = require("neocodeium")
+-- local neocodeium = require("neocodeium")
 
 require("blink.cmp").setup({
     keymap = {
@@ -10,9 +10,9 @@ require("blink.cmp").setup({
         ['<C-j>'] = { 'select_next', 'fallback' },
 
         -- ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-        ['<C-f>'] = { function()
-            neocodeium.accept()
-        end },
+        -- ['<C-f>'] = { function()
+        --     neocodeium.accept()
+        -- end },
 
         ['<M-j>'] = { 'snippet_forward', 'fallback' },
         ['<M-k>'] = { 'snippet_backward', 'fallback' },

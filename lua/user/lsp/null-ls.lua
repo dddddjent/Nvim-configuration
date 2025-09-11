@@ -32,7 +32,7 @@ M.setup = function()
             formatting.latexindent,
             formatting.markdown_toc,
             formatting.buf,
-            formatting.isort,
+            -- formatting.isort,
             (WORKSPACE_JSON["python-formatter"] == "autopep8" and formatting.autopep8 or nil),
             (WORKSPACE_JSON["python-formatter"] == "black" and formatting.black or nil),
             formatting.ocamlformat,
