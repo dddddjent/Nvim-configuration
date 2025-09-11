@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 require("lazy").setup({
-    { "nvim-lua/plenary.nvim" },
+    { "nvim-lua/plenary.nvim", branch = "master" },
     {
         "windwp/nvim-autopairs",
         event = "VeryLazy",
@@ -140,10 +140,23 @@ require("lazy").setup({
         end
     },
     {
+        'saghen/blink.compat',
+        -- use v2.* for blink.cmp v1.*
+        version = '2.*',
+        -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+        lazy = true,
+        -- make sure to set opts so that lazy.nvim calls blink.compat's setup
+        opts = {
+        },
+    },
+    {
         'saghen/blink.cmp',
         lazy = false,
-        dependencies = 'rafamadriz/friendly-snippets',
-        version = '1.6.0',
+        dependencies = {
+            'rafamadriz/friendly-snippets',
+            'Kaiser-Yang/blink-cmp-avante',
+        },
+        version = '1.*',
         config = function()
             require"user.blink"
         end,
@@ -371,14 +384,5 @@ require("lazy").setup({
                 { expr = true, silent = true })
             vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
         end
-    },
-    {
-        "olimorris/codecompanion.nvim",
-        config = function()
-            require("user.codecompanion")
-        end,
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
     },
 })
