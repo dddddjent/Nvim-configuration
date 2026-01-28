@@ -10,7 +10,7 @@ local function show_result(result)
     require "fzf-lua".fzf_exec(result, {
         actions = {
             ['default'] = function(selected)
-                vim.cmd(":silent ! tmuxinator s " .. selected[1])
+                vim.cmd(":silent ! mux s " .. selected[1])
             end
         },
         winopts = { height = 0.38, width = 0.4, row = 0.5 },
@@ -19,10 +19,10 @@ local function show_result(result)
 end
 
 local function get_projects()
-    local handle = io.popen("tmuxinator list -n | tail -n +2")
+    local handle = io.popen("mux list | tail -n +2")
     local result = handle:read("*a")
     if result == nil then
-        print("tmuxinator no return?")
+        print("mux no return?")
         return
     end
     handle:close()
