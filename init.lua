@@ -4,7 +4,7 @@ local function path_exists(path)
     return stat ~= nil
 end
 
-io.input("/etc/xdg/nvim/.vscode/workspace.json")
+io.input(vim.fn.stdpath("config") .. "/.vscode/workspace.json")
 local str = io.read("*a")
 local default_workspace_json = vim.json.decode(str)
 

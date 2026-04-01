@@ -2,12 +2,16 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
+        triggers = {
+            { "<auto>", mode = "nxs" }, -- remove d and y fully
+        },
+        defer = function(ctx)
+            return vim.list_contains({ "v", "V", "<C-V>" }, ctx.mode)
+        end,
+        delay = 0,
         plugins = {
             presets = {
-                operators = false,
+                operators = false, -- can only remove simple dd and yy
             }
         },
         win = {
@@ -21,6 +25,11 @@ return {
     },
     keys = {
         { "<leader>w", "<cmd>silent w!<CR>", desc = "Save", mode = "n" },
+        { "<leader>q", "<cmd>silent q!<CR>", desc = "Quit", mode = "n" },
+        { "<leader>4", "<cmd>silent qa!<CR>", desc = "Quit all", mode = "n" },
+        { "<leader>c", "<cmd>silent Bdelete!<CR>", desc = "Close buffer", mode = "n" },
+        { "<leader>h", "<cmd>nohlsearch<CR>", desc = "Close search highlight", mode = "n" },
+        { "<leader><leader>", "<nop>", desc = "Quit which-key", mode = "n" },
         { "<leader>H", function()
             local file_name = vim.fn.expand("%")
             local cmd = "nohup firefox " .. file_name .. " &"
