@@ -2,9 +2,9 @@ KEY_OPTS = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 local term_opts = { silent = true }
 
---Remap space as leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
 keymap("", "<Space>", "<Nop>", KEY_OPTS)
 
 -- Normal --
