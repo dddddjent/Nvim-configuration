@@ -8,6 +8,6 @@ return {
             "cpp", "java", "rust", "python", "typescript",
             'json', "cmake", "latex", "verilog", "bash", "tsx", "go", "gomod",
             "toml", "yaml", "xml"
-        })
+        }):wait(300000)
     end,
 }
