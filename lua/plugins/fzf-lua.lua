@@ -130,11 +130,19 @@ return {
         {
             "<leader>f",
             function()
-                require("fzf-lua").files({
-                    cmd = "fd --hidden --type file --exclude .git",
+                local fzf = require("fzf-lua")
+                local actions = fzf.actions
+
+                fzf.files({
+                    hidden = true,
+                    no_ignore = false,
                     previewer = false,
                     winopts = { height = 0.38, width = 0.4, row = 0.5, col = 0.5 },
                     fzf_opts = { ["--layout"] = "reverse" },
+                    actions = {
+                        ["alt-i"] = { fn = actions.toggle_ignore, reuse = true, header = false },
+                        ["alt-h"] = { fn = actions.toggle_hidden, reuse = true, header = false },
+                    },
                 })
             end,
             mode = "n",

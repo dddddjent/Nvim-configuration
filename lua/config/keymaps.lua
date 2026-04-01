@@ -49,6 +49,7 @@ keymap("i", "<C-j>", "<Down>", KEY_OPTS)
 keymap("i", "<C-k>", "<Up>", KEY_OPTS)
 keymap("i", "<C-l>", "<Right>", KEY_OPTS)
 keymap("n", "Q", "<nop>", KEY_OPTS)
+keymap("n", "q", "<nop>", KEY_OPTS) -- had enough
 
 -- Replace
 -- keymap("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

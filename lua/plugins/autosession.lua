@@ -18,8 +18,8 @@ return {
     },
     keys = {
         mode = "n",
-        { "<leader>ss", "<cmd>Autosession save<cr>",    desc = "Session save" },
-        { "<leader>sd", "<cmd>Autosession delete<cr>",  desc = "Session delete" },
-        { "<leader>sr", "<cmd>Autosession restore<cr>", desc = "Session restore" },
+        { "<leader>ss", "<cmd>AutoSession save<cr>",    desc = "Session save" },
+        { "<leader>sd", "<cmd>AutoSession delete<cr>",  desc = "Session delete" },
+        { "<leader>sr", "<cmd>AutoSession restore<cr>", desc = "Session restore" },
     }
 }
