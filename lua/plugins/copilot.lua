@@ -2,7 +2,8 @@ return {
     "github/copilot.vim",
     lazy = false,
     init = function()
-        vim.g.copilot_node_command = MISE_DEP_DIR .. "/node/latest/bin/node"
+        vim.g.copilot_node_command = "XDG_CONFIG_HOME=$HOME/.config/github-copilot " ..
+        MISE_DEP_DIR .. "/node/latest/bin/node"
         vim.g.copilot_no_tab_map = true
     end,
     keys = {
