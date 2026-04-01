@@ -141,7 +141,7 @@ return {
             desc = "Find files"
         },
         {
-            "<leader>tc",
+            "tc",
             function()
                 diff_current()
             end,
@@ -149,7 +149,7 @@ return {
             desc = "Telescope compare with current"
         },
         {
-            "<leader>tC",
+            "tC",
             function()
                 diff_files()
             end,

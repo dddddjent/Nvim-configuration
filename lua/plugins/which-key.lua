@@ -30,12 +30,14 @@ return {
         },
     },
     keys = {
-        { "<leader>w",        "<cmd>silent w!<CR>",  desc = "Save",                   mode = "n" },
-        { "<leader>q",        "<cmd>silent q!<CR>",  desc = "Quit",                   mode = "n" },
-        { "<leader>4",        "<cmd>silent qa!<CR>", desc = "Quit all",               mode = "n" },
-        { "<leader>c",        "<cmd>silent bd!<CR>", desc = "Close buffer",           mode = "n" },
-        { "<leader>h",        "<cmd>nohlsearch<CR>", desc = "Close search highlight", mode = "n" },
-        { "<leader><leader>", "<nop>",               desc = "Quit which-key",         mode = "n" },
+        { "<leader>w",        "<cmd>silent w!<CR>",         desc = "Save",                   mode = "n" },
+        { "<leader>tc",       "<cmd>silent tab close!<CR>", desc = "Tab close",              mode = "n" },
+        { "<leader>tn",       "<cmd>silent tab new<CR>",    desc = "Tab new",                mode = "n" },
+        { "<leader>q",        "<cmd>silent q!<CR>",         desc = "Quit",                   mode = "n" },
+        { "<leader>4",        "<cmd>silent qa!<CR>",        desc = "Quit all",               mode = "n" },
+        { "<leader>c",        "<cmd>silent bd!<CR>",        desc = "Close buffer",           mode = "n" },
+        { "<leader>h",        "<cmd>nohlsearch<CR>",        desc = "Close search highlight", mode = "n" },
+        { "<leader><leader>", "<nop>",                      desc = "Quit which-key",         mode = "n" },
         {
             "<leader>pC",
             function()
