@@ -35,7 +35,7 @@ return {
         { "<leader>tn",       "<cmd>silent tab new<CR>",    desc = "Tab new",                mode = "n" },
         { "<leader>q",        "<cmd>silent q!<CR>",         desc = "Quit",                   mode = "n" },
         { "<leader>4",        "<cmd>silent qa!<CR>",        desc = "Quit all",               mode = "n" },
-        { "<leader>c",        "<cmd>silent bd!<CR>",        desc = "Close buffer",           mode = "n" },
+        { "<leader>c",        "<cmd>Bdelete!<CR>",        desc = "Close buffer",           mode = "n" },
         { "<leader>h",        "<cmd>nohlsearch<CR>",        desc = "Close search highlight", mode = "n" },
         { "<leader><leader>", "<nop>",                      desc = "Quit which-key",         mode = "n" },
         {

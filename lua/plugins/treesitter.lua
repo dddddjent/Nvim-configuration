@@ -7,7 +7,7 @@ return {
             "lua", "vim", "html", "javascript", "css",
             "cpp", "java", "rust", "python", "typescript",
             'json', "cmake", "latex", "systemverilog", "bash", "tsx", "go", "gomod",
-            "toml", "yaml", "xml"
+            "toml", "yaml", "xml", "markdown", "markdown_inline"
         }):wait(300000)
     end,
 }
