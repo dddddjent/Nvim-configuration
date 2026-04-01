@@ -8,5 +8,7 @@ return {
     ft = { "markdown" },
     keys = { 
         {"<leader>ms", "<Plug>MarkdownPreview", desc = "Preview start", mode = "n"},
+        {"<leader>mp", "<Plug>MarkdownPreviewStop", desc = "Preview stop", mode = "n" },
+        { "<leader>mt", "<Plug>MarkdownPreviewToggle", desc = "Preview toggle", mode = "n" },
     },
 }
