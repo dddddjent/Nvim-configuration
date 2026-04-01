@@ -50,7 +50,7 @@ local init_server = function(servers)
     default_capabilities.textDocument.completion.completionItem.snippetSupport = false
 
     for _, server_name in ipairs(servers) do
-        cfg = require ("config.lsp.servers."..server_name)
+        cfg = require("config.lsp.servers." .. server_name)
         local default_opts = {
             capabilities = default_capabilities,
             on_attach = function(client, bufnr)

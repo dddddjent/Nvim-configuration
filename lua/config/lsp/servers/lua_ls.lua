@@ -1,5 +1,5 @@
 return {
-    cmd = { MISE_DEP_DIR .. "/aqua-lua-ls-lua-language-server/latest/bin/lua-language-server"},
+    cmd = { MISE_DEP_DIR .. "/aqua-lua-ls-lua-language-server/latest/bin/lua-language-server" },
     settings = {
         Lua = {
             diagnostics = {
@@ -21,4 +21,3 @@ return {
     },
     is_format_disabled = false,
 }
-
