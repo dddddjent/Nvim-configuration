@@ -92,3 +92,4 @@ end
 
 init_internal()
 init_server(servers)
+require("config.lsp.keymaps")
