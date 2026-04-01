@@ -41,18 +41,18 @@ local init_internal = function()
 end
 
 local init_server = function(servers)
-    local default_capabilities = vim.lsp.protocol.make_client_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- default_capabilities = require('blink.cmp').get_lsp_capabilities(default_capabilities)
-    default_capabilities.textDocument.foldingRange = {
+    capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
         lineFoldingOnly = true
     }
-    default_capabilities.textDocument.completion.completionItem.snippetSupport = false
+    capabilities.textDocument.completion.completionItem.snippetSupport = false
 
     for _, server_name in ipairs(servers) do
         cfg = require("config.lsp.servers." .. server_name)
         local default_opts = {
-            capabilities = default_capabilities,
+            capabilities = capabilities,
             on_attach = function(client, bufnr)
                 if cfg.is_format_disabled then
                     client.server_capabilities.documentFormattingProvider = false
@@ -71,16 +71,6 @@ local init_server = function(servers)
                         buffer = bufnr,
                     })
                 end
-                -- local lsp_signature_disable = cfg.lsp_signature_disable or false
-                -- if lsp_signature_disable == false then
-                --     require"lsp_signature".on_attach({
-                --         bind = true, -- This is mandatory, otherwise border config won't get registered.
-                --         handler_opts = {
-                --             border = "rounded",
-                --             hi_parameter = "IncSearch",
-                --         }
-                --     }, bufnr)
-                -- end
             end,
         }
         local opts = vim.tbl_deep_extend("force", default_opts, cfg)
