@@ -15,6 +15,8 @@ end
 WORKSPACE_JSON = vim.json.decode(str)
 WORKSPACE_JSON = vim.tbl_deep_extend("force", default_workspace_json, WORKSPACE_JSON)
  
+MISE_DEP_DIR = "/usr/local/share/mise/data/installs"
+
 require"config.colorschemes"
 require"config.options"
 require"config.keymaps"

@@ -1,5 +1,3 @@
-MISE_DEP_DIR = "/usr/local/share/mise/data/installs"
-
 return {
     "iamcco/markdown-preview.nvim",
     event = "VeryLazy",
