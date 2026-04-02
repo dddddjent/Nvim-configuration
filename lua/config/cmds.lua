@@ -60,3 +60,9 @@ for _, extension_name in ipairs(glsl_extensions) do
         command = 'set filetype=glsl',
     })
 end
+
+vim.go.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+    command = "if mode() != 'c' | checktime | endif",
+    pattern = "*",
+})
