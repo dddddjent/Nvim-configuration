@@ -1,5 +1,28 @@
 local servers = {
-    "lua_ls"
+    "lua_ls",
+    "basedpyright",
+    "cmake",
+    "hyprls",
+    "rust_analyzer",
+    "clangd",
+    "glsl_analyzer",
+    "gopls",
+    "html",
+    "jsonls",
+    "lemminx",
+    "bashls",
+    "jsonls",
+    "yamlls",
+    "marksman",
+    "zls",
+    "taplo",
+    "texlab",
+    "html",
+    "cssls",
+    "eslint",
+    "dockerls",
+    "docker_compose_language_service",
+    "vtsls",
 }
 
 local init_internal = function()
@@ -32,10 +55,52 @@ local init_internal = function()
         border = "rounded",
     })
 
-    -- inlay_hint
+    -- inlay_hint + gopls semantic token highlight links
     vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
             vim.lsp.inlay_hint.enable(false)
+
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            if not client or client.name ~= "gopls" then
+                return
+            end
+
+            local stp = client.server_capabilities.semanticTokensProvider
+            local legend = stp and stp.legend
+            if not legend then
+                return
+            end
+
+            local function hl_default(group, link)
+                vim.api.nvim_set_hl(0, group, { link = link, default = true })
+            end
+
+            local type_map = {
+                namespace = "Identifier",
+                type = "Type",
+                typeParameter = "Type",
+                parameter = "Identifier",
+                variable = "Identifier",
+                ["function"] = "Function",
+                method = "Function",
+                macro = "Macro",
+                keyword = "Keyword",
+                comment = "Comment",
+                string = "String",
+                number = "Number",
+                operator = "Operator",
+                label = "Label",
+            }
+
+            local ft = vim.bo[args.buf].filetype
+            for _, token_type in ipairs(legend.tokenTypes or {}) do
+                local link = type_map[token_type] or "Identifier"
+                hl_default(string.format("@lsp.type.%s.%s", token_type, ft), link)
+
+                for _, modifier in ipairs(legend.tokenModifiers or {}) do
+                    hl_default(string.format("@lsp.typemod.%s.%s.%s", token_type, modifier, ft), link)
+                end
+            end
         end,
     })
 end
@@ -49,12 +114,14 @@ local init_server = function(servers)
     }
     capabilities.textDocument.completion.completionItem.snippetSupport = false
 
+    local default_cfg = { format = true, enable_codelens = false }
     for _, server_name in ipairs(servers) do
-        cfg = require("config.lsp.servers." .. server_name)
+        local cfg = require("config.lsp.servers." .. server_name)
+        cfg = vim.tbl_deep_extend("force", default_cfg, cfg)
         local default_opts = {
             capabilities = capabilities,
             on_attach = function(client, bufnr)
-                if cfg.is_format_disabled then
+                if not cfg.format then --! Custom flag!
                     client.server_capabilities.documentFormattingProvider = false
                 end
 

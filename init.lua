@@ -16,6 +16,8 @@ WORKSPACE_JSON = vim.json.decode(str)
 WORKSPACE_JSON = vim.tbl_deep_extend("force", default_workspace_json, WORKSPACE_JSON)
 
 MISE_DEP_DIR = "/usr/local/share/mise/data/installs"
+NODE_DEP_DIR = "/usr/local/share/mise/data/installs/node/lts/bin"
+PYTHON_DEP_DIR = "/usr/local/share/mise/data/installs/python/latest/bin"
 
 require"config.colorschemes"
 require"config.options"
@@ -24,5 +26,4 @@ require"config.lazy"
 require"config.cmds"
 require"config.lsp"
 -- require"user.dap"
--- require"user.task"
 require"config.my_plugins"

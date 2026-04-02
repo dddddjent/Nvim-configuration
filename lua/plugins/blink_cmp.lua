@@ -42,6 +42,30 @@ return {
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
             default = { 'lsp', 'path', 'buffer' },
+            providers = {
+                lsp = {
+                    -- glsl_analyzer returns JSON nulls (decoded as vim.NIL) for some fields.
+                    -- blink expects nil/string/tables, so normalize to avoid errors/notifications.
+                    transform_items = function(_, items)
+                        for _, item in ipairs(items) do
+                            if item.detail == vim.NIL then item.detail = nil end
+
+                            if item.labelDetails == vim.NIL then
+                                item.labelDetails = nil
+                            elseif type(item.labelDetails) == 'table' then
+                                if item.labelDetails.detail == vim.NIL then item.labelDetails.detail = nil end
+                                if item.labelDetails.description == vim.NIL then item.labelDetails.description = nil end
+                            end
+
+                            if item.documentation == vim.NIL then item.documentation = nil end
+                            if type(item.documentation) == 'table' and item.documentation.value == vim.NIL then
+                                item.documentation.value = nil
+                            end
+                        end
+                        return items
+                    end,
+                },
+            },
         },
 
         -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

@@ -9,7 +9,7 @@ return {
         defer = function(ctx)
             return vim.list_contains({ "v", "V", "<C-V>" }, ctx.mode)
         end,
-        delay = 0,
+        -- delay = 0,
         plugins = {
             presets = {
                 operators = false, -- can only remove simple dd and yy
