@@ -14,6 +14,7 @@ return {
             less = { "prettierd" },
             yaml = { "prettierd" },
             bash = { "shfmt" },
+            sh = { "shfmt" },
         },
         formatters = {
             autopep8 = {
