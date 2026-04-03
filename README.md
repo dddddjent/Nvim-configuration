@@ -1,6 +1,8 @@
 # Dev
 
-docker image prune --force
+docker container prune
+docker image prune
+docker system prune
 
 distrobox rm nvim && docker build --pull -t ddddjent/nvim . && distrobox create --name nvim --image ddddjent/nvim --init-hooks "echo 'root:1' | chpasswd"
 
