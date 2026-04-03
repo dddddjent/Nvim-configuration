@@ -13,10 +13,10 @@ FROM archlinux:latest
 
 # deps
 RUN pacman -Syu --noconfirm git ripgrep fd curl wget mise \
-    lazygit tar gzip unzip cmake ninja gcc luarocks fzf \
+    lazygit tar gzip unzip cmake ninja gcc luarocks fzf wl-clipboard xclip \
     eslint-language-server vscode-html-languageserver \
     vscode-css-languageserver vscode-json-languageserver \
-    tree-sitter-cli zathura zathura-pdf-poppler xdotool biber firefox texlive clang marksman zls && \
+    zathura zathura-pdf-poppler xdotool biber firefox texlive clang marksman zls && \
     pacman -Scc --noconfirm
 
 ARG MISE_DATA_DIR="/usr/local/share/mise/data"
@@ -34,11 +34,13 @@ RUN export PATH="$LOCAL_PATH:$PATH" && \
     mise install lua-language-server@latest taplo@latest && \
     /root/.cargo/bin/rustup component add rust-analyzer rust-src && \
     /root/.cargo/bin/cargo install --git https://github.com/latex-lsp/texlab --locked --tag v5.25.1 && \
-    pip install cmake-language-server "pygls>=1.1.1,<2.0.0" autopep8 debugpy && \
+    /root/.cargo/bin/cargo install --locked tree-sitter-cli && \
+    pip install cmake-language-server "pygls>=1.1.1,<2.0.0" autopep8 debugpy cmakelang && \
     pip cache purge && \
     go install golang.org/x/tools/gopls@latest && \
     go install github.com/hyprland-community/hyprls/cmd/hyprls@latest && \
     go install github.com/go-delve/delve/cmd/dlv@latest && \
+    go install mvdan.cc/sh/v3/cmd/shfmt@latest && \
     go clean -cache -modcache && \
     npm install -g \
         bash-language-server \
@@ -54,6 +56,8 @@ RUN export PATH="$LOCAL_PATH:$PATH" && \
     rm -rf /root/.cache /root/.npm /root/.cargo/registry /root/.cargo/git /root/.rustup/tmp /root/.rustup/downloads /tmp/* && \
     pacman -Rns --noconfirm mise && \
     pacman -Scc --noconfirm
+RUN mkdir -p /root/.local/bin && \
+    ln -s /root/.cargo/bin/tree-sitter /root/.local/bin/tree-sitter 
 
 RUN wget -q -O /usr/local/share/mise/data/installs/latexindent https://github.com/cmhughes/latexindent.pl/releases/download/V4.0/latexindent-linux && \
     wget -q https://github.com/redhat-developer/vscode-xml/releases/download/0.29.0/lemminx-linux.zip && \

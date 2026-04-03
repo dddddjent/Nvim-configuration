@@ -1,3 +1,27 @@
+# Supported langs
+
+- lua
+- c/cpp
+- cmake
+- glsl
+- js/ts/jsx/tsx/css/html
+- go
+- python
+- xml
+- markdown
+- latex
+- bash
+- zig
+- yaml
+- toml
+- json
+- docker/docker-compose
+
+# Dependencies
+
+1. docker with sudo access
+2. distrobox
+
 # Dev
 
 docker container prune
