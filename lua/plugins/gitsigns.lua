@@ -61,11 +61,5 @@ return {
         { "<leader>go", "<cmd>FzfLua git_status<cr>",              desc = "Open changed file" },
         -- { "<leader>gb", "<cmd>FzfLua git_branches<cr>", desc = "Checkout branch" },
         { "<leader>gb", "<cmd>lua require 'gitsigns'.blame()<cr>", desc = "Blame" },
-        { "<leader>gc", "<cmd>FzfLua git_commits<cr>",             desc = "Checkout commit" },
-        {
-            "<leader>gd",
-            "<cmd>Gitsigns diffthis HEAD<cr>",
-            desc = "Diff",
-        },
     }
 }

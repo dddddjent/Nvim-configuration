@@ -18,6 +18,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", KEY_OPTS)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", KEY_OPTS)
 keymap("n", "<S-l>", ":bnext<CR>", KEY_OPTS)
 keymap("n", "<S-h>", ":bprevious<CR>", KEY_OPTS)
+keymap("n", "<A-l>", "gt", KEY_OPTS)
+keymap("n", "<A-h>", "gT", KEY_OPTS)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", KEY_OPTS)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", KEY_OPTS)
 -- Center horizontally
