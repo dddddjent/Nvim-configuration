@@ -37,6 +37,7 @@ local init_adapters = function()
         }
     }
 
+    -- Use need to have go in the PATH for delve to work. (It compiles)
     dap.adapters.delve = function(callback, config)
         if config.mode == 'remote' and config.request == 'attach' then
             callback({
