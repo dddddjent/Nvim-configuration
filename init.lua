@@ -4,7 +4,7 @@ local function path_exists(path)
     return stat ~= nil
 end
 
-io.input(vim.fn.stdpath('config') .. "/.vscode/workspace.json")
+io.input(vim.fn.stdpath("config") .. "/.vscode/workspace.json")
 local str = io.read("*a")
 local default_workspace_json = vim.json.decode(str)
 
@@ -15,13 +15,15 @@ end
 WORKSPACE_JSON = vim.json.decode(str)
 WORKSPACE_JSON = vim.tbl_deep_extend("force", default_workspace_json, WORKSPACE_JSON)
 
-require"user.colorschemes"
-require"user.plugins"
-require"user.options"
-require"user.keymaps"
-require"user.lsp"
-require"user.dap"
-require"user.task"
-require"user.session"
-require"user.search"
-require"user.autocommands"
+MISE_DEP_DIR = "/usr/local/share/mise/data/installs"
+NODE_DEP_DIR = "/usr/local/share/mise/data/installs/node/lts/bin"
+PYTHON_DEP_DIR = "/usr/local/share/mise/data/installs/python/latest/bin"
+
+require"config.colorschemes"
+require"config.options"
+require"config.keymaps"
+require"config.lazy"
+require"config.cmds"
+require"config.lsp"
+-- require"user.dap"
+require"config.my_plugins"

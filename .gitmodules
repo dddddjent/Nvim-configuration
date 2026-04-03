@@ -1,6 +1,0 @@
-[submodule "bin"]
-	path = bin
-	url = https://github.com/dddddjent/nvim-dep-bin.git
-[submodule "fonts"]
-	path = fonts
-	url = https://github.com/dddddjent/nvim-dep-fonts.git
