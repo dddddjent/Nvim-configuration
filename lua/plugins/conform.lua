@@ -15,6 +15,7 @@ return {
             yaml = { "prettierd" },
             bash = { "shfmt" },
             sh = { "shfmt" },
+            cmake = { "cmake_format" },
         },
         formatters = {
             autopep8 = {
@@ -26,6 +27,9 @@ return {
             },
             shfmt = {
                 command = MISE_DEP_DIR .. "/shfmt",
+            },
+            cmake_format = {
+                command = PYTHON_DEP_DIR .. "/cmake-format",
             },
         },
         -- Set this to change the default values when calling conform.format()
