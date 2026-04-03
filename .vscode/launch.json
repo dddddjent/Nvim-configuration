@@ -1,60 +1,71 @@
 {
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Codelldb bin",
-			"type": "codelldb",
-			"request": "launch",
-			"program": "build/foo",
-			"args": ["--aa"],
-			"cwd": "${workspaceFolder}",
-			"console": "integratedTerminal"
-		},
-		{
-			"name": "Codelldb attach",
-			"type": "codelldb",
-			"request": "attach",
-			"pid": "${command:pickProcess}",
-			"cwd": "${workspaceFolder}",
-			"console": "integratedTerminal"
-		},
-		{
-			"name": "Python",
-			"type": "python",
-			"request": "launch",
-			"program": "${file}",
-			"console": "integratedTerminal"
-		},
-		{
-			"type": "go",
-			"name": "vscode-debug",
-			"request": "launch",
-			"program": "${input:myPick}",
-			"console": "integratedTerminal",
-			"dlvToolPath": "/home/ljl/.local/share/nvim/mason/bin/dlv"
-		},
-		{
-			"type": "go",
-			"name": "vscode-attach",
-			"request": "attach",
-			"console": "integratedTerminal",
-			"processId": "${command:pickProcess}",
-			"mode": "local",
-			"dlvToolPath": "/home/ljl/.local/share/nvim/mason/bin/dlv"
-		}
-	],
-	"inputs": [
-		{
-			"id": "myPrompt",
-			"type": "promptString",
-			"description": "Program to run: ",
-			"default": "build/foo"
-		},
-		{
-			"id": "myPick",
-			"type": "pickString",
-			"description": "Program to run: ",
-			"options": ["build/foo", "build/test/test_5"]
-		}
-	]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Codelldb bin",
+            "type": "codelldb",
+            "request": "launch",
+            "program": "build/foo",
+            "args": [
+                "--aa"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Codelldb attach",
+            "type": "codelldb",
+            "request": "attach",
+            "pid": "${command:pickProcess}",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "delve",
+            "name": "Debug",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "${file}"
+        },
+        {
+            "type": "delve",
+            "name": "Debug test",
+            "request": "launch",
+            "mode": "test",
+            "console": "integratedTerminal",
+            "program": "${file}"
+        },
+        {
+            "type": "delve",
+            "name": "Debug test (go.mod)",
+            "request": "launch",
+            "mode": "test",
+            "program": "./${relativeFileDirname}",
+            "console": "integratedTerminal"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "myPrompt",
+            "type": "promptString",
+            "description": "Program to run: ",
+            "default": "build/foo"
+        },
+        {
+            "id": "myPick",
+            "type": "pickString",
+            "description": "Program to run: ",
+            "options": [
+                "build/foo",
+                "build/test/test_5"
+            ]
+        }
+    ]
 }
