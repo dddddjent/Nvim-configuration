@@ -1,9 +1,0 @@
-#!/bin/sh
-
-set -eu
-
-data_home="${HOME}/.local/share"
-
-mkdir -p "${data_home}/zathura"
-
-exec env XDG_DATA_HOME="${data_home}" /usr/bin/zathura "$@"
