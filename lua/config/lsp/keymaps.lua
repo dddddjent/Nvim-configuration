@@ -10,41 +10,50 @@ keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true })
 keymap("n", "<a-cr>", "<cmd>Lspsaga code_action<CR>", { silent = true })
 
-require "which-key".add({
-    mode = {"n"},
+require"which-key".add({
+    mode = { "n" },
     group = "LSP",
     {
-        {"<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
-        {"<leader>ld",
+        { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
+        {
+            "<leader>ld",
             "<cmd>FzfLua diagnostics_document<cr>",
             desc = "Document Diagnostics",
         },
-        {"<leader>lw",
+        {
+            "<leader>lw",
             "<cmd>FzfLua diagnostics_workspace<cr>",
-            desc= "Workspace Diagnostics",
+            desc = "Workspace Diagnostics",
         },
-        {"<leader>lf",  function()
-            vim.lsp.buf.format { async = true }
-        end, desc = "Format" },
-        {"<leader>li", "<cmd>checkhealth vim.lsp<cr>", desc = "Info" },
-        {"<leader>lj",
+        {
+            "<leader>lf",
+            function()
+                -- vim.lsp.buf.format { async = true }
+                require("conform").format{ async = true }
+            end,
+            desc = "Format"
+        },
+        { "<leader>li", "<cmd>checkhealth vim.lsp<cr>",           desc = "Info" },
+        {
+            "<leader>lj",
             "<cmd>lua vim.diagnostic.open_float()<CR>",
             desc = "Open float diagnostic window",
         },
-        { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
-        { "<leader>lr", "<cmd>lsp restart<cr>", desc = "Restart server" },
-        {"<leader>ls",  "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Document Symbols" },
-        {"<leader>lS",
+        { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>",  desc = "CodeLens Action" },
+        { "<leader>lr", "<cmd>lsp restart<cr>",                 desc = "Restart server" },
+        { "<leader>ls", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Document Symbols" },
+        {
+            "<leader>lS",
             "<cmd>FzfLua lsp_live_workspace_symbols<cr>",
             desc = "Workspace Symbols",
         },
-        { "<leader>lh",
+        {
+            "<leader>lh",
             function()
                 local bufnr = vim.fn.bufnr()
                 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end,
-            desc= 'Toggle inlay hint'
+            desc = 'Toggle inlay hint'
         }
     },
 })
-
