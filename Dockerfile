@@ -12,7 +12,7 @@ RUN make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=/opt/nvim install
 FROM archlinux:latest
 
 # deps
-RUN pacman -Syu --noconfirm git ripgrep fd curl wget mise \
+RUN pacman -Syu --noconfirm git ripgrep fd curl wget mise libxcrypt-compat \
     lazygit tar gzip unzip cmake ninja gcc luarocks fzf wl-clipboard xclip \
     eslint-language-server vscode-html-languageserver \
     vscode-css-languageserver vscode-json-languageserver \

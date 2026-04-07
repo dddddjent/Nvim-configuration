@@ -16,6 +16,7 @@ return {
             bash = { "shfmt" },
             sh = { "shfmt" },
             cmake = { "cmake_format" },
+            tex = { "latexindent" },
         },
         formatters = {
             autopep8 = {
@@ -30,6 +31,9 @@ return {
             },
             cmake_format = {
                 command = PYTHON_DEP_DIR .. "/cmake-format",
+            },
+            latexindent = {
+                command = MISE_DEP_DIR .. "/latexindent",
             },
         },
         -- Set this to change the default values when calling conform.format()
