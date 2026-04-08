@@ -147,13 +147,6 @@ local snippets = {
     ["oinf"] = "\\int_{0}^{\\infty} ${1} \\, d${2:x} ${3}$0",
     ["infi"] = "\\int_{-\\infty}^{\\infty} ${1} \\, d${2:x} ${3}$0",
 
-    ["U"] = "\\underbrace{ ${1} }_{ ${2} }$0",
-    ["O"] = "\\overbrace{ ${1} }^{ ${2} }$0",
-    ["B"] = "\\underset{ ${1} }{ ${2} }$0",
-    ["C"] = "\\cancel{ ${1} }$0",
-    ["K"] = "\\cancelto{ ${1} }{ ${2} }$0",
-    ["S"] = "\\sqrt{ ${1} }$0",
-
     ["kbt"] = "k_{B}T",
     ["msun"] = "M_{\\odot}",
 
@@ -187,9 +180,6 @@ local snippets = {
     ["ceil"] = "\\lceil ${1} \\rceil ${2}$0",
     ["floor"] = "\\lfloor ${1} \\rfloor ${2}$0",
     ["mod"] = "|${1}|$0",
-    ["("] = "(${1})$0",
-    ["["] = "[${1}]$0",
-    ["{"] = "{${1}}$0",
     ["lr("] = "\\left( ${1} \\right) ${2}$0",
     ["lr{"] = "\\left\\{ ${1} \\right\\} ${2}$0",
     ["lr["] = "\\left[ ${1} \\right] ${2}$0",
@@ -1697,6 +1687,8 @@ end)
 
 local busy = false
 local enabled = true
+local skip_next_expand = false
+local typed_insert_pending = false
 local always_allowed_snippets = {
     mk = true,
     dm = true,
@@ -1784,10 +1776,26 @@ local function snippet_allowed_anywhere(trigger)
     return always_allowed_snippets[trigger] or trigger:sub(1, 1) == "@"
 end
 
+local function skip_expand_once(keys)
+    skip_next_expand = true
+    typed_insert_pending = false
+    return vim.api.nvim_replace_termcodes(keys, true, false, true)
+end
+
 local function try_expand()
     if busy then
         return
     end
+
+    if skip_next_expand then
+        skip_next_expand = false
+        return
+    end
+
+    if not typed_insert_pending then
+        return
+    end
+    typed_insert_pending = false
 
     if not enabled then
         return
@@ -1835,6 +1843,11 @@ end
 vim.api.nvim_create_autocmd("TextChangedI", {
     callback = try_expand,
 })
+vim.api.nvim_create_autocmd("InsertCharPre", {
+    callback = function()
+        typed_insert_pending = true
+    end,
+})
 
 function M.enable()
     enabled = true
@@ -1853,8 +1866,18 @@ function M.is_enabled()
     return enabled
 end
 
-vim.keymap.set("s", "<BS>", "<C-G>c", { silent = true })
-vim.keymap.set("s", "<Del>", "<C-G>c", { silent = true })
+vim.keymap.set("i", "<BS>", function()
+    return skip_expand_once("<BS>")
+end, { expr = true, silent = true })
+vim.keymap.set("i", "<Del>", function()
+    return skip_expand_once("<Del>")
+end, { expr = true, silent = true })
+vim.keymap.set("s", "<BS>", function()
+    return skip_expand_once("<C-G>c")
+end, { expr = true, silent = true })
+vim.keymap.set("s", "<Del>", function()
+    return skip_expand_once("<C-G>c")
+end, { expr = true, silent = true })
 local wk = require("which-key")
 wk.add({
     "<leader>vt",
