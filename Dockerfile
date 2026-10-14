@@ -16,7 +16,7 @@ RUN pacman -Syu --noconfirm git ripgrep fd curl wget mise libxcrypt-compat \
     lazygit tar gzip unzip cmake ninja gcc luarocks fzf wl-clipboard xclip \
     eslint-language-server vscode-html-languageserver \
     vscode-css-languageserver vscode-json-languageserver \
-    zathura zathura-pdf-poppler xdotool biber firefox texlive clang marksman zls && \
+    zathura zathura-pdf-poppler xdotool biber firefox texlive clang marksman zls shader-slang && \
     pacman -Scc --noconfirm
 
 ARG MISE_DATA_DIR="/usr/local/share/mise/data"
